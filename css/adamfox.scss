@@ -1,0 +1,569 @@
+// ******************
+// VARIABLES & MIXINS
+// ******************
+
+$font-sans: 'Montserrat', sans-serif;
+$font-serif: 'Lora', serif;
+$color-dark_gray: rgb(64, 67, 78);
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+// ******************
+// UNIVERSAL ELEMENTS
+// ******************
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background: $color-dark_gray;
+	font-family: $font-sans;
+	color: white;
+	height: 200%;
+	
+	// ***************
+	// LINKS & BUTTONS
+	// ***************
+	
+	a {
+		color: rgba(255,255,255,1);
+		-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+		-webkit-tap-highlight-color: transparent;
+		
+		&:hover {
+// 			color: rgba(255,255,255,.75);
+		}
+	}
+	
+	a.btn.main {
+		display: inline-block;
+		line-height: 1;
+		padding: 15px 30px;
+		text-transform: uppercase;
+		border: 2px solid white;
+		border-radius: 30px;
+		text-decoration: none;
+		width: auto;
+		font-size: 15px;
+		font-weight: 800;
+		letter-spacing: 1px;
+		
+/*
+		&:hover {
+			background: white;
+			color: $color-dark_gray;
+		}
+*/
+		&.on {
+			animation-name: btn_animation;
+			animation-duration: .5s;
+			transition: all .25s linear;
+		}
+	}
+
+	
+	// ****
+	// LOGO
+	// ****
+	
+	.logo_af {
+		display: block;
+		width: 60px;
+		height: 60px;
+		
+		&:after {
+			content: "";
+			display: block;
+			position: relative;
+			margin: 13px auto 0px auto;
+			width: 30px;
+			height: 30px;
+			background: rgba(255,255,255,1);
+			content: "";
+			clip-path: polygon(16% 100%, 16% 100%, 16% 100%, 16% 100%, 16% 100%, 16% 100%, 16% 100%, 0 100%, 0% 100%, 0% 100%);
+			-webkit-clip-path: polygon(16% 100%, 16% 100%, 16% 100%, 16% 100%, 16% 100%, 16% 100%, 16% 100%, 0 100%, 0% 100%, 0% 100%);
+		}
+	}
+	
+	.logo_circle {
+		width: 60px;
+		height: 60px;
+		box-sizing: border-box;
+		border: 4px solid rgba(255,255,255,1); 
+		border-radius: 60px;
+	}	
+	
+	// ****************
+	// BACKGROUND IMAGE
+	// ****************
+	
+	#bg_main {
+		opacity: 1;
+		top: 0;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		background: url('../img/bg_main.jpg');
+		background-size: cover;
+		background-position-x: center;
+		z-index: 0;
+		pointer-events: none;
+		display: block;
+		
+	}
+}
+
+// **********************
+// MOBILE & SMALL SCREENS
+// **********************
+
+// ******
+// HEADER
+// ******
+
+header {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	margin-top: 15px;
+	z-index: 2;
+	
+	.wrapper:first-of-type {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 60px;
+		margin: auto;
+		padding: 0px 38px;
+		transition: all .25s linear;
+		
+		// ****
+		// LOGO
+		// ****
+		
+		.logo_af {
+			left: calc(50% - 30px);
+			position: absolute;
+			z-index: 3;
+			cursor: pointer;
+			pointer-events: all;
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+			-webkit-tap-highlight-color: transparent;
+			
+			&:after {
+				animation-name: logo;
+				animation-duration: .75s;
+				animation-fill-mode: forwards;
+				z-index: 2;
+			}
+				
+			&.hidden {
+				pointer-events: none;
+				
+				&:after {
+					transition: background .25s linear;
+					background: rgba(255,255,255,0);
+				}
+			}
+		}
+		
+		// **********
+		// NAVIGATION
+		// **********
+		
+		nav {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+			width: 100%;
+			z-index: 1;
+			
+			ul {
+				position: absolute;
+				margin: 0;
+				padding: 0;
+				left: 0;
+				opacity: 0;
+				pointer-events: none;
+				list-style: none;
+				white-space: nowrap;
+				
+				li {
+					display: inline-block;
+					margin-left: 38px;
+					font-size: 0.9375em;
+					font-weight: 200;
+					
+					a {
+						display: block;
+						width: 22px;
+						height: 22px;
+						position: relative;
+						text-decoration: none;
+						overflow: hidden;
+						text-indent: 100%;
+						position: relative;
+						
+						span {
+						}
+						
+						&:before {
+							font-family: 'simple-line-icons';
+							font-size: 20px;
+							position: absolute;
+							left: -22px;
+							top: 0;
+						}
+	
+					}
+					
+					&:nth-child(1) {
+						margin-left: 0;
+						
+						a {
+							
+							&:before {
+								content: '\e60a'
+							}
+						}
+					}
+					
+					&:nth-child(2) {
+						
+						a {
+							
+							&:before {
+								content: '\e00d'
+							}
+						}
+					}
+					
+					&:nth-child(3) {
+						
+						a {
+							
+							&:before {
+								content: '\e04a'
+							}
+						}
+					}	
+				}
+				
+				&.on {
+					opacity: 1;
+					transition: all .25s linear;
+					pointer-events: all;
+				}
+			}
+			
+			// ***********
+			// BUTTON MENU
+			// ***********
+			
+			a.btn_menu {
+				display: block;
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				right: 0;
+				text-indent: 100%;
+				overflow: hidden;
+				
+				div {
+					display: block;
+					position: absolute;
+					width: 8px;
+					height: 8px;
+					border: 1px solid white;
+					border-radius: 7px;
+				
+					&.center {
+						top: 15px;
+						left: 15px;
+						transition: all .25s linear;
+					}
+					
+					&.left {
+						top: 15px;
+						left: 0px;
+						transition: left .25s linear;
+					}
+					
+					&.right {
+						top: 15px;
+						right: 0px;
+						transition: right .25s linear;
+					}
+				}
+				
+				&:before, &:after {
+					display: block;
+					position: absolute;
+					width: 2px;
+					height: 10px;
+					top: 15px;
+					z-index: 2;
+					background: $color-dark_gray;
+					border-radius: 2px;
+					opacity: 0;
+					content: "";
+					transition: all .25s linear;
+					
+				}
+				&:before {
+					right: 19px;
+					transform: rotate(45deg);
+				}
+				
+				&:after {
+					left: 19px;
+					transform: rotate(-45deg);
+				}
+				
+				&.on {
+					
+					div {
+						
+						&.center {
+							width: 20px;
+							height: 20px;
+							top: 9px;
+							left: 9px;
+							background: white;
+							border-radius: 20px;
+						}
+						
+						&.left {
+							top: 15px;
+							left: 15px;
+							border: 1px solid rgba(255,255,255,0);
+							transition: all .25s linear;
+						}
+						
+						&.right {
+							top: 15px;
+							right: 15px;
+							border: 1px solid rgba(255,255,255,0);
+							transition: all .25s linear;
+						}
+					}
+					
+					&:before {
+						opacity: 1;
+						transition: all .25s linear;
+					}
+					
+					&:after {
+						opacity: 1;
+						transition: all .25s linear;
+					}
+				}
+			}
+		}	
+	}
+	
+	.wrapper:last-of-type {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		width: 100%;
+		margin: -60px auto 0px auto;
+		padding: 0px;
+		
+		.logo_circle {
+			cursor: pointer;
+			transition: all .25s linear;
+			animation-name: circle;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			opacity: 1;
+			
+			&.hidden {
+				border: 4px solid rgba(255,255,255,0);
+				transition: all .25s linear;
+			}
+		}
+	}
+	
+	&.on {
+		position: fixed;
+		margin-top: 0px;
+		
+		.wrapper:nth-child(2) {
+			width: 100%;
+			max-width: 100%;
+			padding: 0px;
+			transition: all .25s linear;
+
+			.logo_circle {
+				width: 100%;
+				left: 0;
+				right: 0;
+				background: rgba(37,39,36,.95);
+				border: 5px solid rgba(37,39,36,0);
+				border-radius: 0;
+				transition: all .25s linear;
+				opacity: 1;
+			}
+		}
+	}
+	
+	@include desktop {
+		margin-top: 60px;
+		
+		.wrapper:first-of-type {
+			position: relative;
+			max-width: 1140px;;
+			
+			.logo_af {
+				left: 38px;
+				
+				&.hidden {
+					pointer-events: all;
+					
+					&:after {
+						background: rgba(255,255,255,1);
+						transition: none;
+					}
+				}
+			}
+			
+			nav {
+				
+				ul {
+					opacity: 1;
+					left: auto;
+					right: 0;
+					
+					li {
+						
+						a {
+							width: auto;
+							text-indent: 0;
+							overflow: visible;
+							pointer-events: all;
+							
+							&:before {
+								left: -30px;
+							}
+							
+						}
+						
+						&:nth-child(1), &:nth-child(2) {
+							a {	
+								&:before {
+									display: none;
+								}
+							}
+						}
+						
+						&:nth-child(3) {
+							margin-left: 68px;
+						}
+					}
+				}
+				
+				a.btn_menu {
+					display: none;
+				}
+			}
+		}
+		.wrapper:nth-child(2) {
+			justify-content: flex-start;
+			position: relative;
+			max-width: 1140px;;
+			padding: 0px 38px;
+			
+			.logo_circle {
+				
+				&.hidden {
+					border: 4px solid rgba(255,255,255,1);
+					transition: none;
+				}
+			}
+		}
+		
+		&.on {
+			
+			.wrapper:nth-child(2) {
+	
+				.logo_circle {
+					width: 100%;
+					left: 0;
+					right: 0;
+					background: rgba(37,39,36,.95);
+					border: 5px solid rgba(37,39,36,0);
+					border-radius: 0;
+					transition: all .25s linear;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+// *******************
+// KEYFRAME ANIMATIONS
+// *******************
+
+@keyframes logo {
+    0% {
+		clip-path: polygon(16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 0 94%, 0% 94%, 0% 94%);
+		-webkit-clip-path: polygon(16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 0 94%, 0% 94%, 0% 94%);
+		opacity: 0;
+	}
+  
+	50% {
+		clip-path: polygon(50% 33%, 50% 33%, 40% 51%, 40% 51%, 32% 65%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 50% 6%);
+		-webkit-clip-path: polygon(50% 33%, 50% 33%, 40% 51%, 40% 51%, 32% 65%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 50% 6%);
+		opacity: .5;
+	}
+
+	100% {
+		clip-path: polygon(84% 94%, 50% 33%, 40% 51%, 65% 94%, 49% 94%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 100% 94%);
+		-webkit-clip-path: polygon(84% 94%, 50% 33%, 40% 51%, 65% 94%, 49% 94%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 100% 94%); 
+		opacity: 1;
+	}
+}
+
+@keyframes circle {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
