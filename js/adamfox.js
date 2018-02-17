@@ -66,7 +66,7 @@ $(window).scroll(function() {
 	$('#bg_main').css({
 		opacity: function() {
 			var elementHeight = $(this).height();
-			return (elementHeight - (scrollTop * 2)) / elementHeight;
+			return (elementHeight - (scrollTop)) / elementHeight;
 		}
 	}); 
 /*
