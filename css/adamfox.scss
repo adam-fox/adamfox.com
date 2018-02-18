@@ -7,33 +7,17 @@ $font-serif: 'Lora', serif;
 $color-primary: /* rgb(64, 67, 78) */ rgb(37, 39, 46);
 $color-secondary: rgb(255, 255, 255);
 
-@mixin aspect-ratio($width, $height) {
-    position: relative;
-    &:before{
-        display: block;
-        content: " ";
-        width: 100%;
-        padding-top: ($height / $width) * 100%;
-    }
-
-    > .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-}
-
 $tablet-width: 768px;
 $desktop-width: 1024px;
 $xl-width: 1200px;
 
+/*
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;
   }
 }
+*/
 
 @mixin desktop {
   @media (min-width: #{$desktop-width}) {
@@ -126,8 +110,7 @@ html, body {
 	// ***************
 	
 	.browser {
-		margin: calc(2.5% + 30px) auto calc(2.5% + 60px) auto;
-		padding-top: calc(75% + 24px);
+		padding-top: 74.8%;
 		border-radius: 4px;
 		width: 100%;
 		background: lighten($color-primary, 80%);
@@ -135,6 +118,7 @@ html, body {
 		box-shadow: 0px 20px 20px rgba(0,0,0,.1);
 		position: relative;
 		transition: all .25s linear;
+		margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto;
 		
 		.buttons {
 			display: block;
@@ -232,37 +216,31 @@ html, body {
 		}
 	
 		&.tablet {
-			padding-top: calc(80% + 24px);
+			padding-top: 99%;
 			width: 74%;
 			transition: all .25s linear;
 			margin: 30px auto 60px auto;
 		}
 		
 		&.mobile {
-			padding-top: calc(60% + 24px);
+			padding-top: 82.3%;
 			width: 46%;
 			transition: all .25s linear;
-			margin: calc(10% + 30px) auto calc(10% + 60px) auto;
+			margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto;
 		}
 		
 		@include desktop {
 			grid-column: span 1;
-			padding-top: calc(75% - 40px);
-			width: calc(100%);
-			margin: 10.5% auto;
+			margin: calc(12.2% + 30px) auto;
 			
 			&.tablet {
-				margin: 0px auto;
+				margin: 30px auto;
 			}
 			
 			&.mobile {
-				margin: 10% auto;
+				margin: calc(8.38% + 30px) auto;
 			}
-		}
-		
-		@include xl {
-			padding-top: calc(75% - 40px);
-								
+			
 			.buttons {
 				display: block;
 				width: 10px;
@@ -351,15 +329,97 @@ html, body {
 					transition: all .25s linear;
 				}
 			}
-			
-			&.mobile {
-				width: calc(46%);
-				padding-top: calc(60% + 49px);
+		}
+		
+		@include xl {
+								
+			.buttons {
+				display: block;
+				width: 10px;
+				height: 10px;
+				border-radius: 10px;
+				left: 34px;
+				top: 20px;
+				position: absolute;
+				transition: all .25s linear;
+				
+				&:before, &:after {
+					content: '';
+					display: block;
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+					top: 0;
+					position: absolute;
+					transition: all .25s linear;
+				}
+				
+				&:before {
+					left: -16px;
+					top: 0;
+				}
+				
+				&:after {
+					left: 16px;
+					top: 0;
+				}
 			}
 			
-			&.tablet {
-				width: calc(74%);
-				padding-top: calc(80% + 49px);
+			.address_bar {
+				position: absolute;
+				display: block;
+				background: $color-secondary;
+				width: calc(100% - 91px);
+				height: 30px;
+				border-radius: 4px;
+				left: 81px;
+				top: 10px;
+				transition: all .25s linear;
+			}
+			
+			img {
+				width: 100%;
+				display: block;
+				border-radius: 0px 0px 4px 4px;
+				position: absolute;
+				top: 49px;
+			}
+			
+			&.tablet, &.mobile {
+		
+				.buttons {
+					border-radius: 4px;
+						left: 16px;
+					top: 22px;
+					width: 26px;
+					height: 4px;
+					transition: all .25s linear;
+					
+					&:before, &:after {
+						display: block;
+						border-radius: 4px;
+						top: 0;
+						width: 26px;
+						height: 4px;
+						transition: all .25s linear;
+					}
+					
+					&:before {
+						left: 0px;
+						top: -8px;
+					}
+					
+					&:after {
+						left: 0px;
+						top: 8px;
+					}
+				}
+				
+				.address_bar {
+					width: calc(100% - 70px);
+					left: 58px;
+					transition: all .25s linear;
+				}
 			}
 		}
 	}
@@ -1340,74 +1400,77 @@ main {
 						margin-bottom: 50px;
 					}
 					
-					&:before {
-						content: "";
-						display: block;
-						background: rgba($color-secondary,.25);
-						border-radius: 10px;
-						width: 60%;
-						height: 10px;
-						position: absolute;
-						left: 40%;
+					div {
+						display: inline-block;
+						width: 50%;
+						float: right;
+						height: 20px;
+						position: relative;
 						
-					}
-					
-					&:after {
-						content: "";
-						display: block;
-						background: $color-secondary;
-						border-radius: 10px;
-						height: 10px;
-						position: absolute;
-						top: 0;
-						left: 40%;
-					}
-					
-					&.expertise_100.in-view {
-						
-						&:after {
-							width: 60%;
-							animation-name: expertise_100;
-							animation-duration: 2s;
+						&:before {
+							content: "";
+							display: block;
+							background: rgba($color-secondary,.25);
+							border-radius: 10px;
+							width: 100%;
+							height: 10px;
+							position: absolute;
+							top: 3px;
+							
 						}
-					}
-					
-					&.expertise_75.in-view {
 						
 						&:after {
-							width: 45%;
-							animation-name: expertise_75;
-							animation-duration: 1.5s;
+							content: "";
+							display: block;
+							background: $color-secondary;
+							border-radius: 10px;
+							height: 10px;
+							position: absolute;
+							top: 3px;
 						}
-					}
-					
-					&.expertise_50.in-view {
 						
-						&:after {
-							width: 30%;
-							animation-name: expertise_50;
-							animation-duration: 1s;
+						&.expertise_100.in-view {
+							
+							&:after {
+								width: 100%;
+								animation-name: expertise_100;
+								animation-duration: 2s;
+							}
 						}
-					}
-					
-					&.expertise_25.in-view {
 						
-						&:after {
-							width: 15%;
-							animation-name: expertise_25;
-							animation-duration: .5s;
+						&.expertise_75.in-view {
+							
+							&:after {
+								width: 75%;
+								animation-name: expertise_75;
+								animation-duration: 1.5s;
+							}
+						}
+						
+						&.expertise_50.in-view {
+							
+							&:after {
+								width: 50%;
+								animation-name: expertise_50;
+								animation-duration: 1s;
+							}
+						}
+						
+						&.expertise_25.in-view {
+							
+							&:after {
+								width: 25%;
+								animation-name: expertise_25;
+								animation-duration: .5s;
+							}
 						}
 					}
 				}
 			}
-			
-			.contact {
-				display: block;
-			}
 		}
 		
 		.history {
-			margin-top: 40px;
+			margin-top: 60px;
 			
 			ul {
 				list-style: none;
@@ -1540,7 +1603,7 @@ main {
 		}
 		
 		.contact {
-			display: none;
+			margin-top: 130px;
 		}
 		
 		@include desktop {
@@ -1580,53 +1643,18 @@ main {
 				width: 100%;
 				
 					li {
-						width: 100%;
 						
-						
-						&:before {
-							width: 60%;
-							
-						}
-						
-						&.expertise_100.in-view {
-							
-							&:after {
-								width: 60%;
-							}
-						}
-						
-						&.expertise_75.in-view {
-							
-							&:after {
-								width: 45%;
-							}
-						}
-						
-						&.expertise_50.in-view {
-							
-							&:after {
-								width: 30%;
-							}
-						}
-						
-						&.expertise_25.in-view {
-							
-							&:after {
-								width: 15%;
-							}
+						div {
+							width: 75%;
 						}
 					}
-				}
-				
-				.contact {
-					display: none;
 				}
 			}
 			.history {
 				grid-column: 9 / 12;
+				margin-top: 0;
 			}
 			.contact {
-				display: block;
 				grid-column: span 12;
 			}
 		}
@@ -1819,7 +1847,7 @@ footer {
 		width: 0%;
 	}
 	100% {
-		width: 15%;
+		width: 25%;
 	}
 }
 
@@ -1828,7 +1856,7 @@ footer {
 		width: 0%;
 	}
 	100% {
-		width: 30%;
+		width: 50%;
 	}
 }
 
@@ -1837,7 +1865,7 @@ footer {
 		width: 0%;
 	}
 	100% {
-		width: 45%;
+		width: 75%;
 	}
 }
 
@@ -1846,7 +1874,7 @@ footer {
 		width: 0%;
 	}
 	100% {
-		width: 60%;
+		width: 100%;
 	}
 }
 

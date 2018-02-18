@@ -1,3 +1,10 @@
+/*
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+*/
 html, body {
   margin: 0;
   padding: 0;
@@ -47,15 +54,15 @@ html, body {
     border: 4px solid white;
     border-radius: 60px; }
   html .browser, body .browser {
-    margin: calc(2.5% + 30px) auto calc(2.5% + 60px) auto;
-    padding-top: calc(75% + 24px);
+    padding-top: 74.8%;
     border-radius: 4px;
     width: 100%;
     background: #f4f5f7;
     display: block;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
     position: relative;
-    transition: all 0.25s linear; }
+    transition: all 0.25s linear;
+    margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto; }
     html .browser .buttons, body .browser .buttons {
       display: block;
       background-color: #f5c04f;
@@ -127,28 +134,23 @@ html, body {
       left: 23px;
       transition: all 0.25s linear; }
     html .browser.tablet, body .browser.tablet {
-      padding-top: calc(80% + 24px);
+      padding-top: 99%;
       width: 74%;
       transition: all 0.25s linear;
       margin: 30px auto 60px auto; }
     html .browser.mobile, body .browser.mobile {
-      padding-top: calc(60% + 24px);
+      padding-top: 82.3%;
       width: 46%;
       transition: all 0.25s linear;
-      margin: calc(10% + 30px) auto calc(10% + 60px) auto; }
+      margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto; }
     @media (min-width: 1024px) {
       html .browser, body .browser {
         grid-column: span 1;
-        padding-top: calc(75% - 40px);
-        width: calc(100%);
-        margin: 10.5% auto; }
+        margin: calc(12.2% + 30px) auto; }
         html .browser.tablet, body .browser.tablet {
-          margin: 0px auto; }
+          margin: 30px auto; }
         html .browser.mobile, body .browser.mobile {
-          margin: 10% auto; } }
-    @media (min-width: 1200px) {
-      html .browser, body .browser {
-        padding-top: calc(75% - 40px); }
+          margin: calc(8.38% + 30px) auto; }
         html .browser .buttons, body .browser .buttons {
           display: block;
           width: 10px;
@@ -212,13 +214,72 @@ html, body {
         html .browser.tablet .address_bar, html .browser.mobile .address_bar, body .browser.tablet .address_bar, body .browser.mobile .address_bar {
           width: calc(100% - 70px);
           left: 58px;
+          transition: all 0.25s linear; } }
+    @media (min-width: 1200px) {
+      html .browser .buttons, body .browser .buttons {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        left: 34px;
+        top: 20px;
+        position: absolute;
+        transition: all 0.25s linear; }
+        html .browser .buttons:before, html .browser .buttons:after, body .browser .buttons:before, body .browser .buttons:after {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 10px;
+          top: 0;
+          position: absolute;
           transition: all 0.25s linear; }
-        html .browser.mobile, body .browser.mobile {
-          width: calc(46%);
-          padding-top: calc(60% + 49px); }
-        html .browser.tablet, body .browser.tablet {
-          width: calc(74%);
-          padding-top: calc(80% + 49px); } }
+        html .browser .buttons:before, body .browser .buttons:before {
+          left: -16px;
+          top: 0; }
+        html .browser .buttons:after, body .browser .buttons:after {
+          left: 16px;
+          top: 0; }
+      html .browser .address_bar, body .browser .address_bar {
+        position: absolute;
+        display: block;
+        background: white;
+        width: calc(100% - 91px);
+        height: 30px;
+        border-radius: 4px;
+        left: 81px;
+        top: 10px;
+        transition: all 0.25s linear; }
+      html .browser img, body .browser img {
+        width: 100%;
+        display: block;
+        border-radius: 0px 0px 4px 4px;
+        position: absolute;
+        top: 49px; }
+      html .browser.tablet .buttons, html .browser.mobile .buttons, body .browser.tablet .buttons, body .browser.mobile .buttons {
+        border-radius: 4px;
+        left: 16px;
+        top: 22px;
+        width: 26px;
+        height: 4px;
+        transition: all 0.25s linear; }
+        html .browser.tablet .buttons:before, html .browser.tablet .buttons:after, html .browser.mobile .buttons:before, html .browser.mobile .buttons:after, body .browser.tablet .buttons:before, body .browser.tablet .buttons:after, body .browser.mobile .buttons:before, body .browser.mobile .buttons:after {
+          display: block;
+          border-radius: 4px;
+          top: 0;
+          width: 26px;
+          height: 4px;
+          transition: all 0.25s linear; }
+        html .browser.tablet .buttons:before, html .browser.mobile .buttons:before, body .browser.tablet .buttons:before, body .browser.mobile .buttons:before {
+          left: 0px;
+          top: -8px; }
+        html .browser.tablet .buttons:after, html .browser.mobile .buttons:after, body .browser.tablet .buttons:after, body .browser.mobile .buttons:after {
+          left: 0px;
+          top: 8px; }
+      html .browser.tablet .address_bar, html .browser.mobile .address_bar, body .browser.tablet .address_bar, body .browser.mobile .address_bar {
+        width: calc(100% - 70px);
+        left: 58px;
+        transition: all 0.25s linear; } }
   html .contact, body .contact {
     text-align: center; }
     html .contact .btn, body .contact .btn {
@@ -835,44 +896,47 @@ main {
           font-weight: 300; }
           main .experience .expertise ul li:last-child {
             margin-bottom: 50px; }
-          main .experience .expertise ul li:before {
-            content: "";
-            display: block;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            width: 60%;
-            height: 10px;
-            position: absolute;
-            left: 40%; }
-          main .experience .expertise ul li:after {
-            content: "";
-            display: block;
-            background: white;
-            border-radius: 10px;
-            height: 10px;
-            position: absolute;
-            top: 0;
-            left: 40%; }
-          main .experience .expertise ul li.expertise_100.in-view:after {
-            width: 60%;
-            animation-name: expertise_100;
-            animation-duration: 2s; }
-          main .experience .expertise ul li.expertise_75.in-view:after {
-            width: 45%;
-            animation-name: expertise_75;
-            animation-duration: 1.5s; }
-          main .experience .expertise ul li.expertise_50.in-view:after {
-            width: 30%;
-            animation-name: expertise_50;
-            animation-duration: 1s; }
-          main .experience .expertise ul li.expertise_25.in-view:after {
-            width: 15%;
-            animation-name: expertise_25;
-            animation-duration: .5s; }
-      main .experience .expertise .contact {
-        display: block; }
+          main .experience .expertise ul li div {
+            display: inline-block;
+            width: 50%;
+            float: right;
+            height: 20px;
+            position: relative; }
+            main .experience .expertise ul li div:before {
+              content: "";
+              display: block;
+              background: rgba(255, 255, 255, 0.25);
+              border-radius: 10px;
+              width: 100%;
+              height: 10px;
+              position: absolute;
+              top: 3px; }
+            main .experience .expertise ul li div:after {
+              content: "";
+              display: block;
+              background: white;
+              border-radius: 10px;
+              height: 10px;
+              position: absolute;
+              top: 3px; }
+            main .experience .expertise ul li div.expertise_100.in-view:after {
+              width: 100%;
+              animation-name: expertise_100;
+              animation-duration: 2s; }
+            main .experience .expertise ul li div.expertise_75.in-view:after {
+              width: 75%;
+              animation-name: expertise_75;
+              animation-duration: 1.5s; }
+            main .experience .expertise ul li div.expertise_50.in-view:after {
+              width: 50%;
+              animation-name: expertise_50;
+              animation-duration: 1s; }
+            main .experience .expertise ul li div.expertise_25.in-view:after {
+              width: 25%;
+              animation-name: expertise_25;
+              animation-duration: .5s; }
     main .experience .history {
-      margin-top: 40px; }
+      margin-top: 60px; }
       main .experience .history ul {
         list-style: none;
         text-align: left;
@@ -955,7 +1019,7 @@ main {
           main .experience .history ul li.line-animation:nth-child(4):after {
             height: calc(100% + 60px); }
     main .experience .contact {
-      display: none; }
+      margin-top: 130px; }
     @media (min-width: 1024px) {
       main .experience {
         width: calc(100% - 76px);
@@ -982,24 +1046,12 @@ main {
             margin: 0;
             list-style: none;
             width: 100%; }
-            main .experience .expertise ul li {
-              width: 100%; }
-              main .experience .expertise ul li:before {
-                width: 60%; }
-              main .experience .expertise ul li.expertise_100.in-view:after {
-                width: 60%; }
-              main .experience .expertise ul li.expertise_75.in-view:after {
-                width: 45%; }
-              main .experience .expertise ul li.expertise_50.in-view:after {
-                width: 30%; }
-              main .experience .expertise ul li.expertise_25.in-view:after {
-                width: 15%; }
-          main .experience .expertise .contact {
-            display: none; }
+            main .experience .expertise ul li div {
+              width: 75%; }
         main .experience .history {
-          grid-column: 9 / 12; }
+          grid-column: 9 / 12;
+          margin-top: 0; }
         main .experience .contact {
-          display: block;
           grid-column: span 12; } }
 
 footer {
@@ -1132,25 +1184,25 @@ footer {
   0% {
     width: 0%; }
   100% {
-    width: 15%; } }
+    width: 25%; } }
 
 @keyframes expertise_50 {
   0% {
     width: 0%; }
   100% {
-    width: 30%; } }
+    width: 50%; } }
 
 @keyframes expertise_75 {
   0% {
     width: 0%; }
   100% {
-    width: 45%; } }
+    width: 75%; } }
 
 @keyframes expertise_100 {
   0% {
     width: 0%; }
   100% {
-    width: 60%; } }
+    width: 100%; } }
 
 @-moz-document url-prefix() {
   .btn.zoom {

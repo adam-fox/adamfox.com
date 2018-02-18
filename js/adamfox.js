@@ -15,7 +15,7 @@ $(window).scroll(function() {
 	});
 */
 
-	$('.expertise > ul > li').each(function () {
+	$('.expertise > ul > li > div').each(function () {
 		if (isScrolledIntoView(this) === true) {
 			$(this).addClass('in-view')
 		}
