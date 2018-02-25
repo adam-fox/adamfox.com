@@ -12,8 +12,26 @@ html, body {
   font-family: "Montserrat", sans-serif;
   color: white;
   height: 200%; }
-  html #Smallchat > .Icon, body #Smallchat > .Icon {
-    display: none !important; }
+  html a.chat, body a.chat {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-color: rgba(26, 27, 32, 0.95);
+    color: white;
+    text-align: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99999;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center; }
+    html a.chat:after, body a.chat:after {
+      font-size: 24px;
+      font-family: 'simple-line-icons';
+      content: '\e04a';
+      color: white; }
   html a, body a {
     color: white;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -874,6 +892,8 @@ main {
         font-size: 13px;
         font-weight: 500;
         margin-bottom: 25px; }
+        main .experience .expertise h3:first-of-type {
+          margin-top: 0; }
       main .experience .expertise ul {
         padding: 0;
         margin: 0;

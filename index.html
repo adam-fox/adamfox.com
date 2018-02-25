@@ -13,12 +13,6 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" rel="stylesheet">
 		<link href="css/adamfox.css" rel="stylesheet">
 		
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 		<!-- Start of Async Drift Code -->
 		<script>
 		!function() {
@@ -43,8 +37,64 @@
 		drift.load('f3arm7ibrfx4');
 		</script>
 		<!-- End of Async Drift Code -->
+		<!-- place this script tag after the Drift embed tag -->
+		<script>
+		  (function() {
+		    /* Add this class to any elements you want to use to open Drift.
+		     *
+		     * Examples:
+		     * - <a class="drift-open-chat">Questions? We're here to help!</a>
+		     * - <button class="drift-open-chat">Chat now!</button>
+		     *
+		     * You can have any additional classes on those elements that you
+		     * would ilke.
+		     */
+		    var DRIFT_CHAT_SELECTOR = '.drift-open-chat'
+		    /* http://youmightnotneedjquery.com/#ready */
+		    function ready(fn) {
+		      if (document.readyState != 'loading') {
+		        fn();
+		      } else if (document.addEventListener) {
+		        document.addEventListener('DOMContentLoaded', fn);
+		      } else {
+		        document.attachEvent('onreadystatechange', function() {
+		          if (document.readyState != 'loading')
+		            fn();
+		        });
+		      }
+		    }
+		    /* http://youmightnotneedjquery.com/#each */
+		    function forEachElement(selector, fn) {
+		      var elements = document.querySelectorAll(selector);
+		      for (var i = 0; i < elements.length; i++)
+		        fn(elements[i], i);
+		    }
+		    function openSidebar(driftApi, event) {
+		      event.preventDefault();
+		      driftApi.sidebar.open();
+		      return false;
+		    }
+		    ready(function() {
+		      drift.on('ready', function(api) {
+		        var handleClick = openSidebar.bind(this, api)
+		        forEachElement(DRIFT_CHAT_SELECTOR, function(el) {
+		          el.addEventListener('click', handleClick);
+		        });
+
+		      });
+		    });
+		  })();
+		</script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
 	</head>
 	<body>
+		<a href="javascript:void(0)" class="chat drift-open-chat"></a>
 		<header>
 			<div class="wrapper">
 				<div class="logo_af"></div>
@@ -52,7 +102,7 @@
 					<ul>
 						<li><a href="https://www.linkedin.com/in/faxmado/" target="_blank">LinkedIn</a></li>
 						<li><a href="https://dribbble.com/adamfox" target="_blank">Dribbble</a></li>
-						<li><a href="javascript:void(0)"><strong>Get in Touch</strong></a></li>
+						<li><a href="javascript:void(0)" class="drift-open-chat"><strong>Get in Touch</strong></a></li>
 					</ul>
 				</nav>				
 				<a href="javascript:void(0)" class="btn_menu">
@@ -72,7 +122,7 @@
 					<section class="about">
 						<h1>ADAM FOX</h1>
 						<p>Crafting best-in-class designs and experiences for screens of any size.</p>
-						<a href="javascript:void(0)" class="btn main">Get in Touch</a>
+						<a href="javascript:void(0)" class="btn main drift-open-chat">Get in Touch</a>
 					</section>
 					<section class="details">
 						<h2>About</h2>
@@ -196,7 +246,7 @@
 					</div>
 				</div>
 				<div class="contact">
-					<a href="javascript:void(0)" class="btn main">Get in Touch</a>
+					<a href="javascript:void(0)" class="btn main drift-open-chat">Get in Touch</a>
 					<p><a href="http://dribbble.com/adamfox" target="_blank">Or see more of my work on <strong>Dribbble</strong>.<span class="new_window"></span></a></p>
 				</div>
 			</div>
@@ -291,9 +341,6 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<!-- 	    <script src="https://embed.small.chat/T8T9V85PFG9FB28K9C.js" async></script> -->
 	    <script src="js/adamfox.js"></script>
-		<script>
-		</script>
 	</body>
 </html>
