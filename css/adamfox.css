@@ -12,6 +12,8 @@ html, body {
   font-family: "Montserrat", sans-serif;
   color: white;
   height: 200%; }
+  html #Smallchat > .Icon, body #Smallchat > .Icon {
+    display: none !important; }
   html a, body a {
     color: white;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -32,6 +34,56 @@ html, body {
       animation-name: btn_animation;
       animation-duration: .5s;
       transition: all 0.25s linear; }
+  html span.new_window, body span.new_window {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border: 1px solid white;
+    position: absolute;
+    right: -15px;
+    top: -3px; }
+    html span.new_window:after, body span.new_window:after {
+      content: "";
+      width: 1px;
+      height: 9px;
+      background-color: white;
+      display: block;
+      position: absolute;
+      transform: rotate(45deg);
+      right: 2px;
+      top: -2px;
+      animation-name: arrow_line;
+      animation-duration: 2s;
+      animation-iteration-count: infinite; }
+    html span.new_window:before, body span.new_window:before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      width: 4px;
+      height: 4px;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+      box-shadow: 0px 0px 0px 2px #25272e;
+      background: #25272e;
+      animation-name: arrow_top;
+      animation-duration: 2s;
+      animation-iteration-count: infinite; }
+    @media (min-width: 1024px) {
+      html span.new_window, body span.new_window {
+        height: 15px;
+        width: 15px;
+        border: 1.5px solid white; }
+        html span.new_window:after, body span.new_window:after {
+          width: 1.5px;
+          height: 15px;
+          right: 5px;
+          top: -1.5px; }
+        html span.new_window:before, body span.new_window:before {
+          width: 6.67px;
+          height: 6.67px;
+          border-top: 1.5px solid white;
+          border-right: 1.5px solid white; } }
   html .logo_af, body .logo_af {
     display: block;
     width: 60px;
@@ -59,7 +111,7 @@ html, body {
     width: 100%;
     background: #f4f5f7;
     display: block;
-    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
     position: relative;
     transition: all 0.25s linear;
     margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto; }
@@ -215,71 +267,6 @@ html, body {
           width: calc(100% - 70px);
           left: 58px;
           transition: all 0.25s linear; } }
-    @media (min-width: 1200px) {
-      html .browser .buttons, body .browser .buttons {
-        display: block;
-        width: 10px;
-        height: 10px;
-        border-radius: 10px;
-        left: 34px;
-        top: 20px;
-        position: absolute;
-        transition: all 0.25s linear; }
-        html .browser .buttons:before, html .browser .buttons:after, body .browser .buttons:before, body .browser .buttons:after {
-          content: '';
-          display: block;
-          width: 10px;
-          height: 10px;
-          border-radius: 10px;
-          top: 0;
-          position: absolute;
-          transition: all 0.25s linear; }
-        html .browser .buttons:before, body .browser .buttons:before {
-          left: -16px;
-          top: 0; }
-        html .browser .buttons:after, body .browser .buttons:after {
-          left: 16px;
-          top: 0; }
-      html .browser .address_bar, body .browser .address_bar {
-        position: absolute;
-        display: block;
-        background: white;
-        width: calc(100% - 91px);
-        height: 30px;
-        border-radius: 4px;
-        left: 81px;
-        top: 10px;
-        transition: all 0.25s linear; }
-      html .browser img, body .browser img {
-        width: 100%;
-        display: block;
-        border-radius: 0px 0px 4px 4px;
-        position: absolute;
-        top: 49px; }
-      html .browser.tablet .buttons, html .browser.mobile .buttons, body .browser.tablet .buttons, body .browser.mobile .buttons {
-        border-radius: 4px;
-        left: 16px;
-        top: 22px;
-        width: 26px;
-        height: 4px;
-        transition: all 0.25s linear; }
-        html .browser.tablet .buttons:before, html .browser.tablet .buttons:after, html .browser.mobile .buttons:before, html .browser.mobile .buttons:after, body .browser.tablet .buttons:before, body .browser.tablet .buttons:after, body .browser.mobile .buttons:before, body .browser.mobile .buttons:after {
-          display: block;
-          border-radius: 4px;
-          top: 0;
-          width: 26px;
-          height: 4px;
-          transition: all 0.25s linear; }
-        html .browser.tablet .buttons:before, html .browser.mobile .buttons:before, body .browser.tablet .buttons:before, body .browser.mobile .buttons:before {
-          left: 0px;
-          top: -8px; }
-        html .browser.tablet .buttons:after, html .browser.mobile .buttons:after, body .browser.tablet .buttons:after, body .browser.mobile .buttons:after {
-          left: 0px;
-          top: 8px; }
-      html .browser.tablet .address_bar, html .browser.mobile .address_bar, body .browser.tablet .address_bar, body .browser.mobile .address_bar {
-        width: calc(100% - 70px);
-        left: 58px;
-        transition: all 0.25s linear; } }
   html .contact, body .contact {
     text-align: center; }
     html .contact .btn, body .contact .btn {
@@ -288,9 +275,10 @@ html, body {
       box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1); }
     html .contact p, body .contact p {
       font-weight: 300;
-      margin: 0 auto;
+      margin: 0 10px;
       position: relative;
-      max-width: 70%; }
+      max-width: 70%;
+      display: inline-block; }
       html .contact p a, body .contact p a {
         text-decoration: none; }
         html .contact p a strong, body .contact p a strong {
@@ -356,7 +344,8 @@ header {
         left: 0;
         opacity: 0;
         pointer-events: none;
-        list-style: none; }
+        list-style: none;
+        white-space: nowrap; }
         header .wrapper nav ul li {
           display: inline-block;
           margin-left: 38px;
@@ -489,6 +478,7 @@ header {
         margin-left: 0;
         right: 0;
         background: rgba(26, 27, 32, 0.95);
+        box-shadow: 0px 10px 100px black;
         border: 5px solid rgba(37, 39, 36, 0);
         border-radius: 0;
         transition: all 0.25s linear;
@@ -812,15 +802,16 @@ main {
                 margin: 0 !important;
                 max-width: none !important;
                 font-size: 30px;
-                line-height: 1; }
+                line-height: 1.1; }
               main #work .project .wrapper .description h4 {
-                font-size: 18px; }
+                font-size: 18px;
+                margin-top: 4px; }
               main #work .project .wrapper .description p {
                 display: block;
                 font-size: 13px;
-                line-height: 1.5;
+                line-height: 1.75;
                 font-weight: 300;
-                margin: 0; }
+                margin: 4px auto 0px auto; }
               main #work .project .wrapper .description div {
                 position: relative;
                 width: auto;
@@ -848,13 +839,15 @@ main {
                     top: 7px; }
             main #work .project .wrapper .browser {
               grid-column: 1 / span 6;
-              grid-row: 1; }
+              grid-row: 1;
+              box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.5); }
           main #work .project:after {
             display: none !important; }
           main #work .project:nth-child(odd) .description {
             grid-column: 1 / span 5; }
           main #work .project:nth-child(odd) .browser {
-            grid-column: 7 / span 6; }
+            grid-column: 7 / span 6;
+            box-shadow: -10px 10px 50px rgba(0, 0, 0, 0.5); }
         main #work .contact {
           margin-top: 100px;
           grid-column: span 2; } }
@@ -878,7 +871,7 @@ main {
     main .experience .expertise {
       text-align: left; }
       main .experience .expertise h3 {
-        font-size: 13px !important;
+        font-size: 13px;
         font-weight: 500;
         margin-bottom: 25px; }
       main .experience .expertise ul {
@@ -935,12 +928,19 @@ main {
               width: 25%;
               animation-name: expertise_25;
               animation-duration: .5s; }
+        main .experience .expertise ul:last-child li:last-child {
+          margin-bottom: 0; }
     main .experience .history {
-      margin-top: 60px; }
+      margin-top: 60px;
+      min-height: 800px; }
       main .experience .history ul {
         list-style: none;
         text-align: left;
         padding: 0;
+        margin: 0;
+        height: 800px;
+        min-height: 800px;
+        position: relative;
         /*
 				&:before {
 					content: "";
@@ -956,10 +956,10 @@ main {
           font-family: "Montserrat", sans-serif;
           font-size: 13px;
           text-transform: uppercase;
-          position: relative;
           opacity: 0;
-          padding: 0px 40px 0px 0px;
-          transition: all 0.25s linear; }
+          padding: 0px 0px 0px 40px;
+          transition: all 0.25s linear;
+          position: relative; }
           main .experience .history ul li:before {
             content: "";
             position: absolute;
@@ -983,41 +983,56 @@ main {
             left: 10px;
             opacity: 1;
             transition: all 0.25s linear; }
+          main .experience .history ul li > div {
+            position: absolute; }
+          main .experience .history ul li:nth-child(1) {
+            height: 38.4%; }
+            main .experience .history ul li:nth-child(1):before {
+              background: white !important;
+              box-shadow: inset 0px 0px 0px 1px #6F727A, inset 0px 0px 0px 6px #25272e; }
+          main .experience .history ul li:nth-child(2) {
+            height: 7.7%; }
+            main .experience .history ul li:nth-child(2) > div {
+              bottom: calc(100% - 13px); }
+            main .experience .history ul li:nth-child(2):before {
+              top: auto;
+              bottom: -3px; }
+          main .experience .history ul li:nth-child(3) {
+            height: 25%; }
+          main .experience .history ul li:nth-child(4) {
+            height: 21.2%; }
+          main .experience .history ul li:nth-child(5) {
+            height: 7.7%; }
+            main .experience .history ul li:nth-child(5) > div {
+              position: absolute;
+              bottom: 0; }
+            main .experience .history ul li:nth-child(5):before {
+              top: auto !important;
+              bottom: -3px !important; }
           main .experience .history ul li.in-view {
-            opacity: 1;
-            padding: 0px 0px 0px 40px; }
-            main .experience .history ul li.in-view div:nth-child(1) {
+            opacity: 1; }
+            main .experience .history ul li.in-view div div:nth-child(1) {
               font-family: "Lora", serif;
               font-style: italic; }
-            main .experience .history ul li.in-view div:nth-child(2) {
+            main .experience .history ul li.in-view div div:nth-child(2) {
               font-size: 24px;
-              font-weight: 700; }
-            main .experience .history ul li.in-view div:nth-child(3) {
+              font-weight: 700;
+              line-height: 24px; }
+            main .experience .history ul li.in-view div div:nth-child(3) {
               font-weight: 300; }
             main .experience .history ul li.in-view:before {
               width: 20px;
               height: 20px;
               top: -3px;
               left: 0px; }
-            main .experience .history ul li.in-view:nth-child(1) {
-              margin-bottom: 80px; }
-              main .experience .history ul li.in-view:nth-child(1):before {
-                background: white !important;
-                box-shadow: inset 0px 0px 0px 1px #6F727A, inset 0px 0px 0px 6px #25272e; }
-            main .experience .history ul li.in-view:nth-child(2) {
-              margin-bottom: 60px; }
-            main .experience .history ul li.in-view:nth-child(3) {
-              margin-bottom: 85px; }
-            main .experience .history ul li.in-view:nth-child(4) {
-              margin-bottom: 80px; }
           main .experience .history ul li.line-animation:nth-child(1):after {
-            height: calc(100% + 60px); }
+            height: calc(100% - 20px); }
           main .experience .history ul li.line-animation:nth-child(2):after {
-            height: calc(100% + 40px); }
+            height: calc(100% - 20px); }
           main .experience .history ul li.line-animation:nth-child(3):after {
-            height: calc(100% + 65px); }
+            height: calc(100% - 20px); }
           main .experience .history ul li.line-animation:nth-child(4):after {
-            height: calc(100% + 60px); }
+            height: calc(120%); }
     main .experience .contact {
       margin-top: 130px; }
     @media (min-width: 1024px) {
@@ -1041,16 +1056,32 @@ main {
           grid-column: span 12; }
         main .experience .expertise {
           grid-column: 1 / 8; }
+          main .experience .expertise h3 {
+            font-size: 15px; }
           main .experience .expertise ul {
             padding: 0;
             margin: 0;
             list-style: none;
             width: 100%; }
-            main .experience .expertise ul li div {
-              width: 75%; }
+            main .experience .expertise ul li {
+              font-size: 15px; }
+              main .experience .expertise ul li div {
+                width: 75%; }
         main .experience .history {
-          grid-column: 9 / 12;
+          grid-column: 10 / 13;
           margin-top: 0; }
+          main .experience .history ul {
+            height: 100%; }
+            main .experience .history ul li {
+              width: calc(100% - 40px); }
+              main .experience .history ul li.in-view > div div:nth-child(1) {
+                text-align: right;
+                position: absolute;
+                right: calc(100% + 40px);
+                white-space: nowrap;
+                padding-right: 20px; }
+              main .experience .history ul li.in-view:nth-child(2) > div div:nth-child(1), main .experience .history ul li.in-view:nth-child(5) > div div:nth-child(1) {
+                bottom: 0px; }
         main .experience .contact {
           grid-column: span 12; } }
 

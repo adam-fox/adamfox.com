@@ -19,6 +19,30 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<!-- Start of Async Drift Code -->
+		<script>
+		!function() {
+		  var t;
+		  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
+		  t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+		  t.factory = function(e) {
+		    return function() {
+		      var n;
+		      return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+		    };
+		  }, t.methods.forEach(function(e) {
+		    t[e] = t.factory(e);
+		  }), t.load = function(t) {
+		    var e, n, o, i;
+		    e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
+		    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
+		    n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+		  });
+		}();
+		drift.SNIPPET_VERSION = '0.3.1';
+		drift.load('f3arm7ibrfx4');
+		</script>
+		<!-- End of Async Drift Code -->
 	</head>
 	<body>
 		<header>
@@ -66,7 +90,7 @@
 				<div class="project">
 					<div class="wrapper">
 						<div class="description">
-							<h3><a href="http://dribbble.com/adamfox" target="_blank">American Express Small Business<span class="new_window"></span></a></h3>
+							<h3><a href="http://dribbble.com/adamfox" target="_blank">American Express Business<span class="new_window"></span></a></h3>
 							<h4>UX, design &amp; development</h4>
 							<a href="javascript:void(0)">View on Dribbble</a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non ornare erat. Integer convallis, leo in ullamcorper ultrices, leo justo egestas felis, sed facilisis nunc purus sed mauris.</p>
@@ -214,29 +238,39 @@
 				<div class="history">
 					<ul>
 						<li>
-							<div>2013 - Present</div>
-							<div>Associate Creative Director</div>
-							<div>Epsilon</div>
+							<div>
+								<div>2013 - Present</div>
+								<div>Associate Creative Director</div>
+								<div>Epsilon</div>
+							</div>
 						</li>
 						<li>
-							<div>2012 - 2013</div>
-							<div>User Interface Engineer</div>
-							<div>Aggrego</div>
+							<div>
+								<div>2012 - 2013</div>
+								<div>User Interface Engineer</div>
+								<div>Aggrego</div>
+							</div>
 						</li>
 						<li>
-							<div>2009 - 2012</div>
-							<div>Senior Interactive Art Director</div>
-							<div>Upshot</div>
+							<div>
+								<div>2009 - 2012</div>
+								<div>Senior Interactive Art Director</div>
+								<div>Upshot</div>
+							</div>
 						</li>
 						<li>
-							<div>2006 - 2009</div>
-							<div>Interactive Art Director</div>
-							<div>Emerge Digital</div>
+							<div>
+								<div>2006 - 2009</div>
+								<div>Interactive Art Director</div>
+								<div>Upshot</div>
+							</div>
 						</li>
 						<li>
-							<div>2005</div>
-							<div>Bachelor of Science, Marketing</div>
-							<div>Illinois State University</div>
+							<div>
+								<div>2005</div>
+								<div>Bachelor of Science, Marketing</div>
+								<div>Illinois State University</div>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -257,6 +291,7 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+<!-- 	    <script src="https://embed.small.chat/T8T9V85PFG9FB28K9C.js" async></script> -->
 	    <script src="js/adamfox.js"></script>
 		<script>
 		</script>
