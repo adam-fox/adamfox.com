@@ -1,4 +1,4 @@
-function isScrolledIntoView(elem) {
+function isScrolledIntoFullView(elem) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 
@@ -8,48 +8,74 @@ function isScrolledIntoView(elem) {
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
-$(window).scroll(function() {
-/*
-	$('.container').each(function(){
-		$(this).css('margin-top', - $(window).scrollTop() / $(this).attr('scrollSpeed'));
-	});
-*/
+function isScrolledIntoTopView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
 
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return (elemTop <= docViewBottom);
+}
+
+$(window).resize(function() {
+	if($(window).width() < 1024){
+		$('.description').css('transform', 'translate( 0px, 0px)');
+	} else {
+		$('.description').each(function () {
+			if (isScrolledIntoTopView(this) === true) {
+				$(this).css('transform', 'translate( 0px, ' + ($(window).scrollTop() + $(window).height() - $(this).parent().offset().top) / 8.5  + 'px )');
+			}	
+		});
+	}
+});
+
+$(window).scroll(function() {
+	if($(window).width() >= 1024){
+		$('.description').first().css('transform', 'translate( 0px, ' + $(window).scrollTop() / 10  + 'px )');
+		
+		$('.description').slice(1).each(function () {
+			if (isScrolledIntoTopView(this) === true) {
+				$(this).css('transform', 'translate( 0px, ' + ($(window).scrollTop() + $(window).height() - $(this).parent().offset().top) / 8.5 + 'px )');
+			}	
+		});
+	}
+			
 	$('.expertise > ul > li > div').each(function () {
-		if (isScrolledIntoView(this) === true) {
+		if (isScrolledIntoFullView(this) === true) {
 			$(this).addClass('in-view')
 		}
 	});
 	
 	$('.history > ul > li:nth-child(1) > div').each(function () {
-		if (isScrolledIntoView(this) === true) {
+		if (isScrolledIntoFullView(this) === true) {
 			$(this).parent().addClass('in-view')
 		}
 	});
 	
 	$('.history > ul > li:nth-child(2) > div').each(function () {
-		if (isScrolledIntoView(this) === true) {
+		if (isScrolledIntoFullView(this) === true) {
 			$('.history > ul > li:nth-child(1)').addClass('line-animation');
 			$(this).parent().addClass('in-view');
 		}
 	});
 	
 	$('.history > ul > li:nth-child(3) > div').each(function () {
-		if (isScrolledIntoView(this) === true) {
+		if (isScrolledIntoFullView(this) === true) {
 			$('.history > ul > li:nth-child(2)').addClass('line-animation');
 			$(this).parent().addClass('in-view');
 		}
 	});
 	
 	$('.history > ul > li:nth-child(4) > div').each(function () {
-		if (isScrolledIntoView(this) === true) {
+		if (isScrolledIntoFullView(this) === true) {
 			$('.history > ul > li:nth-child(3)').addClass('line-animation');
 			$(this).parent().addClass('in-view');
 		}
 	});
 	
 	$('.history > ul > li:nth-child(5) > div').each(function () {
-		if (isScrolledIntoView(this) === true) {
+		if (isScrolledIntoFullView(this) === true) {
 			$('.history > ul > li:nth-child(4)').addClass('line-animation');
 			$(this).parent().addClass('in-view');
 		}
@@ -59,16 +85,22 @@ $(window).scroll(function() {
 	
 	if($("header").offset().top - $(window).scrollTop() <= 0) {
 		$("header").addClass("on");
+		$('#bg_main').fadeOut();
 	} 
 	if($(window).scrollTop() <= 0) {
 		$("header").removeClass("on");
+		$('#bg_main').fadeIn();
 	}
+	
+// 	$(".about").css('margin-top', scrollTop + 'px');
+/*
 	$('#bg_main').css({
 		opacity: function() {
 			var elementHeight = $(this).height();
 			return (elementHeight - (scrollTop)) / elementHeight;
 		}
 	}); 
+*/
 /*
 	$('.test').css({
 		opacity: function() {
@@ -79,23 +111,31 @@ $(window).scroll(function() {
 */
 });
 
+/*
 $(document).ready(function () {
-    var classes = new Array ('', 'mobile', 'tablet');
+    var classes = new Array ('desktop', 'mobile', 'tablet');
     var length = classes.length;
-    var links = $('.browser');
+    var links = $('.browser').slice(1);
 
     $.each( links, function(key, value) {
-        var theClass = classes[ Math.floor ( Math.random() * length ) ];
+	    var theClass = classes[ Math.floor ( Math.random() * length ) ];
         $(value).addClass(theClass);
-        if(theClass === "") {
-	        $(value).parent().find(".plus").addClass("disabled");
-        } else if (theClass === "mobile") {
-        	$(value).parent().find(".minus").addClass("disabled");
-        }
     });
+    
+    $('.browser').slice(1).each(function () {
+	    if($(this).hasClass("desktop")) {
+	        $(this).parent().find(".plus").addClass("disabled");
+        } else if ($(this).hasClass("mobile")) {
+        	$(this).parent().find(".minus").addClass("disabled");
+        	$(this).parent().find("span").text("Mobile");
+        } else {
+	        $(this).parent().find("span").text("Tablet");
+        }
+	});
 });
+*/
 
-$(".logo_af").click(function() {
+$("header > .wrapper > .logo_af").click(function() {
 	$("html, body").animate({ scrollTop: "0px" });
 });
 
@@ -123,9 +163,11 @@ $(".plus").click(function() {
 	if($(this).parent().parent().parent().children(".browser").hasClass("mobile")) {
 		$(this).parent().parent().parent().children(".browser").removeClass("mobile");
 		$(this).parent().parent().parent().children(".browser").addClass("tablet");
+		$(this).parent().children("span").text("Tablet");
 	} else if($(this).parent().parent().parent().children(".browser").hasClass("tablet")) {
 		$(this).parent().parent().parent().children(".browser").removeClass("tablet");
 		$(this).parent().parent().parent().children(".browser").addClass("desktop");
+		$(this).parent().children("span").text("Desktop");
 		$(this).addClass("disabled");
 	}
 });
@@ -135,11 +177,13 @@ $(".minus").click(function() {
 	if($(this).parent().parent().parent().children(".browser").hasClass("tablet")) {
 		$(this).parent().parent().parent().children(".browser").removeClass("tablet");
 		$(this).parent().parent().parent().children(".browser").addClass("mobile");
+		$(this).parent().children("span").text("Mobile");
 		$(this).addClass("disabled");
 	} else if($(this).parent().parent().parent().children(".browser").hasClass("mobile")) {
 	} else {
 		$(this).parent().parent().parent().children(".browser").removeClass("desktop");
 		$(this).parent().parent().parent().children(".browser").addClass("tablet");
+		$(this).parent().children("span").text("Tablet");
 	}
 });
 
