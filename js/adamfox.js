@@ -147,6 +147,10 @@ $(".btn_menu").click(function() {
 	$('.logo_circle').toggleClass('hidden');
 });
 
+$(".main").click(function() {
+	$('html, body').animate({ scrollTop: $("#experience").offset().top - 120 }, 2000);
+});
+
 var animationEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 
 $(".btn").click(function () {
