@@ -1,10 +1,3 @@
-/*
-@mixin tablet {
-  @media (min-width: 768px) and (max-width: 1023px) {
-    @content;
-  }
-}
-*/
 html, body {
   margin: 0;
   padding: 0;
@@ -15,6 +8,13 @@ html, body {
   html section, body section {
     width: calc(100% - 76px);
     margin: 60px auto; }
+    @media (min-width: 768px) {
+      html section, body section {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        width: calc(100% - 120px);
+        max-width: 768px; } }
     @media (min-width: 1024px) {
       html section, body section {
         display: grid;
@@ -209,6 +209,71 @@ html, body {
       padding-top: 82.3%;
       width: 46%;
       transition: all 0.25s linear; }
+    @media (min-width: 768px) {
+      html .browser .buttons, body .browser .buttons {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        left: 34px;
+        top: 20px;
+        position: absolute;
+        transition: all 0.25s linear; }
+        html .browser .buttons:before, html .browser .buttons:after, body .browser .buttons:before, body .browser .buttons:after {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 10px;
+          top: 0;
+          position: absolute;
+          transition: all 0.25s linear; }
+        html .browser .buttons:before, body .browser .buttons:before {
+          left: -16px;
+          top: 0; }
+        html .browser .buttons:after, body .browser .buttons:after {
+          left: 16px;
+          top: 0; }
+      html .browser .address_bar, body .browser .address_bar {
+        position: absolute;
+        display: block;
+        background: white;
+        width: calc(100% - 91px);
+        height: 30px;
+        border-radius: 4px;
+        left: 81px;
+        top: 10px;
+        transition: all 0.25s linear; }
+      html .browser img, body .browser img {
+        width: 100%;
+        display: block;
+        border-radius: 0px 0px 4px 4px;
+        position: absolute;
+        top: 49px; }
+      html .browser.tablet .buttons, html .browser.mobile .buttons, body .browser.tablet .buttons, body .browser.mobile .buttons {
+        border-radius: 4px;
+        left: 16px;
+        top: 22px;
+        width: 26px;
+        height: 4px;
+        transition: all 0.25s linear; }
+        html .browser.tablet .buttons:before, html .browser.tablet .buttons:after, html .browser.mobile .buttons:before, html .browser.mobile .buttons:after, body .browser.tablet .buttons:before, body .browser.tablet .buttons:after, body .browser.mobile .buttons:before, body .browser.mobile .buttons:after {
+          display: block;
+          border-radius: 4px;
+          top: 0;
+          width: 26px;
+          height: 4px;
+          transition: all 0.25s linear; }
+        html .browser.tablet .buttons:before, html .browser.mobile .buttons:before, body .browser.tablet .buttons:before, body .browser.mobile .buttons:before {
+          left: 0px;
+          top: -8px; }
+        html .browser.tablet .buttons:after, html .browser.mobile .buttons:after, body .browser.tablet .buttons:after, body .browser.mobile .buttons:after {
+          left: 0px;
+          top: 8px; }
+      html .browser.tablet .address_bar, html .browser.mobile .address_bar, body .browser.tablet .address_bar, body .browser.mobile .address_bar {
+        width: calc(100% - 70px);
+        left: 58px;
+        transition: all 0.25s linear; } }
     @media (min-width: 1024px) {
       html .browser, body .browser {
         grid-column: span 1;
@@ -398,6 +463,12 @@ header {
         border-radius: 0;
         transition: all 0.25s linear;
         opacity: 1; }
+  @media (min-width: 768px) {
+    header .wrapper {
+      width: calc(100% - 120px);
+      max-width: 1140px; }
+      header .wrapper nav a {
+        font-size: 15px; } }
   @media (min-width: 1024px) {
     header {
       margin-top: 60px; }
@@ -447,16 +518,20 @@ main {
       align-items: center;
       justify-content: center;
       height: calc(75vh - 90px);
+      min-height: 220px;
       padding-top: 90px; }
       main #about > div h1 {
-        margin: 0px auto;
+        margin: 0px auto 2px auto;
         font-size: 36px;
+        font-size: 11vmin;
+        line-height: 36px;
+        line-height: 11vmin;
         font-weight: 800;
         text-transform: uppercase; }
       main #about > div h2 {
         font-size: 15px;
         letter-spacing: 1px;
-        margin: 0px auto;
+        margin: 0px auto 1px auto;
         font-weight: 800;
         text-transform: uppercase; }
       main #about > div p {
@@ -465,6 +540,29 @@ main {
         font-style: italic;
         font-size: 15px;
         line-height: 1.5; }
+    @media (min-width: 768px) {
+      main #about > div {
+        grid-column: span 12;
+        padding-top: 120px;
+        height: calc(90vh - 240px);
+        min-height: 397px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        main #about > div > * {
+          margin-left: 0; }
+        main #about > div h1 {
+          font-size: 96px;
+          line-height: 96px;
+          margin: 0 0 10px 0; }
+        main #about > div h2 {
+          font-size: 24px;
+          line-height: 24px;
+          margin: 0 0 10px 0; }
+        main #about > div p {
+          font-size: 24px;
+          margin: 0 0 15px 0; } }
     @media (min-width: 1024px) {
       main #about > div {
         grid-column: 3 / span 8;
@@ -487,10 +585,11 @@ main {
           margin: 0 0 10px 0; }
         main #about > div p {
           font-size: 24px;
-          margin: 0 0 15px 0; } }
+          margin: 0 0 15px 0;
+          white-space: nowrap; } }
   main #work {
     margin-top: 0px;
-    max-width: 400px; }
+    max-width: 277.5px; }
     main #work h2 {
       font-size: 18px;
       text-transform: uppercase;
@@ -524,6 +623,19 @@ main {
           margin: 2px auto 0 auto; }
         main #work > div .description p {
           display: none; }
+    @media (min-width: 768px) {
+      main #work {
+        max-width: 555px; }
+        main #work h2 {
+          grid-column: span 12;
+          font-size: 24px; }
+        main #work > div {
+          grid-column: span 12;
+          grid-column-gap: 30px; }
+          main #work > div .description h3 {
+            font-size: 30px; }
+          main #work > div .description h4 {
+            font-size: 18px; } }
     @media (min-width: 1024px) {
       main #work {
         max-width: 1140px; }
@@ -678,18 +790,7 @@ main {
       margin: 0;
       height: 800px;
       min-height: 800px;
-      position: relative;
-      /*
-				&:before {
-					content: "";
-					display: block;
-					background: #6F727A;
-					width: 1px;
-					position: absolute;
-					height: 100%;
-					left: 10px;
-				}
-*/ }
+      position: relative; }
       main #experience .history ul li {
         font-family: "Montserrat", sans-serif;
         font-size: 13px;
@@ -773,6 +874,30 @@ main {
           height: calc(120%); }
   main #experience .contact {
     margin-top: 130px; }
+  @media (min-width: 768px) {
+    main #experience h2 {
+      font-size: 24px;
+      grid-column: span 12; }
+    main #experience .expertise {
+      grid-column: 1 / 8; }
+      main #experience .expertise h3 {
+        font-size: 13px; }
+      main #experience .expertise ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 100%; }
+        main #experience .expertise ul li div {
+          width: 65%; }
+    main #experience .history {
+      grid-column: 9 /13;
+      margin-top: 0; }
+      main #experience .history ul {
+        height: 100%; }
+        main #experience .history ul li {
+          width: calc(100% - 40px); }
+          main #experience .history ul li.in-view:nth-child(2) > div div:nth-child(1), main #experience .history ul li.in-view:nth-child(5) > div div:nth-child(1) {
+            bottom: 0px; } }
   @media (min-width: 1024px) {
     main #experience {
       padding: 0; }
@@ -872,6 +997,16 @@ footer {
       font-family: "Montserrat", sans-serif;
       font-style: normal;
       margin-top: 30px; }
+  @media (min-width: 768px) {
+    footer div {
+      max-width: 768px;
+      width: calc(100% - 120px); }
+      footer div h3 {
+        font-size: 24px; }
+      footer div p {
+        font-size: 15px;
+        max-width: 70%;
+        margin: 0px auto; } }
   @media (min-width: 1024px) {
     footer div {
       max-width: 1140px;

@@ -11,13 +11,11 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 $xl-width: 1200px;
 
-/*
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: #{$tablet-width}) {
     @content;
   }
 }
-*/
 
 @mixin desktop {
   @media (min-width: #{$desktop-width}) {
@@ -25,11 +23,6 @@ $xl-width: 1200px;
   }
 }
 
-@mixin xl {
-  @media (min-width: #{$xl-width}) {
-    @content;
-  }
-}
 
 // ******************
 // UNIVERSAL ELEMENTS
@@ -46,6 +39,14 @@ html, body {
 	section {
 		width: calc(100% - 76px);
 		margin: 60px auto;
+		
+		@include tablet {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			grid-gap: 30px;
+			width: calc(100% - 120px);
+			max-width: 768px;
+		}
 		
 		@include desktop {
 			display: grid;
@@ -329,6 +330,97 @@ html, body {
 // 			margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto;
 		}
 		
+		@include tablet {
+			.buttons {
+				display: block;
+				width: 10px;
+				height: 10px;
+				border-radius: 10px;
+				left: 34px;
+				top: 20px;
+				position: absolute;
+				transition: all .25s linear;
+				
+				&:before, &:after {
+					content: '';
+					display: block;
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+					top: 0;
+					position: absolute;
+					transition: all .25s linear;
+				}
+				
+				&:before {
+					left: -16px;
+					top: 0;
+				}
+				
+				&:after {
+					left: 16px;
+					top: 0;
+				}
+			}
+			
+			.address_bar {
+				position: absolute;
+				display: block;
+				background: $color-secondary;
+				width: calc(100% - 91px);
+				height: 30px;
+				border-radius: 4px;
+				left: 81px;
+				top: 10px;
+				transition: all .25s linear;
+			}
+			
+			img {
+				width: 100%;
+				display: block;
+				border-radius: 0px 0px 4px 4px;
+				position: absolute;
+				top: 49px;
+			}
+			
+			&.tablet, &.mobile {
+		
+				.buttons {
+					border-radius: 4px;
+						left: 16px;
+					top: 22px;
+					width: 26px;
+					height: 4px;
+					transition: all .25s linear;
+					
+					&:before, &:after {
+						display: block;
+						border-radius: 4px;
+						top: 0;
+						width: 26px;
+						height: 4px;
+						transition: all .25s linear;
+					}
+					
+					&:before {
+						left: 0px;
+						top: -8px;
+					}
+					
+					&:after {
+						left: 0px;
+						top: 8px;
+					}
+				}
+				
+				.address_bar {
+					width: calc(100% - 70px);
+					left: 58px;
+					transition: all .25s linear;
+				}
+			}
+		}
+		
 		@include desktop {
 			grid-column: span 1;
 			margin: 0px auto 24.4% auto;
@@ -610,6 +702,21 @@ header {
 		}
 	}
 	
+	@include tablet {
+		
+		.wrapper {
+			width: calc(100% - 120px);
+			max-width: 1140px;
+						
+			nav {
+				
+				a {
+					font-size: 15px;
+				}
+			}
+		}
+	}
+	
 	@include desktop {
 		margin-top: 60px;
 		
@@ -619,7 +726,6 @@ header {
 			max-width: 1140px;
 			
 			.logo_af {
-// 				left: 0px;
 				
 				&.hidden {
 					pointer-events: all;
@@ -633,8 +739,6 @@ header {
 			
 			nav {
 				
-
-						
 				a {
 					font-size: 15px;
 					
@@ -699,11 +803,15 @@ main {
 			align-items: center;
 			justify-content: center;
 			height: calc(75vh - 90px);
+			min-height: 220px;
 			padding-top: 90px;
 						
 			h1 {
-				margin: 0px auto;
+				margin: 0px auto 2px auto;
 				font-size: 36px;
+				font-size: 11vmin;
+				line-height: 36px;
+				line-height: 11vmin;
 				font-weight: 800;
 				text-transform: uppercase;
 			}
@@ -711,7 +819,7 @@ main {
 			h2 {
 				font-size: 15px;
 				letter-spacing: 1px;
-				margin: 0px auto;
+				margin: 0px auto 1px auto;
 				font-weight: 800;
 				text-transform: uppercase;
 			}
@@ -722,6 +830,40 @@ main {
 				font-style: italic;
 				font-size: 15px;
 				line-height: 1.5;
+			}
+		}
+		
+		@include tablet {
+			> div {
+				grid-column: span 12;
+				padding-top: 120px;
+				height: calc(90vh - 240px);
+				min-height: 397px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				
+				> * {
+					margin-left: 0;
+				}
+				
+				h1 {
+					font-size: 96px;
+					line-height: 96px;
+					margin: 0 0 10px 0;
+				}
+				
+				h2 {
+					font-size: 24px;
+					line-height: 24px;
+					margin: 0 0 10px 0;
+				}
+				
+				p {
+					font-size: 24px;
+					margin: 0 0 15px 0;
+				}
 			}
 		}
 		
@@ -756,6 +898,7 @@ main {
 				p {
 					font-size: 24px;
 					margin: 0 0 15px 0;
+					white-space: nowrap;
 				}
 			}
 		}
@@ -767,7 +910,7 @@ main {
 	
 	#work {
 		margin-top: 0px;
-		max-width: 400px;
+		max-width: 277.5px;
 		
 		h2 {
 			font-size: 18px;
@@ -814,6 +957,31 @@ main {
 				/* ZOOM */
 			}
 		}	
+		
+		@include tablet {
+			max-width: 555px;
+			
+			h2 {
+				grid-column: span 12;
+				font-size: 24px;
+			}
+			
+			> div {
+				grid-column: span 12;
+				grid-column-gap: 30px;
+				
+				.description {
+					
+					h3 {
+						font-size: 30px;
+					}
+					
+					h4 {
+						font-size: 18px;
+					}
+				}
+			}
+		}
 		
 		@include desktop {
 			max-width: 1140px;
@@ -1207,23 +1375,70 @@ main {
 						}
 					}
 				}
-				
-/*
-				&:before {
-					content: "";
-					display: block;
-					background: #6F727A;
-					width: 1px;
-					position: absolute;
-					height: 100%;
-					left: 10px;
-				}
-*/
 			}
 		}
 		
 		.contact {
 			margin-top: 130px;
+		}
+		
+		@include tablet {
+			
+			h2 {
+				font-size: 24px;
+				grid-column: span 12;
+			}
+			
+			.expertise {
+				grid-column: 1 / 8;
+				
+				h3 {
+					font-size: 13px;
+				}
+				
+				ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				width: 100%;
+				
+					li {
+						
+						div {
+							width: 65%;
+						}
+					}
+				}
+			}
+			
+			.history {
+				grid-column: 9 /13;
+				margin-top: 0;
+				
+				ul {
+					height: 100%;
+					
+					li {
+						width: calc(100% - 40px);
+						
+						&.in-view {
+							
+							> div {
+							}
+							
+							&:nth-child(2), &:nth-child(5) {
+								
+								> div {
+									
+									div:nth-child(1) {
+										bottom: 0px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		
 		@include desktop {
@@ -1388,6 +1603,27 @@ footer {
 			font-family: $font-sans;
 			font-style: normal;
 			margin-top: 30px;
+		}
+	}
+	
+	@include tablet {
+		div {
+			max-width: 768px;
+			width: calc(100% - 120px);
+			
+			h3 {
+				font-size: 24px;
+			}
+			
+			p {
+				font-size: 15px;
+				max-width: 70%;
+				margin: 0px auto;
+			}
+			
+			p:nth-of-type(2) {
+				
+			}
 		}
 	}
 	
