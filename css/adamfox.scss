@@ -35,6 +35,15 @@ html, body {
 	font-family: $font-sans;
 	color: $color-secondary;
 	height: 200%;
+	transition: background .5s ease-in;
+	
+	.project1 {
+		background: #292338;
+	}
+	
+	.project2 {
+		background: #212633;
+	}
 	
 	section {
 		width: calc(100% - 76px);

@@ -4,7 +4,12 @@ html, body {
   background: #25272e;
   font-family: "Montserrat", sans-serif;
   color: white;
-  height: 200%; }
+  height: 200%;
+  transition: background 0.5s ease-in; }
+  html .project1, body .project1 {
+    background: #292338; }
+  html .project2, body .project2 {
+    background: #212633; }
   html section, body section {
     width: calc(100% - 76px);
     margin: 60px auto; }

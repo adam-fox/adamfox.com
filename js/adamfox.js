@@ -41,6 +41,17 @@ $(window).scroll(function() {
 		});
 	}
 			
+/*
+	if (isScrolledIntoFullView("#project1") === true) {
+		$("body").addClass('project1'); 
+	} else if (isScrolledIntoFullView("#project2") === true) {
+		$("body").removeClass('project1');
+		$("body").addClass('project2');
+	} else {
+		$("body").removeClass('project2');
+	}
+*/
+			
 	$('.expertise > ul > li > div').each(function () {
 		if (isScrolledIntoFullView(this) === true) {
 			$(this).addClass('in-view')
@@ -122,7 +133,7 @@ $(document).ready(function () {
         $(value).addClass(theClass);
     });
     
-    $('.browser').slice(1).each(function () {
+    $(links).each(function () {
 	    if($(this).hasClass("desktop")) {
 	        $(this).parent().find(".plus").addClass("disabled");
         } else if ($(this).hasClass("mobile")) {
@@ -163,7 +174,7 @@ $(".btn").click(function () {
 });
 
 $(".plus").click(function() {
-	$(".minus").removeClass("disabled");
+	$(this).parent().children(".minus").removeClass("disabled");
 	if($(this).parent().parent().parent().children(".browser").hasClass("mobile")) {
 		$(this).parent().parent().parent().children(".browser").removeClass("mobile");
 		$(this).parent().parent().parent().children(".browser").addClass("tablet");
@@ -177,7 +188,7 @@ $(".plus").click(function() {
 });
 
 $(".minus").click(function() {
-	$(".plus").removeClass("disabled");
+	$(this).parent().children(".plus").removeClass("disabled");
 	if($(this).parent().parent().parent().children(".browser").hasClass("tablet")) {
 		$(this).parent().parent().parent().children(".browser").removeClass("tablet");
 		$(this).parent().parent().parent().children(".browser").addClass("mobile");
