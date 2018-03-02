@@ -4,7 +4,7 @@
 
 $font-sans: 'Montserrat', sans-serif;
 $font-serif: 'Lora', serif;
-$color-primary: /* rgb(64, 67, 78) */ rgb(37, 39, 46);
+$color-primary: /* rgb(64, 67, 78) */ /* rgb(37, 39, 46) */ #222632;
 $color-secondary: rgb(255, 255, 255);
 
 $tablet-width: 768px;
@@ -23,6 +23,10 @@ $xl-width: 1200px;
   }
 }
 
+@import "../scss/fontawesome.scss";
+@import "../scss/fa-light.scss";
+@import "../scss/fa-brands.scss";
+
 
 // ******************
 // UNIVERSAL ELEMENTS
@@ -35,7 +39,7 @@ html, body {
 	font-family: $font-sans;
 	color: $color-secondary;
 	height: 200%;
-	transition: background .5s ease-in;
+	transition: background 1s ease-in-out;
 	
 	.project1 {
 		background: #292338;
@@ -48,9 +52,14 @@ html, body {
 	section {
 		width: calc(100% - 76px);
 		margin: 60px auto;
+		display: grid;
+		grid-template-columns: 100%;
+		
+		> * {
+			grid-column: span 1;
+		}
 		
 		@include tablet {
-			display: grid;
 			grid-template-columns: repeat(12, 1fr);
 			grid-gap: 30px;
 			width: calc(100% - 120px);
@@ -58,7 +67,6 @@ html, body {
 		}
 		
 		@include desktop {
-			display: grid;
 			grid-template-columns: repeat(12, 1fr);
 			grid-gap: 30px;
 			width: calc(100% - 120px);
@@ -101,7 +109,7 @@ html, body {
 	// **************
 	
 	.resize {
-		display: block;
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		background-color: darken($color-primary, 5%);
@@ -111,17 +119,25 @@ html, body {
 		width: 135px;
 		height: 30px;
 		margin: 25px auto 30px auto;
+		position: relative;
 			
 		> a {
-			display: inline-block;
-			height: 9px;
-			width: 9px;
-			border-radius: 9px;
+			display: block;
+			height: 30px;
+			width: 30px;
+			border-radius: 30px;
 			text-decoration: none;
 			text-indent: 100%;
 			overflow: hidden;
-			position: relative;
-			margin-top: 10px;
+			position: absolute;
+			
+			&:first-of-type {
+				left: 5px;
+			}
+			
+			&:last-of-type {
+				right: 5px;
+			}
 			
 			&:before {
 				content: "";
@@ -129,8 +145,8 @@ html, body {
 				height: 2px;
 				width: 9px;
 				background: $color-secondary;
-				left: 0px;
-				top: 4px;
+				left: 10px;
+				top: 14px;
 			}
 		
 			&.plus {
@@ -141,8 +157,8 @@ html, body {
 					height: 2px;
 					width: 9px;
 					background: $color-secondary;
-					left: 0px;
-					top: 3.5px;
+					left: 10px;
+					top: 13.5px;
 				}
 				
 				&:after {
@@ -151,8 +167,8 @@ html, body {
 					height: 9px;
 					width: 2px;
 					background: $color-secondary;
-					left: 3.5px;
-					top: 0px;
+					left: 13.5px;
+					top: 10px;
 				}
 			}
 		
@@ -167,8 +183,11 @@ html, body {
 			}
 			
 			&.disabled {
-				opacity: .5;
 				cursor: default;
+				
+				&:before, &:after {				
+					background: lighten($color-primary, 10%);
+				}
 				
 				&:hover, &:active {
 					color: $color-primary;
@@ -177,8 +196,7 @@ html, body {
 		}
 		
 		span {
-			display: inline-block;
-			width: 88px;
+			width: 100%;
 		}
 	}
 
@@ -533,35 +551,133 @@ html, body {
 		}
 	}
 
-	// ***************
-	// CONTACT SECTION
-	// ***************
+	// ******
+	// SOCIAL
+	// ******
 
-	.contact {
-		display: none;
+	.social {
+		grid-column: span 1;
+		width: 100%;
 		text-align: center;
+		display: block!important;
 		
-		.btn {
-			margin: 0 auto 20px auto;
-			position: relative;
-// 			box-shadow: 0px 20px 20px rgba(0,0,0,.1);
-		}
-		
-		p {
+		a {
+			margin-left: -250%;
+			transition: all .25s linear;
+			color: $color-secondary;
+			font-family: $font-sans;
 			font-weight: 300;
-			margin: 0 10px;
+			font-size: 13px;
+			text-decoration: none;
+			text-transform: uppercase;
+			padding-left: 32px;
 			position: relative;
-			max-width: 70%;
-			display: inline-block;
+			
+			&:before {
+				@include fa-icon;
+				@extend .fab;
+				position: absolute;
+				left: 0;
+				top: -3px;
+				font-size: 24px;
+			}
+			
+			strong {
+				font-weight: 700;
+				border-bottom: 3px solid white;
+				margin-right: 7px;
+			}
+			
+			&.in-view {
+				margin-left: 0px;
+			}
+		}
+			
+		@include tablet {
+			grid-column: span 12;
 			
 			a {
-				text-decoration: none;
+				font-size: 15px;
+				padding-left: 37px;
 				
-				strong {
-					font-weight: 700;
+				&:before {
+					top: -4px;
+					font-size: 30px;
 				}
 			}
 		}
+			
+		@include desktop {
+			text-align: left;
+			grid-column: span 12;
+			
+			a {
+				margin-left: -100%;
+				transition: all .5s linear;
+				font-size: 15px;
+				padding-left: 37px;
+				
+				&:before {
+					top: -4px;
+					font-size: 30px;
+				}
+			}
+		}
+	}
+	
+	// ***************
+	// NEW WINDOW ICON
+	// ***************
+	
+	span.new_window {
+		display: inline-block;
+		height: 8px;
+		width: 8px;
+		border: 1px solid white;
+		position: relative;
+		
+		&:after {
+			content: "";
+			width: 1px;
+			height: 9px;
+			background-color: white;
+			display: block;
+			position: absolute;
+			transform: rotate(45deg);
+			right: 2px;
+			top: -2px;
+			animation-name: arrow_line;
+			animation-duration: 2s;
+			animation-iteration-count:infinite;
+		}
+		
+		&:before {
+			content: "";
+			position: absolute;
+			top: -1px;
+			right: -1px;
+			width: 4px;
+			height: 4px;
+			border-top: 1px solid white;
+			border-right: 1px solid white;
+			box-shadow: 0px 0px 0px 2px $color-primary;
+			background: $color-primary;
+			animation-name: arrow_top;
+			animation-duration: 2s;
+			animation-iteration-count:infinite;
+			
+		}
+		
+		@include tablet {
+			height: 10px;
+			width: 10px;
+		}
+		
+		@include desktop {
+			height: 10px;
+			width: 10px;
+		}
+		
 	}
 
 	
@@ -652,12 +768,13 @@ header {
 				position: relative;
 				
 				&:before {
-					font-family: 'simple-line-icons';
-					content: '\e04a';
+					@include fa-icon;
+					@extend .fal;
+					content: '\f075';
 					font-size: 20px;
 					position: absolute;
-					left: -25px;
-					top: -2px;
+					left: -30px;
+					top: 0px;
 				}
 			}
 		}
@@ -721,6 +838,11 @@ header {
 				
 				a {
 					font-size: 15px;
+					
+					&:before {
+						font-size: 22px;
+						left: -32px;
+					}
 				}
 			}
 		}
@@ -752,7 +874,8 @@ header {
 					font-size: 15px;
 					
 					&:before {
-						top: 0px;
+						font-size: 22px;
+						left: -32px;
 					}
 					
 				}
@@ -932,7 +1055,7 @@ main {
 			grid-column: span 1;
 		}
 		
-		> div {
+		.project {
 			grid-column: span 1;
 			display: grid;
 			grid-template-columns: 1fr;
@@ -965,6 +1088,16 @@ main {
 				
 				/* ZOOM */
 			}
+		}
+		
+		.social {
+			
+			a {
+				&:before {
+				content: '\f17d';
+				color: #EA4C89;
+				}
+			}
 		}	
 		
 		@include tablet {
@@ -975,7 +1108,7 @@ main {
 				font-size: 24px;
 			}
 			
-			> div {
+			.project {
 				grid-column: span 12;
 				grid-column-gap: 30px;
 				
@@ -1003,7 +1136,7 @@ main {
 				display: block;
 			}	
 			
-			> div {	
+			.project {	
 				grid-column: span 12;
 				grid-column-gap: 30px;
 				display: grid;
@@ -1011,11 +1144,10 @@ main {
 				padding: 90px 0px;
 				
 				&:first-of-type {
-					margin-top: - 30px;
+					margin-top: -30px;
 				}
 				
 				.description {
-// 					height: 100%;
 					display: flex;
 					justify-content: flex-start; //center
 					flex-direction: column;
@@ -1070,13 +1202,10 @@ main {
 					}
 				}
 			}
-		}
-							
-		.contact {
-			padding: 0;
-			text-align: left;
-			display: none;
-			grid-column: span 12;
+			
+			.social {
+				margin-top: -90px;
+			}
 		}
 	}
 	
@@ -1085,21 +1214,25 @@ main {
 	// **********
 	
 	#experience {
-			
+		margin-top: 90px;
+		
 		h2 {
 			font-size: 18px;
 			text-transform: uppercase;
 			font-weight: 200;
 			padding-bottom: 10px;
-			grid-column: span 1;
 			display: table;
 			border-bottom: 1px solid #6F727A;
 			margin: 0px auto 20px auto;
+			grid-column: span 1;
+			grid-row: 1;
 		}
 		
 		.clients {
 			height: 300px;
 			margin-bottom: 25px;
+			grid-row: 2;
+			grid-column: span 1;
 			
 			div {
 				display: block;
@@ -1116,6 +1249,8 @@ main {
 		}
 		
 		.expertise {
+			grid-row: 3;
+			grid-column: span 1;
 			text-align: left;
 			
 			h3 {
@@ -1226,9 +1361,24 @@ main {
 			}
 		}
 		
+		.social {
+			grid-row: 4;
+			margin-top: 90px;
+			margin-bottom: 90px;
+			
+			a {
+				&:before {
+					content: '\f08c';
+					color: #0077B5;
+				}
+			}
+		}
+		
 		.history {
-			margin-top: 60px;
-				min-height: 800px;
+			grid-row: 5;
+			grid-column: span 1;
+			width: 100%;
+			min-height: 800px;
 			
 			ul {
 				list-style: none;
@@ -1243,7 +1393,6 @@ main {
 					font-family: $font-sans;
 					font-size: 13px;
 					text-transform: uppercase;
-					opacity: 0;
 					padding: 0px 0px 0px 40px;
 					transition: all .25s linear;
 					position: relative;
@@ -1277,6 +1426,22 @@ main {
 					
 					> div {
 						position: absolute;
+						
+						div:nth-child(1) {
+							font-family: $font-serif;
+							font-style: italic;
+							
+						}
+						
+						div:nth-child(2) {
+							font-size: 24px;
+							font-weight: 700;
+							line-height: 24px;
+						}
+						
+						div:nth-child(3) {
+							font-weight: 300;
+						}
 					}
 					
 					&:nth-child(1) {
@@ -1323,38 +1488,13 @@ main {
 						}
 					}
 					
-					
-					
-					
 					&.in-view {
-						opacity: 1;
-						
-						div {
-							div:nth-child(1) {
-								font-family: $font-serif;
-								font-style: italic;
-								
-							}
-							
-							div:nth-child(2) {
-								font-size: 24px;
-								font-weight: 700;
-								line-height: 24px;
-							}
-							
-							div:nth-child(3) {
-								font-weight: 300;
-							}
-						}
 						
 						&:before {
 							width: 20px;
 							height: 20px;
 							top: -3px;
 							left: 0px;
-						}
-						
-						&:nth-child(2) {
 						}
 					}
 					
@@ -1386,10 +1526,7 @@ main {
 				}
 			}
 		}
-		
-		.contact {
-			margin-top: 130px;
-		}
+	
 		
 		@include tablet {
 			
@@ -1420,7 +1557,12 @@ main {
 				}
 			}
 			
+			.social {
+				grid-row: 4;
+			}
+			
 			.history {
+				grid-row: 3;
 				grid-column: 9 /13;
 				margin-top: 0;
 				
@@ -1430,18 +1572,12 @@ main {
 					li {
 						width: calc(100% - 40px);
 						
-						&.in-view {
+						&:nth-child(2), &:nth-child(5) {
 							
 							> div {
-							}
-							
-							&:nth-child(2), &:nth-child(5) {
 								
-								> div {
-									
-									div:nth-child(1) {
-										bottom: 0px;
-									}
+								div:nth-child(1) {
+									bottom: 0px;
 								}
 							}
 						}
@@ -1494,8 +1630,15 @@ main {
 					}
 				}
 			}
+			
+			.social {
+				grid-row: 4;
+				margin-top: 70px;
+			}
+			
 			.history {
 				grid-column: 10 / 13;
+				grid-row: 3;
 				margin-top: 0;
 				
 				ul {
@@ -1504,35 +1647,40 @@ main {
 					li {
 						width: calc(100% - 40px);
 						
+						> div {
+								
+							div:nth-child(1) {
+								text-align: right;
+								position: absolute;
+								white-space: nowrap;
+								padding-right: 20px;
+								opacity: 0;
+								right: calc(100% + 20px);
+							}
+						}
+						
 						&.in-view {
+							
+							> div {
+								div:nth-child(1) {
+									transition: all .5s ease-in-out;
+									right: calc(100% + 40px);
+									opacity: 1;
+								}
+							}
+						}
+						
+						&:nth-child(2), &:nth-child(5) {
 							
 							> div {
 								
 								div:nth-child(1) {
-									text-align: right;
-									position: absolute;
-									right: calc(100% + 40px);
-									white-space: nowrap;
-									padding-right: 20px;
-									
-								}
-							}
-							
-							&:nth-child(2), &:nth-child(5) {
-								
-								> div {
-									
-									div:nth-child(1) {
-										bottom: 0px;
-									}
+									bottom: 0px;
 								}
 							}
 						}
 					}
 				}
-			}
-			.contact {
-				grid-column: span 12;
 			}
 		}
 	}
@@ -1543,7 +1691,7 @@ main {
 // ******
 
 footer {
-	margin-top: 120px;
+// 	margin-top: 90px;
 	background: darken($color-primary, 5%);
 	text-align: center;
 	padding: 60px 0px;
