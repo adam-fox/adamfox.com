@@ -24,7 +24,8 @@ $xl-width: 1200px;
 }
 
 @import "../scss/fontawesome.scss";
-@import "../scss/fa-light.scss";
+// @import "../scss/fa-regular.scss";
+@import "../scss/fa-solid.scss";
 @import "../scss/fa-brands.scss";
 
 
@@ -560,18 +561,21 @@ html, body {
 		width: 100%;
 		text-align: center;
 		display: block!important;
+		position: relative;
 		
 		a {
-			margin-left: -250%;
-			transition: all .25s linear;
+			position: absolute;
+			margin-top: -30px;
+			opacity: 0;
 			color: $color-secondary;
 			font-family: $font-sans;
 			font-weight: 300;
 			font-size: 13px;
 			text-decoration: none;
 			text-transform: uppercase;
-			padding-left: 32px;
+			padding: 0px 6px 0px 30px;
 			position: relative;
+			transition: all .5s linear;
 			
 			&:before {
 				@include fa-icon;
@@ -584,12 +588,16 @@ html, body {
 			
 			strong {
 				font-weight: 700;
+				margin-right: 5px;
+				transition: all .5s linear;
 				border-bottom: 3px solid white;
-				margin-right: 7px;
 			}
 			
 			&.in-view {
-				margin-left: 0px;
+				margin-left: 0px!important;
+				margin-top: 0px;
+				opacity: 1;
+				top: 0!important;
 			}
 		}
 			
@@ -612,7 +620,7 @@ html, body {
 			grid-column: span 12;
 			
 			a {
-				margin-left: -100%;
+// 				margin-left: -100%;
 				transition: all .5s linear;
 				font-size: 15px;
 				padding-left: 37px;
@@ -621,7 +629,27 @@ html, body {
 					top: -4px;
 					font-size: 30px;
 				}
-			}
+				
+				strong {				
+					border-bottom: 3px solid rgba(255,255,255,.0);
+				}
+				
+				&:hover {
+				
+					strong {
+						border-bottom: 3px solid white;
+					}
+					
+					span.new_window {
+						&:before {
+							animation-name: arrow_top;
+						}
+						&:after {
+							animation-name: arrow_line;
+						}
+					}
+				}
+			}	
 		}
 	}
 	
@@ -643,7 +671,7 @@ html, body {
 			background-color: white;
 			display: block;
 			position: absolute;
-			transform: rotate(45deg);
+			transform: translatex(2px) translatey(-2px) rotate(45deg);
 			right: 2px;
 			top: -2px;
 			animation-name: arrow_line;
@@ -658,6 +686,7 @@ html, body {
 			right: -1px;
 			width: 4px;
 			height: 4px;
+			transform: translatex(2px) translatey(-2px);
 			border-top: 1px solid white;
 			border-right: 1px solid white;
 			box-shadow: 0px 0px 0px 2px $color-primary;
@@ -668,6 +697,7 @@ html, body {
 			
 		}
 		
+		
 		@include tablet {
 			height: 10px;
 			width: 10px;
@@ -676,6 +706,10 @@ html, body {
 		@include desktop {
 			height: 10px;
 			width: 10px;
+			
+			&:after, &:before {
+				animation-name: none;
+			}
 		}
 		
 	}
@@ -769,12 +803,48 @@ header {
 				
 				&:before {
 					@include fa-icon;
-					@extend .fal;
+					@extend .fas;
 					content: '\f075';
 					font-size: 20px;
 					position: absolute;
 					left: -30px;
 					top: 0px;
+				}
+				
+				span {
+					content: '';
+					display: block;
+					height: 3px;
+					width: 3px;
+					border-radius: 3px;
+					background: rgba($color-primary, 0);
+					position: absolute;
+					left: -20.5px;
+					top: 7.5px;
+					animation: 10s delay infinite linear;
+					animation-delay: .3s;
+					
+					&:before, &:after {
+						content: '';
+						display: block;
+						height: 3px;
+						width: 3px;
+						border-radius: 3px;
+						background: rgba($color-primary, 0);
+						position: absolute;
+						top: 0;
+					}
+					
+					&:before {
+						left: -4.5px;
+						animation: 10s delay infinite linear;
+					}
+					
+					&:after {
+						left: 4.5px;
+						animation: 10s delay infinite linear;
+						animation-delay: .6s
+					}
 				}
 			}
 		}
@@ -843,6 +913,28 @@ header {
 						font-size: 22px;
 						left: -32px;
 					}
+					
+					span {
+						height: 3.5px;
+						width: 3.5px;
+						border-radius: 3.5px;
+						left: -21.5px;
+						top: 8.5px;
+						
+						&:before, &:after {
+							height: 3.5px;
+							width: 3.5px;
+							border-radius: 3.5px;
+						}
+						
+						&:before {
+							left: -5px;
+						}
+						
+						&:after {
+							left: 5px;
+						}
+					}
 				}
 			}
 		}
@@ -876,8 +968,61 @@ header {
 					&:before {
 						font-size: 22px;
 						left: -32px;
+						transition: all .25s linear;
 					}
 					
+					span {
+						transition: transform .25s linear;
+						height: 3.5px;
+						width: 3.5px;
+						border-radius: 3.5px;
+						left: -21.5px;
+						top: 8.5px;
+						animation-name: none;
+						animation-delay: 0s;
+						
+						&:before, &:after {
+							height: 3.5px;
+							width: 3.5px;
+							border-radius: 3.5px;
+							animation-name: none;
+							animation-delay: 0s;
+						}
+						
+						&:before {
+							left: -5px;
+						}
+						
+						&:after {
+							left: 5px;
+						}
+					}
+					&:hover {
+						&:before {
+							background: rgba($color-primary, .15);
+							transform: scale(1.2,1.2);
+							transition: all .25s linear;
+						}	
+						
+						span {
+							background: rgba($color-primary, .15);
+							transform: scale(1.2,1.2);
+							animation: .9s chat infinite linear;
+							animation-delay: .3s;
+							transition: transform .25s linear;
+							
+							&:before {
+								animation: .9s chat infinite linear;
+								animation-delay: 0s;
+							}
+							
+							&:after {
+								animation: .9s chat infinite linear;
+								background: rgba($color-primary, .15);
+								animation-delay: .6s;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1091,8 +1236,11 @@ main {
 		}
 		
 		.social {
+			margin-top: -60px;
 			
-			a {
+			a {			
+				top: -60px;
+				
 				&:before {
 				content: '\f17d';
 				color: #EA4C89;
@@ -1229,7 +1377,7 @@ main {
 		}
 		
 		.clients {
-			height: 300px;
+			height: 200px;
 			margin-bottom: 25px;
 			grid-row: 2;
 			grid-column: span 1;
@@ -1237,7 +1385,7 @@ main {
 			div {
 				display: block;
 				width: 100vw;
-				height: 300px;
+				height: 200px;
 				background-image: url("../img/clients.png");
 				animation: 100s scroll infinite linear;
 				background-size: 150px;
@@ -1363,10 +1511,12 @@ main {
 		
 		.social {
 			grid-row: 4;
-			margin-top: 90px;
-			margin-bottom: 90px;
+			margin-top: 60px;
+			text-align: left;
 			
 			a {
+				margin-left: -60px;
+				
 				&:before {
 					content: '\f08c';
 					color: #0077B5;
@@ -1379,6 +1529,7 @@ main {
 			grid-column: span 1;
 			width: 100%;
 			min-height: 800px;
+			margin-top: 60px;
 			
 			ul {
 				list-style: none;
@@ -1764,6 +1915,8 @@ footer {
 	}
 	
 	@include tablet {
+		margin-top: 120px;
+		
 		div {
 			max-width: 768px;
 			width: calc(100% - 120px);
@@ -1785,6 +1938,7 @@ footer {
 	}
 	
 	@include desktop {
+		margin-top: 120px;
 		
 		div {
 			max-width: 1140px;
@@ -1842,6 +1996,28 @@ footer {
 	}
 }
 
+@keyframes chat {
+	0% {
+		background-color: rgba($color-primary, 1);
+	}
+	100% {
+		background-color: rgba($color-primary, .15);
+	}
+}
+
+@keyframes delay {
+	0% {
+		background-color: rgba($color-primary, 1);
+	}
+	90% {
+		background-color: rgba($color-primary, 1);
+	}
+	100% {
+		background-color: rgba($color-primary, .15);
+	}
+}
+
+/*
 @keyframes btn_menu_before {
 	0% {
 		left: -13px;
@@ -1901,6 +2077,7 @@ footer {
 		transform: rotate(-45deg);
 	}
 }
+*/
 
 @keyframes btn_animation {
 	0% {
@@ -1916,25 +2093,25 @@ footer {
 
 @keyframes arrow_top {
 	0% {
-		transform: translatex(0px) translatey(0px);
-	}
-	50% {
 		transform: translatex(2px) translatey(-2px);
 	}
-	100% {
+	50% {
 		transform: translatex(0px) translatey(0px);
+	}
+	100% {
+		transform: translatex(2px) translatey(-2px);
 	}
 }
 
 @keyframes arrow_line {
 	0% {
-		transform: translatex(0px) translatey(0px) rotate(45deg);
-	}
-	50% {
 		transform: translatex(2px) translatey(-2px) rotate(45deg);
 	}
-	100% {
+	50% {
 		transform: translatex(0px) translatey(0px) rotate(45deg);
+	}
+	100% {
+		transform: translatex(2px) translatey(-2px) rotate(45deg);
 	}
 }
 
@@ -1974,10 +2151,10 @@ footer {
 	}
 }
 
-@keyframes scroll{
-  100%{
-    background-position:-3000px center;
-  }
+@keyframes scroll {
+	100%{
+		background-position:-3000px center;
+	}
 }
 
 
