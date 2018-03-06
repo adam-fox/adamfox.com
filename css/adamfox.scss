@@ -821,8 +821,7 @@ header {
 					position: absolute;
 					left: -20.5px;
 					top: 7.5px;
-					animation: 10s delay infinite linear;
-					animation-delay: .3s;
+					animation: 15.1s chat_delay2 infinite linear;
 					
 					&:before, &:after {
 						content: '';
@@ -837,13 +836,12 @@ header {
 					
 					&:before {
 						left: -4.5px;
-						animation: 10s delay infinite linear;
+						animation: 15.1s chat_delay1 infinite linear;
 					}
 					
 					&:after {
 						left: 4.5px;
-						animation: 10s delay infinite linear;
-						animation-delay: .6s
+						animation: 15.1s chat_delay3 infinite linear;
 					}
 				}
 			}
@@ -2005,15 +2003,108 @@ footer {
 	}
 }
 
-@keyframes delay {
+@keyframes chat_delay1 {
 	0% {
 		background-color: rgba($color-primary, 1);
 	}
-	90% {
+	6% {
+		background-color: rgba($color-primary, .15);
+	}
+	6.1% {
 		background-color: rgba($color-primary, 1);
 	}
-	100% {
+	12.1% {
 		background-color: rgba($color-primary, .15);
+	}
+	12.2% {
+		background-color: rgba($color-primary, 1);
+	}
+	18.2% {
+		background-color: rgba($color-primary, .15);
+	}
+	18.3% {
+		background-color: rgba($color-primary, 1);
+	}
+	24.3% {
+		background-color: rgba($color-primary, .15);
+	}
+	24.4% {
+		background-color: rgba($color-primary, 1);
+	}
+	30.4% {
+		background-color: rgba($color-primary, 0);
+	}
+}
+
+@keyframes chat_delay2 {
+	1.9% {
+		background-color: rgba($color-primary, 0);
+	}
+	2% {
+		background-color: rgba($color-primary, 1);
+	}
+	8% {
+		background-color: rgba($color-primary, .15);
+	}
+	8.1% {
+		background-color: rgba($color-primary, 1);
+	}
+	14.1% {
+		background-color: rgba($color-primary, .15);
+	}
+	14.2% {
+		background-color: rgba($color-primary, 1);
+	}
+	20.2% {
+		background-color: rgba($color-primary, .15);
+	}
+	20.3% {
+		background-color: rgba($color-primary, 1);
+	}
+	26.3% {
+		background-color: rgba($color-primary, .15);
+	}
+	26.4% {
+		background-color: rgba($color-primary, 1);
+	}
+	32.4% {
+		background-color: rgba($color-primary, 0);
+	}
+}
+
+@keyframes chat_delay3 {
+	3.9% {
+		background-color: rgba($color-primary, 0);
+	}
+	4% {
+		background-color: rgba($color-primary, 1);
+	}
+	10% {
+		background-color: rgba($color-primary, .15);
+	}
+	10.1% {
+		background-color: rgba($color-primary, 1);
+	}
+	16.1% {
+		background-color: rgba($color-primary, .15);
+	}
+	16.2% {
+		background-color: rgba($color-primary, 1);
+	}
+	22.2% {
+		background-color: rgba($color-primary, .15);
+	}
+	22.3% {
+		background-color: rgba($color-primary, 1);
+	}
+	28.3% {
+		background-color: rgba($color-primary, .15);
+	}
+	28.4% {
+		background-color: rgba($color-primary, 1);
+	}
+	34.4% {
+		background-color: rgba($color-primary, 0);
 	}
 }
 

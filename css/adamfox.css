@@ -3917,8 +3917,7 @@ header {
           position: absolute;
           left: -20.5px;
           top: 7.5px;
-          animation: 10s delay infinite linear;
-          animation-delay: .3s; }
+          animation: 15.1s chat_delay2 infinite linear; }
           header .wrapper nav a span:before, header .wrapper nav a span:after {
             content: '';
             display: block;
@@ -3930,11 +3929,10 @@ header {
             top: 0; }
           header .wrapper nav a span:before {
             left: -4.5px;
-            animation: 10s delay infinite linear; }
+            animation: 15.1s chat_delay1 infinite linear; }
           header .wrapper nav a span:after {
             left: 4.5px;
-            animation: 10s delay infinite linear;
-            animation-delay: .6s; }
+            animation: 15.1s chat_delay3 infinite linear; }
     header .wrapper:last-of-type {
       margin-top: -60px;
       transition: max-width 0.25s;
@@ -4637,13 +4635,75 @@ footer {
   100% {
     background-color: rgba(34, 38, 50, 0.15); } }
 
-@keyframes delay {
+@keyframes chat_delay1 {
   0% {
     background-color: #222632; }
-  90% {
+  6% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  6.1% {
     background-color: #222632; }
-  100% {
-    background-color: rgba(34, 38, 50, 0.15); } }
+  12.1% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  12.2% {
+    background-color: #222632; }
+  18.2% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  18.3% {
+    background-color: #222632; }
+  24.3% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  24.4% {
+    background-color: #222632; }
+  30.4% {
+    background-color: rgba(34, 38, 50, 0); } }
+
+@keyframes chat_delay2 {
+  1.9% {
+    background-color: rgba(34, 38, 50, 0); }
+  2% {
+    background-color: #222632; }
+  8% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  8.1% {
+    background-color: #222632; }
+  14.1% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  14.2% {
+    background-color: #222632; }
+  20.2% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  20.3% {
+    background-color: #222632; }
+  26.3% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  26.4% {
+    background-color: #222632; }
+  32.4% {
+    background-color: rgba(34, 38, 50, 0); } }
+
+@keyframes chat_delay3 {
+  3.9% {
+    background-color: rgba(34, 38, 50, 0); }
+  4% {
+    background-color: #222632; }
+  10% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  10.1% {
+    background-color: #222632; }
+  16.1% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  16.2% {
+    background-color: #222632; }
+  22.2% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  22.3% {
+    background-color: #222632; }
+  28.3% {
+    background-color: rgba(34, 38, 50, 0.15); }
+  28.4% {
+    background-color: #222632; }
+  34.4% {
+    background-color: rgba(34, 38, 50, 0); } }
 
 /*
 @keyframes btn_menu_before {
