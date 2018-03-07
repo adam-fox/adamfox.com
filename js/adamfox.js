@@ -134,6 +134,26 @@ $(".btn_menu").click(function() {
 	$('.logo_circle').toggleClass('hidden');
 });
 
+$(".browser:even").click(function() {
+	var browser = $(this);
+	browser.css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+	setTimeout(function() {
+		browser.children('img').hide();
+		browser.css("transform","translate(0,0)");
+    }, 350);
+});
+
+
+$(".browser:odd").click(function() {
+	var browser = $(this);
+	browser.css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
+	setTimeout(function() {
+		browser.children('img').hide();
+		browser.css("transform","translate(0,0)");
+    }, 350);
+});
+
+
 $(".main").click(function() {
 	$('html, body').animate({ scrollTop: $("#experience").offset().top - 120 }, 2000);
 });

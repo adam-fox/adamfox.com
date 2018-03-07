@@ -809,6 +809,7 @@ header {
 					position: absolute;
 					left: -30px;
 					top: 0px;
+					animation: 15.1s wiggle infinite linear;
 				}
 				
 				span {
@@ -967,6 +968,7 @@ header {
 						font-size: 22px;
 						left: -32px;
 						transition: all .25s linear;
+						animation: none;
 					}
 					
 					span {
@@ -1062,6 +1064,7 @@ header {
 main {
 	z-index: 1;
 	position: relative;
+	overflow-x: hidden;
 	
 	// *****
 	// ABOUT
@@ -2106,6 +2109,32 @@ footer {
 	34.4% {
 		background-color: rgba($color-primary, 0);
 	}
+}
+
+@keyframes wiggle{
+  88% {
+    transform: rotateZ(0deg);
+    transform: scale(1,1);
+  }
+  90%{
+    transform: rotateZ(-15deg);
+    transform: scale(1.5,1.5);
+  }
+  92%{
+    transform: rotateZ(10deg);
+  }
+  94%{
+    transform: rotateZ(-10deg);
+  }
+  96%{
+    transform: rotateZ(6deg);
+  }
+  98%{
+    transform: rotateZ(-4deg);
+  }
+  100%{
+    transform: rotateZ(0);
+  }
 }
 
 /*

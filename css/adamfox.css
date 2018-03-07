@@ -3906,7 +3906,8 @@ header {
           font-size: 20px;
           position: absolute;
           left: -30px;
-          top: 0px; }
+          top: 0px;
+          animation: 15.1s wiggle infinite linear; }
         header .wrapper nav a span {
           content: '';
           display: block;
@@ -4008,7 +4009,8 @@ header {
           header .wrapper nav a:before {
             font-size: 22px;
             left: -32px;
-            transition: all 0.25s linear; }
+            transition: all 0.25s linear;
+            animation: none; }
           header .wrapper nav a span {
             transition: transform 0.25s linear;
             height: 3.5px;
@@ -4067,7 +4069,8 @@ header {
 
 main {
   z-index: 1;
-  position: relative; }
+  position: relative;
+  overflow-x: hidden; }
   main #about {
     text-align: center;
     margin: 0px auto; }
@@ -4704,6 +4707,24 @@ footer {
     background-color: #222632; }
   34.4% {
     background-color: rgba(34, 38, 50, 0); } }
+
+@keyframes wiggle {
+  88% {
+    transform: rotateZ(0deg);
+    transform: scale(1, 1); }
+  90% {
+    transform: rotateZ(-15deg);
+    transform: scale(1.5, 1.5); }
+  92% {
+    transform: rotateZ(10deg); }
+  94% {
+    transform: rotateZ(-10deg); }
+  96% {
+    transform: rotateZ(6deg); }
+  98% {
+    transform: rotateZ(-4deg); }
+  100% {
+    transform: rotateZ(0); } }
 
 /*
 @keyframes btn_menu_before {
