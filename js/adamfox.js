@@ -141,9 +141,15 @@ $(function() {
 			var browser = $(this);
 			browser.css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
 			browser.css("opacity","0");
-			var selected = browser.parent().children(".pagination").children(".on");
-// 			browser.parent().children(".pagination").children(".on").removeClass("on");
-			selected.nextSibling().addClass("on");
+			var paginationPrev = browser.parent().children(".pagination").children(".on");
+			if(browser.parent().children(".pagination").children("a").last().hasClass("on")){
+				browser.parent().children(".pagination").children(".on").removeClass("on");
+				browser.parent().children(".pagination").children("a").first().addClass("on");
+			} else {
+				browser.parent().children(".pagination").children(".on").removeClass("on");
+				paginationPrev.next().addClass("on");
+				
+			}
 			setTimeout(function() {
 				browser.css("transition","none");
 				browser.css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
@@ -154,12 +160,19 @@ $(function() {
 				browser.css("transform","translate(0,0)");
 		    }, 350);  
 		},
-/*
 		swipeRight:function(event, direction, distance, duration, fingerCount) {
 			var browser = $(this);
 			browser.css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
-			browser.parent().children(".pagination").children("a").removeClass("on");
 			browser.css("opacity","0");
+			var paginationNext = browser.parent().children(".pagination").children(".on");
+			if(browser.parent().children(".pagination").children("a").first().hasClass("on")){
+				browser.parent().children(".pagination").children(".on").removeClass("on");
+				browser.parent().children(".pagination").children("a").last().addClass("on");
+			} else {
+				browser.parent().children(".pagination").children(".on").removeClass("on");
+				paginationNext.prev().addClass("on");
+				
+			}
 			setTimeout(function() {
 				browser.css("transition","none");
 				browser.css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
@@ -170,7 +183,6 @@ $(function() {
 				browser.css("transform","translate(0,0)");
 		    }, 350);  
 		},
-*/
 		threshold:25
 	});
 });
@@ -178,14 +190,28 @@ $(function() {
 
 $(".pagination > a").click(function() {
 	var pagination = $(this);
-	pagination.parent().parent().children(".browser").css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
-	pagination.parent().parent().children(".browser").css("opacity","0");
-	pagination.siblings().removeClass("on");
-	pagination.addClass("on");
-	setTimeout(function() {
-		pagination.parent().parent().children(".browser").css("transition","none");
+	
+	if($(this).hasClass("on")) {
+		
+	} else if($(this).prevAll().hasClass("on")) {
+		pagination.parent().parent().children(".browser").css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+		pagination.parent().parent().children(".browser").css("opacity","0");
+		pagination.siblings().removeClass("on");
+		pagination.addClass("on");
+		setTimeout(function() {
+			pagination.parent().parent().children(".browser").css("transition","none");
+			pagination.parent().parent().children(".browser").css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
+	    }, 250);
+	} else {
 		pagination.parent().parent().children(".browser").css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
-    }, 250);
+		pagination.parent().parent().children(".browser").css("opacity","0");
+		pagination.siblings().removeClass("on");
+		pagination.addClass("on");
+		setTimeout(function() {
+			pagination.parent().parent().children(".browser").css("transition","none");
+			pagination.parent().parent().children(".browser").css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+	    }, 250);
+	}
 	setTimeout(function() {
 		pagination.parent().parent().children(".browser").css("transition","all .25s linear");
 		pagination.parent().parent().children(".browser").css("opacity","1");
