@@ -237,6 +237,172 @@ html, body {
 	// BROWSER WINDOWS
 	// ***************
 	
+	.project {
+		
+		&.tablet, &.mobile {
+			.browser {
+				.buttons {
+					border-radius: 4px;
+					left: 5px;
+					top: 11px;
+					width: 13px;
+					height: 2px;
+					transition: all .25s linear;
+					background-color: lighten($color-primary, 65%);
+					
+					&:before, &:after {
+						display: block;
+						border-radius: 4px;
+						top: 0;
+						width: 13px;
+						height: 2px;
+						transition: all .25s linear;
+						background-color: lighten($color-primary, 65%);
+					}
+					
+					&:before {
+						left: 0px;
+						top: -4px;
+					}
+					
+					&:after {
+						left: 0px;
+						top: 4px;
+					}
+				}
+				
+				.address_bar {
+					width: calc(100% - 28px);
+					left: 23px;
+					transition: all .25s linear;
+				}
+			}
+		}
+	
+		&.tablet {
+			.browser {
+				padding-top: 99%;
+				width: 74%;
+				transition: all .25s linear;
+	// 			margin: 30px auto 60px auto;
+			}
+		}
+		
+		&.mobile {
+			.browser {
+				padding-top: 82.3%;
+				width: 46%;
+				transition: all .25s linear;
+	// 			margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto;
+			}
+		}
+		
+		@include tablet {
+			&.tablet, &.mobile {
+				
+				.browser {
+		
+					.buttons {
+						border-radius: 4px;
+							left: 16px;
+						top: 22px;
+						width: 26px;
+						height: 4px;
+						transition: all .25s linear;
+						
+						&:before, &:after {
+							display: block;
+							border-radius: 4px;
+							top: 0;
+							width: 26px;
+							height: 4px;
+							transition: all .25s linear;
+						}
+						
+						&:before {
+							left: 0px;
+							top: -8px;
+						}
+						
+						&:after {
+							left: 0px;
+							top: 8px;
+						}
+					}
+					
+					.address_bar {
+						width: calc(100% - 70px);
+						left: 58px;
+						transition: all .25s linear;
+					}
+				}
+			}
+		}
+		
+		@include desktop {
+			.pagination {
+				margin-bottom: 24.2%;
+			}
+			
+			&.tablet {
+				.browser {
+					margin: 0px auto;
+				}
+				.pagination {
+					margin-bottom: 0px;
+				}
+			}
+			
+			&.mobile {
+				.browser {
+					margin: 0px auto /* calc(16.76%) auto */;
+				}
+				.pagination {
+					margin-bottom: 16.66%;
+				}
+			}
+			
+			&.tablet, &.mobile {
+				.browser {
+		
+					.buttons {
+						border-radius: 4px;
+							left: 16px;
+						top: 22px;
+						width: 26px;
+						height: 4px;
+						transition: all .25s linear;
+						
+						&:before, &:after {
+							display: block;
+							border-radius: 4px;
+							top: 0;
+							width: 26px;
+							height: 4px;
+							transition: all .25s linear;
+						}
+						
+						&:before {
+							left: 0px;
+							top: -8px;
+						}
+						
+						&:after {
+							left: 0px;
+							top: 8px;
+						}
+					}
+					
+					.address_bar {
+						width: calc(100% - 70px);
+						left: 58px;
+						transition: all .25s linear;
+					}
+				}
+			}
+		}
+	}
+	
 	.browser {
 		padding-top: 74.8%;
 		border-radius: 4px;
@@ -247,7 +413,7 @@ html, body {
 		position: relative;
 		transition: all .25s linear;
 // 		margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto;
-		margin: 0px auto 90px auto;
+		margin: 0px auto;
 		
 		.buttons {
 			display: block;
@@ -305,59 +471,6 @@ html, body {
 			top: 24px;
 		}
 		
-		&.tablet, &.mobile {
-			
-			.buttons {
-				border-radius: 4px;
-				left: 5px;
-				top: 11px;
-				width: 13px;
-				height: 2px;
-				transition: all .25s linear;
-				background-color: lighten($color-primary, 65%);
-				
-				&:before, &:after {
-					display: block;
-					border-radius: 4px;
-					top: 0;
-					width: 13px;
-					height: 2px;
-					transition: all .25s linear;
-					background-color: lighten($color-primary, 65%);
-				}
-				
-				&:before {
-					left: 0px;
-					top: -4px;
-				}
-				
-				&:after {
-					left: 0px;
-					top: 4px;
-				}
-			}
-			
-			.address_bar {
-				width: calc(100% - 28px);
-				left: 23px;
-				transition: all .25s linear;
-			}
-		}
-	
-		&.tablet {
-			padding-top: 99%;
-			width: 74%;
-			transition: all .25s linear;
-// 			margin: 30px auto 60px auto;
-		}
-		
-		&.mobile {
-			padding-top: 82.3%;
-			width: 46%;
-			transition: all .25s linear;
-// 			margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto;
-		}
-		
 		@include tablet {
 			.buttons {
 				display: block;
@@ -410,56 +523,11 @@ html, body {
 				position: absolute;
 				top: 49px;
 			}
-			
-			&.tablet, &.mobile {
-		
-				.buttons {
-					border-radius: 4px;
-						left: 16px;
-					top: 22px;
-					width: 26px;
-					height: 4px;
-					transition: all .25s linear;
-					
-					&:before, &:after {
-						display: block;
-						border-radius: 4px;
-						top: 0;
-						width: 26px;
-						height: 4px;
-						transition: all .25s linear;
-					}
-					
-					&:before {
-						left: 0px;
-						top: -8px;
-					}
-					
-					&:after {
-						left: 0px;
-						top: 8px;
-					}
-				}
-				
-				.address_bar {
-					width: calc(100% - 70px);
-					left: 58px;
-					transition: all .25s linear;
-				}
-			}
 		}
 		
 		@include desktop {
 			grid-column: span 1;
-			margin: 0px auto 24.4% auto;
-			
-			&.tablet {
-				margin: 0px auto;
-			}
-			
-			&.mobile {
-				margin: 0px auto calc(16.76%) auto;
-			}
+			margin: 0px auto/*  24.4% auto */;
 			
 			.buttons {
 				display: block;
@@ -512,42 +580,31 @@ html, body {
 				position: absolute;
 				top: 49px;
 			}
-			
-			&.tablet, &.mobile {
+		}
+	}
+	
+	.pagination {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 10px;
+		margin: 30px auto 90px auto;
+		transition: all .25s linear;
 		
-				.buttons {
-					border-radius: 4px;
-						left: 16px;
-					top: 22px;
-					width: 26px;
-					height: 4px;
-					transition: all .25s linear;
-					
-					&:before, &:after {
-						display: block;
-						border-radius: 4px;
-						top: 0;
-						width: 26px;
-						height: 4px;
-						transition: all .25s linear;
-					}
-					
-					&:before {
-						left: 0px;
-						top: -8px;
-					}
-					
-					&:after {
-						left: 0px;
-						top: 8px;
-					}
-				}
-				
-				.address_bar {
-					width: calc(100% - 70px);
-					left: 58px;
-					transition: all .25s linear;
-				}
+		a {
+			height: 10px;
+			width: 10px;
+			border-radius: 10px;
+			box-shadow: inset 0px 0px 0px 1px $color-secondary;	
+			
+			&:first-child, &:last-child {
+				margin: 0px 10px;
+			}
+			
+			&.on {
+				background-color: $color-secondary;
 			}
 		}
 	}
@@ -804,7 +861,7 @@ header {
 				&:before {
 					@include fa-icon;
 					@extend .fas;
-					content: '\f075';
+					content: '\f086';
 					font-size: 20px;
 					position: absolute;
 					left: -30px;
@@ -815,33 +872,31 @@ header {
 				span {
 					content: '';
 					display: block;
-					height: 3px;
-					width: 3px;
-					border-radius: 3px;
-					background: rgba($color-primary, 0);
+					height: 2px;
+					width: 2px;
+					border-radius: 2px;
 					position: absolute;
-					left: -20.5px;
-					top: 7.5px;
+					left: -22.5px;
+					top: 6.5px;
 					animation: 15.1s chat_delay2 infinite linear;
 					
 					&:before, &:after {
 						content: '';
 						display: block;
-						height: 3px;
-						width: 3px;
-						border-radius: 3px;
-						background: rgba($color-primary, 0);
+						height: 2px;
+						width: 2px;
+						border-radius: 2px;
 						position: absolute;
 						top: 0;
 					}
 					
 					&:before {
-						left: -4.5px;
+						left: -3px;
 						animation: 15.1s chat_delay1 infinite linear;
 					}
 					
 					&:after {
-						left: 4.5px;
+						left: 3px;
 						animation: 15.1s chat_delay3 infinite linear;
 					}
 				}
@@ -973,39 +1028,37 @@ header {
 					
 					span {
 						transition: transform .25s linear;
-						height: 3.5px;
-						width: 3.5px;
-						border-radius: 3.5px;
-						left: -21.5px;
-						top: 8.5px;
+						height: 2.5px;
+						width: 2.5px;
+						border-radius: 2.5px;
+						left: -24.5px;
+						top: 7px;
 						animation-name: none;
 						animation-delay: 0s;
 						
 						&:before, &:after {
-							height: 3.5px;
-							width: 3.5px;
-							border-radius: 3.5px;
+							height: 2.5px;
+							width: 2.5px;
+							border-radius: 2.5px;
 							animation-name: none;
 							animation-delay: 0s;
 						}
 						
 						&:before {
-							left: -5px;
+							left: -4px;
 						}
 						
 						&:after {
-							left: 5px;
+							left: 4px;
 						}
 					}
 					&:hover {
 						&:before {
-							background: rgba($color-primary, .15);
 							transform: scale(1.2,1.2);
 							transition: all .25s linear;
 						}	
 						
 						span {
-							background: rgba($color-primary, .15);
 							transform: scale(1.2,1.2);
 							animation: .9s chat infinite linear;
 							animation-delay: .3s;
@@ -1018,7 +1071,6 @@ header {
 							
 							&:after {
 								animation: .9s chat infinite linear;
-								background: rgba($color-primary, .15);
 								animation-delay: .6s;
 							}
 						}
@@ -1338,6 +1390,11 @@ main {
 					box-shadow: -75px 75px 150px rgba(0,0,0,.75);
 				}
 				
+				.pagination {
+					grid-column: 7 / span 6;
+					z-index: 9999;
+				}
+				
 				&:nth-of-type(odd) {
 					
 					.description {
@@ -1348,6 +1405,10 @@ main {
 					.browser {
 						grid-column: 1 / span 6;
 						box-shadow: 75px 75px 150px rgba(0,0,0,.75);
+					}
+					
+					.pagination {
+						grid-column: 1 / span 6;
 					}
 				}
 			}

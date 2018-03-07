@@ -134,16 +134,67 @@ $(".btn_menu").click(function() {
 	$('.logo_circle').toggleClass('hidden');
 });
 
-$(".browser:even").click(function() {
-	var browser = $(this);
-	browser.css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+$(function() {      
+	//Enable swiping...
+	$(".browser").swipe( {
+		swipeLeft:function(event, direction, distance, duration, fingerCount) {
+			var browser = $(this);
+			browser.css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+			browser.css("opacity","0");
+			var selected = browser.parent().children(".pagination").children(".on");
+// 			browser.parent().children(".pagination").children(".on").removeClass("on");
+			selected.nextSibling().addClass("on");
+			setTimeout(function() {
+				browser.css("transition","none");
+				browser.css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
+		    }, 250);
+			setTimeout(function() {
+				browser.css("transition","all .25s linear");
+				browser.css("opacity","1");
+				browser.css("transform","translate(0,0)");
+		    }, 350);  
+		},
+/*
+		swipeRight:function(event, direction, distance, duration, fingerCount) {
+			var browser = $(this);
+			browser.css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
+			browser.parent().children(".pagination").children("a").removeClass("on");
+			browser.css("opacity","0");
+			setTimeout(function() {
+				browser.css("transition","none");
+				browser.css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+		    }, 250);
+			setTimeout(function() {
+				browser.css("transition","all .25s linear");
+				browser.css("opacity","1");
+				browser.css("transform","translate(0,0)");
+		    }, 350);  
+		},
+*/
+		threshold:25
+	});
+});
+
+
+$(".pagination > a").click(function() {
+	var pagination = $(this);
+	pagination.parent().parent().children(".browser").css("transform","translate( -" + (window.innerWidth + 300) / 2 + "px ,0)");
+	pagination.parent().parent().children(".browser").css("opacity","0");
+	pagination.siblings().removeClass("on");
+	pagination.addClass("on");
 	setTimeout(function() {
-		browser.children('img').hide();
-		browser.css("transform","translate(0,0)");
+		pagination.parent().parent().children(".browser").css("transition","none");
+		pagination.parent().parent().children(".browser").css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
+    }, 250);
+	setTimeout(function() {
+		pagination.parent().parent().children(".browser").css("transition","all .25s linear");
+		pagination.parent().parent().children(".browser").css("opacity","1");
+		pagination.parent().parent().children(".browser").css("transform","translate(0,0)");
     }, 350);
 });
 
 
+/*
 $(".browser:odd").click(function() {
 	var browser = $(this);
 	browser.css("transform","translate( " + (window.innerWidth + 300) / 2 + "px ,0)");
@@ -152,6 +203,7 @@ $(".browser:odd").click(function() {
 		browser.css("transform","translate(0,0)");
     }, 350);
 });
+*/
 
 
 $(".main").click(function() {
@@ -171,13 +223,13 @@ $(".btn").click(function () {
 
 $(".plus").click(function() {
 	$(this).parent().children(".minus").removeClass("disabled");
-	if($(this).parent().parent().parent().children(".browser").hasClass("mobile")) {
-		$(this).parent().parent().parent().children(".browser").removeClass("mobile");
-		$(this).parent().parent().parent().children(".browser").addClass("tablet");
+	if($(this).parent().parent().parent().hasClass("mobile")) {
+		$(this).parent().parent().parent().removeClass("mobile");
+		$(this).parent().parent().parent().addClass("tablet");
 		$(this).parent().children("span").text("Tablet");
-	} else if($(this).parent().parent().parent().children(".browser").hasClass("tablet")) {
-		$(this).parent().parent().parent().children(".browser").removeClass("tablet");
-		$(this).parent().parent().parent().children(".browser").addClass("desktop");
+	} else if($(this).parent().parent().parent().hasClass("tablet")) {
+		$(this).parent().parent().parent().removeClass("tablet");
+		$(this).parent().parent().parent().addClass("desktop");
 		$(this).parent().children("span").text("Desktop");
 		$(this).addClass("disabled");
 	}
@@ -185,15 +237,15 @@ $(".plus").click(function() {
 
 $(".minus").click(function() {
 	$(this).parent().children(".plus").removeClass("disabled");
-	if($(this).parent().parent().parent().children(".browser").hasClass("tablet")) {
-		$(this).parent().parent().parent().children(".browser").removeClass("tablet");
-		$(this).parent().parent().parent().children(".browser").addClass("mobile");
+	if($(this).parent().parent().parent().hasClass("tablet")) {
+		$(this).parent().parent().parent().removeClass("tablet");
+		$(this).parent().parent().parent().addClass("mobile");
 		$(this).parent().children("span").text("Mobile");
 		$(this).addClass("disabled");
-	} else if($(this).parent().parent().parent().children(".browser").hasClass("mobile")) {
+	} else if($(this).parent().parent().parent().hasClass("mobile")) {
 	} else {
-		$(this).parent().parent().parent().children(".browser").removeClass("desktop");
-		$(this).parent().parent().parent().children(".browser").addClass("tablet");
+		$(this).parent().parent().parent().removeClass("desktop");
+		$(this).parent().parent().parent().addClass("tablet");
 		$(this).parent().children("span").text("Tablet");
 	}
 });
