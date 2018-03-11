@@ -3376,20 +3376,13 @@ html, body {
   html section, body section {
     width: calc(100% - 76px);
     margin: 60px auto;
-    display: grid;
-    grid-template-columns: 100%; }
-    html section > *, body section > * {
-      grid-column: span 1; }
+    display: flex; }
     @media (min-width: 768px) {
       html section, body section {
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 30px;
         width: calc(100% - 120px);
         max-width: 768px; } }
     @media (min-width: 1024px) {
       html section, body section {
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 30px;
         width: calc(100% - 120px);
         max-width: 1140px; } }
   html a, body a {
@@ -3434,9 +3427,11 @@ html, body {
       overflow: hidden;
       position: absolute; }
       html .resize > a:first-of-type, body .resize > a:first-of-type {
-        left: 5px; }
+        left: 5px;
+        top: 0; }
       html .resize > a:last-of-type, body .resize > a:last-of-type {
-        right: 5px; }
+        right: 5px;
+        top: 0; }
       html .resize > a:before, body .resize > a:before {
         content: "";
         position: absolute;
@@ -3496,7 +3491,7 @@ html, body {
     box-sizing: border-box;
     border: 4px solid white;
     border-radius: 60px; }
-  html .project.tablet .browser .buttons, html .project.mobile .browser .buttons, body .project.tablet .browser .buttons, body .project.mobile .browser .buttons {
+  html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
     border-radius: 4px;
     left: 5px;
     top: 11px;
@@ -3504,7 +3499,7 @@ html, body {
     height: 2px;
     transition: all 0.25s linear;
     background-color: #c7cbd9; }
-    html .project.tablet .browser .buttons:before, html .project.tablet .browser .buttons:after, html .project.mobile .browser .buttons:before, html .project.mobile .browser .buttons:after, body .project.tablet .browser .buttons:before, body .project.tablet .browser .buttons:after, body .project.mobile .browser .buttons:before, body .project.mobile .browser .buttons:after {
+    html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
       display: block;
       border-radius: 4px;
       top: 0;
@@ -3512,94 +3507,131 @@ html, body {
       height: 2px;
       transition: all 0.25s linear;
       background-color: #c7cbd9; }
-    html .project.tablet .browser .buttons:before, html .project.mobile .browser .buttons:before, body .project.tablet .browser .buttons:before, body .project.mobile .browser .buttons:before {
+    html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
       left: 0px;
       top: -4px; }
-    html .project.tablet .browser .buttons:after, html .project.mobile .browser .buttons:after, body .project.tablet .browser .buttons:after, body .project.mobile .browser .buttons:after {
+    html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
       left: 0px;
       top: 4px; }
-  html .project.tablet .browser .address_bar, html .project.mobile .browser .address_bar, body .project.tablet .browser .address_bar, body .project.mobile .browser .address_bar {
+  html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
     width: calc(100% - 28px);
     left: 23px;
     transition: all 0.25s linear; }
-  html .project.tablet .browser, body .project.tablet .browser {
-    padding-top: 99%;
+  html .project.desktop div .browser, body .project.desktop div .browser {
+    width: 100%; }
+    html .project.desktop div .browser:before, body .project.desktop div .browser:before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      padding-bottom: 74.7%;
+      transition: all 0.25s linear; }
+  html .project.tablet div .browser, body .project.tablet div .browser {
     width: 74%;
     transition: all 0.25s linear; }
-  html .project.mobile .browser, body .project.mobile .browser {
-    padding-top: 82.3%;
+    html .project.tablet div .browser:before, body .project.tablet div .browser:before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      padding-bottom: 133.7%;
+      transition: all 0.25s linear; }
+  html .project.mobile div .browser, body .project.mobile div .browser {
     width: 46%;
     transition: all 0.25s linear; }
+    html .project.mobile div .browser:before, body .project.mobile div .browser:before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      padding-bottom: 178.9%;
+      transition: all 0.25s linear; }
   @media (min-width: 768px) {
-    html .project.tablet .browser .buttons, html .project.mobile .browser .buttons, body .project.tablet .browser .buttons, body .project.mobile .browser .buttons {
+    html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
       border-radius: 4px;
       left: 16px;
       top: 22px;
       width: 26px;
       height: 4px;
       transition: all 0.25s linear; }
-      html .project.tablet .browser .buttons:before, html .project.tablet .browser .buttons:after, html .project.mobile .browser .buttons:before, html .project.mobile .browser .buttons:after, body .project.tablet .browser .buttons:before, body .project.tablet .browser .buttons:after, body .project.mobile .browser .buttons:before, body .project.mobile .browser .buttons:after {
+      html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
         display: block;
         border-radius: 4px;
         top: 0;
         width: 26px;
         height: 4px;
         transition: all 0.25s linear; }
-      html .project.tablet .browser .buttons:before, html .project.mobile .browser .buttons:before, body .project.tablet .browser .buttons:before, body .project.mobile .browser .buttons:before {
+      html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
         left: 0px;
         top: -8px; }
-      html .project.tablet .browser .buttons:after, html .project.mobile .browser .buttons:after, body .project.tablet .browser .buttons:after, body .project.mobile .browser .buttons:after {
+      html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
         left: 0px;
         top: 8px; }
-    html .project.tablet .browser .address_bar, html .project.mobile .browser .address_bar, body .project.tablet .browser .address_bar, body .project.mobile .browser .address_bar {
+    html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
       width: calc(100% - 70px);
       left: 58px;
       transition: all 0.25s linear; } }
   @media (min-width: 1024px) {
-    html .project .pagination, body .project .pagination {
-      margin-bottom: 24.2%; }
-    html .project.tablet .browser, body .project.tablet .browser {
+    html .project div .pagination:before, body .project div .pagination:before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      transition: all 0.25s linear; }
+    html .project.tablet div .browser, body .project.tablet div .browser {
       margin: 0px auto; }
-    html .project.tablet .pagination, body .project.tablet .pagination {
-      margin-bottom: 0px; }
-    html .project.mobile .browser, body .project.mobile .browser {
+    html .project.tablet div .pagination, body .project.tablet div .pagination {
+      transition: all 0.25s linear; }
+    html .project.mobile div .browser, body .project.mobile div .browser {
       margin: 0px auto; }
-    html .project.mobile .pagination, body .project.mobile .pagination {
-      margin-bottom: 16.66%; }
-    html .project.tablet .browser .buttons, html .project.mobile .browser .buttons, body .project.tablet .browser .buttons, body .project.mobile .browser .buttons {
+    html .project.mobile div .pagination:before, body .project.mobile div .pagination:before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      transition: all 0.25s linear; }
+    html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
       border-radius: 4px;
       left: 16px;
       top: 22px;
       width: 26px;
       height: 4px;
       transition: all 0.25s linear; }
-      html .project.tablet .browser .buttons:before, html .project.tablet .browser .buttons:after, html .project.mobile .browser .buttons:before, html .project.mobile .browser .buttons:after, body .project.tablet .browser .buttons:before, body .project.tablet .browser .buttons:after, body .project.mobile .browser .buttons:before, body .project.mobile .browser .buttons:after {
+      html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
         display: block;
         border-radius: 4px;
         top: 0;
         width: 26px;
         height: 4px;
         transition: all 0.25s linear; }
-      html .project.tablet .browser .buttons:before, html .project.mobile .browser .buttons:before, body .project.tablet .browser .buttons:before, body .project.mobile .browser .buttons:before {
+      html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
         left: 0px;
         top: -8px; }
-      html .project.tablet .browser .buttons:after, html .project.mobile .browser .buttons:after, body .project.tablet .browser .buttons:after, body .project.mobile .browser .buttons:after {
+      html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
         left: 0px;
         top: 8px; }
-    html .project.tablet .browser .address_bar, html .project.mobile .browser .address_bar, body .project.tablet .browser .address_bar, body .project.mobile .browser .address_bar {
+    html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
       width: calc(100% - 70px);
       left: 58px;
       transition: all 0.25s linear; } }
-  html .browser, body .browser {
-    padding-top: 74.8%;
+  html div .browser, body div .browser {
     border-radius: 4px;
     width: 100%;
     background: #f4f5f8;
     display: block;
     position: relative;
     transition: all 0.25s linear;
-    margin: 0px auto; }
-    html .browser .buttons, body .browser .buttons {
+    margin: 0px auto;
+    /*
+			&:before {
+				content: "";
+				display: inline-block;
+				width: 1px;
+				height: 0;
+				padding-bottom: 74.8%;
+			}
+	*/ }
+    html div .browser .buttons, body div .browser .buttons {
       display: block;
       background-color: #f5c04f;
       width: 5px;
@@ -3609,7 +3641,7 @@ html, body {
       top: 10px;
       position: absolute;
       transition: all 0.25s linear; }
-      html .browser .buttons:before, html .browser .buttons:after, body .browser .buttons:before, body .browser .buttons:after {
+      html div .browser .buttons:before, html div .browser .buttons:after, body div .browser .buttons:before, body div .browser .buttons:after {
         content: '';
         display: block;
         width: 5px;
@@ -3618,15 +3650,15 @@ html, body {
         top: 0;
         position: absolute;
         transition: all 0.25s linear; }
-      html .browser .buttons:before, body .browser .buttons:before {
+      html div .browser .buttons:before, body div .browser .buttons:before {
         left: -8px;
         top: 0;
         background-color: #ed6b60; }
-      html .browser .buttons:after, body .browser .buttons:after {
+      html div .browser .buttons:after, body div .browser .buttons:after {
         left: 8px;
         top: 0;
         background-color: #62c755; }
-    html .browser .address_bar, body .browser .address_bar {
+    html div .browser .address_bar, body div .browser .address_bar {
       position: absolute;
       display: block;
       background: white;
@@ -3636,7 +3668,7 @@ html, body {
       top: 5px;
       transition: all 0.25s linear;
       border-radius: 2px; }
-    html .browser img, body .browser img {
+    html div .browser img, body div .browser img {
       border-top: 1px solid #e5e7ed;
       width: 100%;
       display: block;
@@ -3644,7 +3676,7 @@ html, body {
       position: absolute;
       top: 24px; }
     @media (min-width: 768px) {
-      html .browser .buttons, body .browser .buttons {
+      html div .browser .buttons, body div .browser .buttons {
         display: block;
         width: 10px;
         height: 10px;
@@ -3653,7 +3685,7 @@ html, body {
         top: 20px;
         position: absolute;
         transition: all 0.25s linear; }
-        html .browser .buttons:before, html .browser .buttons:after, body .browser .buttons:before, body .browser .buttons:after {
+        html div .browser .buttons:before, html div .browser .buttons:after, body div .browser .buttons:before, body div .browser .buttons:after {
           content: '';
           display: block;
           width: 10px;
@@ -3662,13 +3694,13 @@ html, body {
           top: 0;
           position: absolute;
           transition: all 0.25s linear; }
-        html .browser .buttons:before, body .browser .buttons:before {
+        html div .browser .buttons:before, body div .browser .buttons:before {
           left: -16px;
           top: 0; }
-        html .browser .buttons:after, body .browser .buttons:after {
+        html div .browser .buttons:after, body div .browser .buttons:after {
           left: 16px;
           top: 0; }
-      html .browser .address_bar, body .browser .address_bar {
+      html div .browser .address_bar, body div .browser .address_bar {
         position: absolute;
         display: block;
         background: white;
@@ -3678,17 +3710,16 @@ html, body {
         left: 81px;
         top: 10px;
         transition: all 0.25s linear; }
-      html .browser img, body .browser img {
+      html div .browser img, body div .browser img {
         width: 100%;
         display: block;
         border-radius: 0px 0px 4px 4px;
         position: absolute;
         top: 49px; } }
     @media (min-width: 1024px) {
-      html .browser, body .browser {
-        grid-column: span 1;
+      html div .browser, body div .browser {
         margin: 0px auto; }
-        html .browser .buttons, body .browser .buttons {
+        html div .browser .buttons, body div .browser .buttons {
           display: block;
           width: 10px;
           height: 10px;
@@ -3697,7 +3728,7 @@ html, body {
           top: 20px;
           position: absolute;
           transition: all 0.25s linear; }
-          html .browser .buttons:before, html .browser .buttons:after, body .browser .buttons:before, body .browser .buttons:after {
+          html div .browser .buttons:before, html div .browser .buttons:after, body div .browser .buttons:before, body div .browser .buttons:after {
             content: '';
             display: block;
             width: 10px;
@@ -3706,13 +3737,13 @@ html, body {
             top: 0;
             position: absolute;
             transition: all 0.25s linear; }
-          html .browser .buttons:before, body .browser .buttons:before {
+          html div .browser .buttons:before, body div .browser .buttons:before {
             left: -16px;
             top: 0; }
-          html .browser .buttons:after, body .browser .buttons:after {
+          html div .browser .buttons:after, body div .browser .buttons:after {
             left: 16px;
             top: 0; }
-        html .browser .address_bar, body .browser .address_bar {
+        html div .browser .address_bar, body div .browser .address_bar {
           position: absolute;
           display: block;
           background: white;
@@ -3722,13 +3753,13 @@ html, body {
           left: 81px;
           top: 10px;
           transition: all 0.25s linear; }
-        html .browser img, body .browser img {
+        html div .browser img, body div .browser img {
           width: 100%;
           display: block;
           border-radius: 0px 0px 4px 4px;
           position: absolute;
           top: 49px; } }
-  html .pagination, body .pagination {
+  html div .pagination, body div .pagination {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -3736,18 +3767,18 @@ html, body {
     width: 100%;
     height: 10px;
     margin: 30px auto 90px auto;
-    transition: all 0.25s linear; }
-    html .pagination a, body .pagination a {
+    transition: all 0.25s linear;
+    position: relative; }
+    html div .pagination a, body div .pagination a {
       height: 10px;
       width: 10px;
       border-radius: 10px;
       box-shadow: inset 0px 0px 0px 1px white; }
-      html .pagination a:first-child, html .pagination a:last-child, body .pagination a:first-child, body .pagination a:last-child {
+      html div .pagination a:first-child, html div .pagination a:last-child, body div .pagination a:first-child, body div .pagination a:last-child {
         margin: 0px 10px; }
-      html .pagination a.on, body .pagination a.on {
+      html div .pagination a.on, body div .pagination a.on {
         background-color: white; }
   html .social, body .social {
-    grid-column: span 1;
     width: 100%;
     text-align: center;
     display: block !important;
@@ -3789,18 +3820,15 @@ html, body {
         opacity: 1;
         top: 0 !important; }
     @media (min-width: 768px) {
-      html .social, body .social {
-        grid-column: span 12; }
-        html .social a, body .social a {
-          font-size: 15px;
-          padding-left: 37px; }
-          html .social a:before, body .social a:before {
-            top: -4px;
-            font-size: 30px; } }
+      html .social a, body .social a {
+        font-size: 15px;
+        padding-left: 37px; }
+        html .social a:before, body .social a:before {
+          top: -4px;
+          font-size: 30px; } }
     @media (min-width: 1024px) {
       html .social, body .social {
-        text-align: left;
-        grid-column: span 12; }
+        text-align: left; }
         html .social a, body .social a {
           transition: all 0.5s linear;
           font-size: 15px;
@@ -3890,6 +3918,7 @@ header {
     margin: auto;
     transition: all 0.25s linear; }
     header .wrapper .logo_af {
+      top: 0;
       left: calc(50% - 30px);
       position: absolute;
       z-index: 3;
@@ -4096,14 +4125,14 @@ main {
     text-align: center;
     margin: 0px auto; }
     main #about > div {
-      grid-column: span 2;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: calc(75vh - 90px);
       min-height: 220px;
-      padding-top: 90px; }
+      padding-top: 90px;
+      margin: 0px auto; }
       main #about > div h1 {
         margin: 0px auto 2px auto;
         font-size: 36px;
@@ -4126,7 +4155,6 @@ main {
         line-height: 1.5; }
     @media (min-width: 768px) {
       main #about > div {
-        grid-column: span 12;
         padding-top: 120px;
         height: calc(90vh - 240px);
         min-height: 397px;
@@ -4149,7 +4177,6 @@ main {
           margin: 0 0 15px 0; } }
     @media (min-width: 1024px) {
       main #about > div {
-        grid-column: 3 / span 8;
         padding-top: 120px;
         height: calc(75vh - 120px);
         min-height: 397px;
@@ -4172,6 +4199,7 @@ main {
           margin: 0 0 15px 0;
           white-space: nowrap; } }
   main #work {
+    flex-direction: column;
     margin-top: 0px;
     max-width: 277.5px; }
     main #work h2 {
@@ -4181,32 +4209,26 @@ main {
       padding-bottom: 10px;
       display: table;
       border-bottom: 1px solid #6F727A;
-      margin: 0px auto 20px auto;
-      grid-column: span 1; }
-    main #work .project {
-      grid-column: span 1;
-      display: grid;
-      grid-template-columns: 1fr; }
-      main #work .project .description {
-        padding-top: 0px;
-        text-align: center;
-        grid-column: span 1;
-        /* ZOOM */ }
-        main #work .project .description h3 {
-          font-family: "Montserrat", sans-serif;
-          font-weight: 700;
-          font-size: 18px;
-          text-transform: uppercase;
-          margin: 0 auto;
-          position: relative; }
-        main #work .project .description h4 {
-          font-family: "Lora", serif;
-          font-weight: 300;
-          font-size: 13px;
-          font-style: italic;
-          margin: 2px auto 0 auto; }
-        main #work .project .description p {
-          display: none; }
+      margin: 0px auto 20px auto; }
+    main #work .project .description {
+      padding-top: 0px;
+      text-align: center;
+      /* ZOOM */ }
+      main #work .project .description h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin: 0 auto;
+        position: relative; }
+      main #work .project .description h4 {
+        font-family: "Lora", serif;
+        font-weight: 300;
+        font-size: 13px;
+        font-style: italic;
+        margin: 2px auto 0 auto; }
+      main #work .project .description p {
+        display: none; }
     main #work .social {
       margin-top: -60px; }
       main #work .social a {
@@ -4218,29 +4240,23 @@ main {
       main #work {
         max-width: 555px; }
         main #work h2 {
-          grid-column: span 12;
           font-size: 24px; }
-        main #work .project {
-          grid-column: span 12;
-          grid-column-gap: 30px; }
-          main #work .project .description h3 {
-            font-size: 30px; }
-          main #work .project .description h4 {
-            font-size: 18px; } }
+        main #work .project .description h3 {
+          font-size: 30px; }
+        main #work .project .description h4 {
+          font-size: 18px; } }
     @media (min-width: 1024px) {
       main #work {
         max-width: 1140px; }
         main #work h2 {
-          grid-column: span 12;
           font-size: 24px;
           width: 100%;
           margin-bottom: 0px;
           display: block; }
         main #work .project {
-          grid-column: span 12;
-          grid-column-gap: 30px;
-          display: grid;
-          grid-template-columns: repeat(12, 1fr);
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
           padding: 90px 0px; }
           main #work .project:first-of-type {
             margin-top: -30px; }
@@ -4248,9 +4264,8 @@ main {
             display: flex;
             justify-content: flex-start;
             flex-direction: column;
-            grid-column: 1 / span 5;
-            grid-row: 1;
             text-align: left;
+            width: 40.17%;
             /* ZOOM */ }
             main #work .project .description h3 {
               margin: 0;
@@ -4269,25 +4284,23 @@ main {
             main #work .project .description .resize {
               text-align: center;
               margin: 30px 0px; }
-          main #work .project .browser {
-            grid-column: 7 / span 6;
-            grid-row: 1;
-            box-shadow: -75px 75px 150px rgba(0, 0, 0, 0.75); }
-          main #work .project .pagination {
-            grid-column: 7 / span 6;
-            z-index: 9999; }
+          main #work .project > div {
+            width: 48.68%; }
+            main #work .project > div .browser {
+              box-shadow: -75px 75px 150px rgba(0, 0, 0, 0.75); }
+            main #work .project > div .pagination {
+              z-index: 9999; }
           main #work .project:nth-of-type(odd) .description {
-            grid-column: 8 / span 5;
-            text-align: left; }
-          main #work .project:nth-of-type(odd) .browser {
-            grid-column: 1 / span 6;
-            box-shadow: 75px 75px 150px rgba(0, 0, 0, 0.75); }
-          main #work .project:nth-of-type(odd) .pagination {
-            grid-column: 1 / span 6; }
+            text-align: left;
+            order: 2; }
+          main #work .project:nth-of-type(odd) div .browser {
+            box-shadow: 75px 75px 150px rgba(0, 0, 0, 0.75);
+            order: 1; }
         main #work .social {
           margin-top: -90px; } }
   main #experience {
-    margin-top: 90px; }
+    margin-top: 90px;
+    flex-wrap: wrap; }
     main #experience h2 {
       font-size: 18px;
       text-transform: uppercase;
@@ -4295,29 +4308,29 @@ main {
       padding-bottom: 10px;
       display: table;
       border-bottom: 1px solid #6F727A;
-      margin: 0px auto 20px auto;
-      grid-column: span 1;
-      grid-row: 1; }
+      margin: 0px auto 20px auto; }
     main #experience .clients {
       height: 200px;
       margin-bottom: 25px;
-      grid-row: 2;
-      grid-column: span 1; }
+      width: 100%;
+      position: relative;
+      overflow: visible; }
       main #experience .clients div {
+        margin-left: 50%;
         display: block;
         width: 100vw;
         height: 200px;
         background-image: url("../img/clients.png");
-        animation: 100s scroll infinite linear;
-        background-size: 150px;
+        animation: animatedBackground 100s infinite linear;
+        background-size: 5471px 200px;
         background-repeat: repeat-x;
         background-position-y: center;
         position: absolute;
-        left: 0; }
+        left: -50vw;
+        top: 0; }
     main #experience .expertise {
-      grid-row: 3;
-      grid-column: span 1;
-      text-align: left; }
+      text-align: left;
+      width: 100%; }
       main #experience .expertise h3 {
         font-size: 13px;
         font-weight: 500;
@@ -4381,7 +4394,6 @@ main {
         main #experience .expertise ul:last-child li:last-child {
           margin-bottom: 0; }
     main #experience .social {
-      grid-row: 4;
       margin-top: 60px;
       text-align: left; }
       main #experience .social a {
@@ -4390,8 +4402,6 @@ main {
           content: '\f08c';
           color: #0077B5; }
     main #experience .history {
-      grid-row: 5;
-      grid-column: span 1;
       width: 100%;
       min-height: 800px;
       margin-top: 60px; }
@@ -4483,24 +4493,17 @@ main {
             height: calc(120%); }
     @media (min-width: 768px) {
       main #experience h2 {
-        font-size: 24px;
-        grid-column: span 12; }
-      main #experience .expertise {
-        grid-column: 1 / 8; }
-        main #experience .expertise h3 {
-          font-size: 13px; }
-        main #experience .expertise ul {
-          padding: 0;
-          margin: 0;
-          list-style: none;
-          width: 100%; }
-          main #experience .expertise ul li div {
-            width: 65%; }
-      main #experience .social {
-        grid-row: 4; }
+        font-size: 24px; }
+      main #experience .expertise h3 {
+        font-size: 13px; }
+      main #experience .expertise ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 100%; }
+        main #experience .expertise ul li div {
+          width: 65%; }
       main #experience .history {
-        grid-row: 3;
-        grid-column: 9 /13;
         margin-top: 0; }
         main #experience .history ul {
           height: 100%; }
@@ -4510,19 +4513,24 @@ main {
               bottom: 0px; } }
     @media (min-width: 1024px) {
       main #experience {
+        flex-wrap: wrap;
+        justify-content: space-between;
         padding: 0; }
         main #experience h2 {
+          order: 1;
           font-size: 24px;
           width: 100%;
           margin-bottom: 0px;
           max-width: 1140px;
-          display: block;
-          grid-column: span 12; }
+          display: block; }
         main #experience .clients {
-          grid-column: span 12;
+          order: 2;
           overflow: visible; }
         main #experience .expertise {
-          grid-column: 1 / 8; }
+          order: 3;
+          display: flex;
+          flex-direction: column;
+          width: 57.28%; }
           main #experience .expertise h3 {
             font-size: 15px; }
           main #experience .expertise ul {
@@ -4535,12 +4543,13 @@ main {
               main #experience .expertise ul li div {
                 width: 75%; }
         main #experience .social {
-          grid-row: 4;
-          margin-top: 70px; }
+          margin-top: 70px;
+          order: 5; }
         main #experience .history {
-          grid-column: 10 / 13;
-          grid-row: 3;
-          margin-top: 0; }
+          order: 4;
+          margin-top: 0;
+          display: flex;
+          width: 22.98%; }
           main #experience .history ul {
             height: 100%; }
             main #experience .history ul li {
@@ -4597,7 +4606,6 @@ footer {
       font-weight: 400;
       margin: 8px auto 0px auto; }
     footer div p {
-      grid-column: span 12;
       font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-size: 13px;
@@ -4638,6 +4646,218 @@ footer {
           max-width: 70%;
           margin: 0px auto; } }
 
+/*
+@supports (display:grid) {
+	html, body {
+		section {
+			display: grid;
+			grid-template-columns: 100%;
+			
+			> * {
+				grid-column: span 1;
+			}
+			
+			@include tablet {
+				grid-template-columns: repeat(12, 1fr);
+				grid-gap: 30px;
+			}
+			
+			@include desktop {
+				grid-template-columns: repeat(12, 1fr);
+				grid-gap: 30px;
+			}
+		}
+		
+		.social {
+			grid-column: span 1;
+			
+			@include tablet {
+				grid-column: span 12;
+			}
+			
+			@include desktop {
+				grid-column: span 12;
+			}
+		}
+	}
+	
+	main {
+			
+		#about {
+			
+			> div {
+				grid-column: span 2;
+			}
+			
+			@include tablet {
+				> div {
+					grid-column: span 12;
+				}
+			}
+			
+			@include desktop {
+				> div {
+					grid-column: 3 / span 8;
+				}
+			}
+		}
+		
+		#work {
+			
+			h2 {
+				grid-column: span 1;
+			}
+			
+			.project {
+				grid-column: span 1;
+				display: grid;
+				grid-template-columns: 1fr;
+					
+				.description {
+					grid-column: span 1;
+					width: 100%;
+				}
+			}	
+			
+			@include tablet {
+				
+				h2 {
+					grid-column: span 12;
+				}
+				
+				.project {
+					grid-column: span 12;
+					grid-column-gap: 30px;
+				}
+			}
+			
+			@include desktop {
+				
+				h2 {
+					grid-column: span 12;
+				}	
+				
+				.project {	
+					grid-column: span 12;
+					grid-column-gap: 30px;
+					display: grid;
+					grid-template-columns: repeat(12, 1fr);
+					
+					.description {
+						grid-column: 1 / span 5;
+						grid-row: 1;
+					}
+					
+					> div {							
+						grid-column: 7 / span 6;
+						grid-row: 1;	
+						width: 100%;
+					}
+						
+					.pagination {
+						grid-column: 7 / span 6;
+					}
+					
+					&:nth-of-type(odd) {
+						
+						.description {
+							grid-column: 8 / span 5;
+						}
+						
+						> div {
+							grid-column: 1 / span 6;
+						}
+					}
+				}
+			}
+		}
+		
+		#experience {
+			
+			h2 {
+				grid-column: span 1;
+				grid-row: 1;
+			}
+			
+			.clients {
+				grid-row: 2;
+				grid-column: span 1;
+			}
+			
+			.expertise {
+				width: 100%;
+				grid-row: 3;
+				grid-column: span 1;
+			}
+			
+			.social {
+				grid-row: 4;
+			}
+			
+			.history {
+				width: 100%;
+				grid-row: 5;
+				grid-column: span 1;
+			}
+		
+			
+			@include tablet {
+				
+				h2 {
+					grid-column: span 12;
+				}
+				
+				.expertise {
+					grid-column: 1 / 8;
+				}
+				
+				.social {
+					grid-row: 4;
+				}
+				
+				.history {
+					grid-row: 3;
+					grid-column: 9 /13;
+				}
+			}
+			
+			@include desktop {
+				
+				h2 {
+					grid-column: span 12;
+				}
+				
+				.clients {
+					grid-column: span 12;
+				}
+				
+				.expertise {
+					grid-column: 1 / 8;
+				}
+				
+				.social {
+					grid-row: 4;
+				}
+				
+				.history {
+					grid-column: 10 / 13;
+					grid-row: 3;
+				}
+			}
+		}
+	}
+	
+	footer {
+		
+		div {
+			
+			p {
+				grid-column: span 12;
+			}
+		}
+	}
+}
+*/
 @keyframes logo {
   0% {
     clip-path: polygon(16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 16% 94%, 0 94%, 0% 94%, 0% 94%);
@@ -4813,6 +5033,12 @@ footer {
 	}
 }
 */
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -5471px 0; } }
+
 @keyframes btn_animation {
   0% {
     box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0); }

@@ -53,23 +53,17 @@ html, body {
 	section {
 		width: calc(100% - 76px);
 		margin: 60px auto;
-		display: grid;
-		grid-template-columns: 100%;
+		display: flex;
 		
 		> * {
-			grid-column: span 1;
 		}
 		
 		@include tablet {
-			grid-template-columns: repeat(12, 1fr);
-			grid-gap: 30px;
 			width: calc(100% - 120px);
 			max-width: 768px;
 		}
 		
 		@include desktop {
-			grid-template-columns: repeat(12, 1fr);
-			grid-gap: 30px;
 			width: calc(100% - 120px);
 			max-width: 1140px;
 		}
@@ -134,10 +128,12 @@ html, body {
 			
 			&:first-of-type {
 				left: 5px;
+				top: 0;
 			}
 			
 			&:last-of-type {
 				right: 5px;
+				top: 0;
 			}
 			
 			&:before {
@@ -240,371 +236,468 @@ html, body {
 	.project {
 		
 		&.tablet, &.mobile {
-			.browser {
-				.buttons {
-					border-radius: 4px;
-					left: 5px;
-					top: 11px;
-					width: 13px;
-					height: 2px;
-					transition: all .25s linear;
-					background-color: lighten($color-primary, 65%);
+			
+			div {
+				
+				.browser {
 					
-					&:before, &:after {
-						display: block;
+					.buttons {
 						border-radius: 4px;
-						top: 0;
+						left: 5px;
+						top: 11px;
 						width: 13px;
 						height: 2px;
 						transition: all .25s linear;
 						background-color: lighten($color-primary, 65%);
+						
+						&:before, &:after {
+							display: block;
+							border-radius: 4px;
+							top: 0;
+							width: 13px;
+							height: 2px;
+							transition: all .25s linear;
+							background-color: lighten($color-primary, 65%);
+						}
+						
+						&:before {
+							left: 0px;
+							top: -4px;
+						}
+						
+						&:after {
+							left: 0px;
+							top: 4px;
+						}
 					}
 					
-					&:before {
-						left: 0px;
-						top: -4px;
+					.address_bar {
+						width: calc(100% - 28px);
+						left: 23px;
+						transition: all .25s linear;
 					}
-					
-					&:after {
-						left: 0px;
-						top: 4px;
-					}
-				}
-				
-				.address_bar {
-					width: calc(100% - 28px);
-					left: 23px;
-					transition: all .25s linear;
 				}
 			}
 		}
-	
+		
+		&.desktop {
+			
+			div {
+			
+				.browser {
+					width: 100%;
+					
+					&:before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 0;
+						padding-bottom: 74.7%;
+						transition: all .25s linear;
+					}
+				}
+			}
+		}
+		
 		&.tablet {
-			.browser {
-				padding-top: 99%;
-				width: 74%;
-				transition: all .25s linear;
-	// 			margin: 30px auto 60px auto;
+			
+			div {
+			
+				.browser {
+	// 				padding-top: 99%;
+					width: 74%;
+					transition: all .25s linear;
+		// 			margin: 30px auto 60px auto;
+		
+					&:before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 0;
+						padding-bottom: 133.7%;
+						transition: all .25s linear;
+					}
+				}
 			}
 		}
 		
 		&.mobile {
-			.browser {
-				padding-top: 82.3%;
-				width: 46%;
-				transition: all .25s linear;
-	// 			margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto;
+			
+			div {
+			
+				.browser {
+	// 				padding-top: 82.3%;
+					width: 46%;
+					transition: all .25s linear;
+		// 			margin: calc(8.38% + 30px) auto calc(8.38% + 60px) auto;
+					
+					&:before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 0;
+						padding-bottom: 178.9%;
+						transition: all .25s linear;
+					}
+				}
 			}
 		}
 		
 		@include tablet {
 			&.tablet, &.mobile {
 				
-				.browser {
-		
-					.buttons {
-						border-radius: 4px;
-							left: 16px;
-						top: 22px;
-						width: 26px;
-						height: 4px;
-						transition: all .25s linear;
-						
-						&:before, &:after {
-							display: block;
+				div {
+				
+					.browser {
+			
+						.buttons {
 							border-radius: 4px;
-							top: 0;
+								left: 16px;
+							top: 22px;
 							width: 26px;
 							height: 4px;
 							transition: all .25s linear;
+							
+							&:before, &:after {
+								display: block;
+								border-radius: 4px;
+								top: 0;
+								width: 26px;
+								height: 4px;
+								transition: all .25s linear;
+							}
+							
+							&:before {
+								left: 0px;
+								top: -8px;
+							}
+							
+							&:after {
+								left: 0px;
+								top: 8px;
+							}
 						}
 						
-						&:before {
-							left: 0px;
-							top: -8px;
+						.address_bar {
+							width: calc(100% - 70px);
+							left: 58px;
+							transition: all .25s linear;
 						}
-						
-						&:after {
-							left: 0px;
-							top: 8px;
-						}
-					}
-					
-					.address_bar {
-						width: calc(100% - 70px);
-						left: 58px;
-						transition: all .25s linear;
 					}
 				}
 			}
 		}
 		
 		@include desktop {
-			.pagination {
-				margin-bottom: 24.2%;
+			div {
+				.pagination {
+					
+					&:before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 0;
+	// 					padding-bottom: 70%;
+						transition: all .25s linear;
+					}
+				}
 			}
 			
 			&.tablet {
-				.browser {
-					margin: 0px auto;
-				}
-				.pagination {
-					margin-bottom: 0px;
+
+				div {
+
+					.browser {
+						margin: 0px auto;
+					}
+					
+					.pagination {
+	// 					margin-bottom: 0px;
+						transition: all .25s linear;
+					}
 				}
 			}
 			
 			&.mobile {
-				.browser {
-					margin: 0px auto /* calc(16.76%) auto */;
-				}
-				.pagination {
-					margin-bottom: 16.66%;
+				
+				div {
+				
+					.browser {
+						margin: 0px auto /* calc(16.76%) auto */;
+					}
+					.pagination {
+						&:before {
+							content: "";
+							display: inline-block;
+							width: 1px;
+							height: 0;
+	// 						margin-bottom: 16.76%;
+							transition: all .25s linear;
+						}
+					}
 				}
 			}
 			
 			&.tablet, &.mobile {
-				.browser {
-		
-					.buttons {
-						border-radius: 4px;
-							left: 16px;
-						top: 22px;
-						width: 26px;
-						height: 4px;
-						transition: all .25s linear;
-						
-						&:before, &:after {
-							display: block;
+				
+				div {
+				
+					.browser {
+			
+						.buttons {
 							border-radius: 4px;
-							top: 0;
+							left: 16px;
+							top: 22px;
 							width: 26px;
 							height: 4px;
 							transition: all .25s linear;
+							
+							&:before, &:after {
+								display: block;
+								border-radius: 4px;
+								top: 0;
+								width: 26px;
+								height: 4px;
+								transition: all .25s linear;
+							}
+							
+							&:before {
+								left: 0px;
+								top: -8px;
+							}
+							
+							&:after {
+								left: 0px;
+								top: 8px;
+							}
 						}
 						
-						&:before {
-							left: 0px;
-							top: -8px;
+						.address_bar {
+							width: calc(100% - 70px);
+							left: 58px;
+							transition: all .25s linear;
 						}
-						
-						&:after {
-							left: 0px;
-							top: 8px;
-						}
-					}
-					
-					.address_bar {
-						width: calc(100% - 70px);
-						left: 58px;
-						transition: all .25s linear;
 					}
 				}
 			}
 		}
 	}
 	
-	.browser {
-		padding-top: 74.8%;
-		border-radius: 4px;
-		width: 100%;
-		background: lighten($color-primary, 80%);
-		display: block;
-// 		box-shadow: 0px 20px 50px rgba(0,0,0,.5);
-		position: relative;
-		transition: all .25s linear;
-// 		margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto;
-		margin: 0px auto;
+	div {
 		
-		.buttons {
+		.browser {
+	// 		padding-top: 74.8%;
+			border-radius: 4px;
+			width: 100%;
+			background: lighten($color-primary, 80%);
 			display: block;
-			background-color: #f5c04f;
-			width: 5px;
-			height: 5px;
-			border-radius: 5px;
-			left: 17px;
-			top: 10px;
-			position: absolute;
+	// 		box-shadow: 0px 20px 50px rgba(0,0,0,.5);
+			position: relative;
 			transition: all .25s linear;
+	// 		margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto;
+			margin: 0px auto;
 			
-			&:before, &:after {
-				content: '';
+	/*
+			&:before {
+				content: "";
+				display: inline-block;
+				width: 1px;
+				height: 0;
+				padding-bottom: 74.8%;
+			}
+	*/
+			
+			.buttons {
 				display: block;
+				background-color: #f5c04f;
 				width: 5px;
 				height: 5px;
 				border-radius: 5px;
-				top: 0;
+				left: 17px;
+				top: 10px;
 				position: absolute;
 				transition: all .25s linear;
+				
+				&:before, &:after {
+					content: '';
+					display: block;
+					width: 5px;
+					height: 5px;
+					border-radius: 5px;
+					top: 0;
+					position: absolute;
+					transition: all .25s linear;
+				}
+				
+				&:before {
+					left: -8px;
+					top: 0;
+					background-color: #ed6b60;
+				}
+				
+				&:after {
+					left: 8px;
+					top: 0;
+					background-color: #62c755;
+				}
 			}
 			
-			&:before {
-				left: -8px;
-				top: 0;
-				background-color: #ed6b60;
+			.address_bar {
+				position: absolute;
+				display: block;
+				background: $color-secondary;
+				width: calc(100% - 46px);
+				height: 15px;
+				left: 41px;
+				top: 5px;
+				transition: all .25s linear;
+				border-radius: 2px;
 			}
 			
-			&:after {
-				left: 8px;
-				top: 0;
-				background-color: #62c755;
+			img {
+				border-top: 1px solid lighten($color-primary, 75%);
+				width: 100%;
+				display: block;
+				border-radius: 0px 0px 4px 4px;
+				position: absolute;
+				top: 24px;
+			}
+			
+			@include tablet {
+				.buttons {
+					display: block;
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+					left: 34px;
+					top: 20px;
+					position: absolute;
+					transition: all .25s linear;
+					
+					&:before, &:after {
+						content: '';
+						display: block;
+						width: 10px;
+						height: 10px;
+						border-radius: 10px;
+						top: 0;
+						position: absolute;
+						transition: all .25s linear;
+					}
+					
+					&:before {
+						left: -16px;
+						top: 0;
+					}
+					
+					&:after {
+						left: 16px;
+						top: 0;
+					}
+				}
+				
+				.address_bar {
+					position: absolute;
+					display: block;
+					background: $color-secondary;
+					width: calc(100% - 91px);
+					height: 30px;
+					border-radius: 4px;
+					left: 81px;
+					top: 10px;
+					transition: all .25s linear;
+				}
+				
+				img {
+					width: 100%;
+					display: block;
+					border-radius: 0px 0px 4px 4px;
+					position: absolute;
+					top: 49px;
+				}
+			}
+			
+			@include desktop {
+				margin: 0px auto/*  24.4% auto */;
+				
+				.buttons {
+					display: block;
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+					left: 34px;
+					top: 20px;
+					position: absolute;
+					transition: all .25s linear;
+					
+					&:before, &:after {
+						content: '';
+						display: block;
+						width: 10px;
+						height: 10px;
+						border-radius: 10px;
+						top: 0;
+						position: absolute;
+						transition: all .25s linear;
+					}
+					
+					&:before {
+						left: -16px;
+						top: 0;
+					}
+					
+					&:after {
+						left: 16px;
+						top: 0;
+					}
+				}
+				
+				.address_bar {
+					position: absolute;
+					display: block;
+					background: $color-secondary;
+					width: calc(100% - 91px);
+					height: 30px;
+					border-radius: 4px;
+					left: 81px;
+					top: 10px;
+					transition: all .25s linear;
+				}
+				
+				img {
+					width: 100%;
+					display: block;
+					border-radius: 0px 0px 4px 4px;
+					position: absolute;
+					top: 49px;
+				}
 			}
 		}
 		
-		.address_bar {
-			position: absolute;
-			display: block;
-			background: $color-secondary;
-			width: calc(100% - 46px);
-			height: 15px;
-			left: 41px;
-			top: 5px;
-			transition: all .25s linear;
-			border-radius: 2px;
-		}
-		
-		img {
-			border-top: 1px solid lighten($color-primary, 75%);
+		.pagination {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
 			width: 100%;
-			display: block;
-			border-radius: 0px 0px 4px 4px;
-			position: absolute;
-			top: 24px;
-		}
-		
-		@include tablet {
-			.buttons {
-				display: block;
-				width: 10px;
-				height: 10px;
-				border-radius: 10px;
-				left: 34px;
-				top: 20px;
-				position: absolute;
-				transition: all .25s linear;
-				
-				&:before, &:after {
-					content: '';
-					display: block;
-					width: 10px;
-					height: 10px;
-					border-radius: 10px;
-					top: 0;
-					position: absolute;
-					transition: all .25s linear;
-				}
-				
-				&:before {
-					left: -16px;
-					top: 0;
-				}
-				
-				&:after {
-					left: 16px;
-					top: 0;
-				}
-			}
-			
-			.address_bar {
-				position: absolute;
-				display: block;
-				background: $color-secondary;
-				width: calc(100% - 91px);
-				height: 30px;
-				border-radius: 4px;
-				left: 81px;
-				top: 10px;
-				transition: all .25s linear;
-			}
-			
-			img {
-				width: 100%;
-				display: block;
-				border-radius: 0px 0px 4px 4px;
-				position: absolute;
-				top: 49px;
-			}
-		}
-		
-		@include desktop {
-			grid-column: span 1;
-			margin: 0px auto/*  24.4% auto */;
-			
-			.buttons {
-				display: block;
-				width: 10px;
-				height: 10px;
-				border-radius: 10px;
-				left: 34px;
-				top: 20px;
-				position: absolute;
-				transition: all .25s linear;
-				
-				&:before, &:after {
-					content: '';
-					display: block;
-					width: 10px;
-					height: 10px;
-					border-radius: 10px;
-					top: 0;
-					position: absolute;
-					transition: all .25s linear;
-				}
-				
-				&:before {
-					left: -16px;
-					top: 0;
-				}
-				
-				&:after {
-					left: 16px;
-					top: 0;
-				}
-			}
-			
-			.address_bar {
-				position: absolute;
-				display: block;
-				background: $color-secondary;
-				width: calc(100% - 91px);
-				height: 30px;
-				border-radius: 4px;
-				left: 81px;
-				top: 10px;
-				transition: all .25s linear;
-			}
-			
-			img {
-				width: 100%;
-				display: block;
-				border-radius: 0px 0px 4px 4px;
-				position: absolute;
-				top: 49px;
-			}
-		}
-	}
-	
-	.pagination {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 10px;
-		margin: 30px auto 90px auto;
-		transition: all .25s linear;
-		
-		a {
 			height: 10px;
-			width: 10px;
-			border-radius: 10px;
-			box-shadow: inset 0px 0px 0px 1px $color-secondary;	
+			margin: 30px auto 90px auto;
+			transition: all .25s linear;
+			position: relative;
 			
-			&:first-child, &:last-child {
-				margin: 0px 10px;
-			}
-			
-			&.on {
-				background-color: $color-secondary;
+			a {
+				height: 10px;
+				width: 10px;
+				border-radius: 10px;
+				box-shadow: inset 0px 0px 0px 1px $color-secondary;	
+				
+				&:first-child, &:last-child {
+					margin: 0px 10px;
+				}
+				
+				&.on {
+					background-color: $color-secondary;
+				}
 			}
 		}
 	}
@@ -614,7 +707,6 @@ html, body {
 	// ******
 
 	.social {
-		grid-column: span 1;
 		width: 100%;
 		text-align: center;
 		display: block!important;
@@ -659,7 +751,6 @@ html, body {
 		}
 			
 		@include tablet {
-			grid-column: span 12;
 			
 			a {
 				font-size: 15px;
@@ -674,7 +765,6 @@ html, body {
 			
 		@include desktop {
 			text-align: left;
-			grid-column: span 12;
 			
 			a {
 // 				margin-left: -100%;
@@ -819,6 +909,7 @@ header {
 		transition: all .25s linear;
 		
 		.logo_af {
+			top: 0;
 			left: calc(50% - 30px);
 			position: absolute;
 			z-index: 3;
@@ -1127,7 +1218,6 @@ main {
 		margin: 0px auto;
 		
 		> div {
-			grid-column: span 2;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -1135,6 +1225,7 @@ main {
 			height: calc(75vh - 90px);
 			min-height: 220px;
 			padding-top: 90px;
+			margin: 0px auto;
 						
 			h1 {
 				margin: 0px auto 2px auto;
@@ -1165,7 +1256,6 @@ main {
 		
 		@include tablet {
 			> div {
-				grid-column: span 12;
 				padding-top: 120px;
 				height: calc(90vh - 240px);
 				min-height: 397px;
@@ -1200,7 +1290,6 @@ main {
 		@include desktop {
 			
 			> div {
-				grid-column: 3 / span 8;
 				padding-top: 120px;
 				height: calc(75vh - 120px);
 				min-height: 397px;
@@ -1239,6 +1328,7 @@ main {
 	// ****
 	
 	#work {
+		flex-direction: column;
 		margin-top: 0px;
 		max-width: 277.5px;
 		
@@ -1250,18 +1340,13 @@ main {
 			display: table;
 			border-bottom: 1px solid #6F727A;
 			margin: 0px auto 20px auto;
-			grid-column: span 1;
 		}
 		
 		.project {
-			grid-column: span 1;
-			display: grid;
-			grid-template-columns: 1fr;
 				
 			.description {
 				padding-top: 0px;
 				text-align: center;
-				grid-column: span 1;
 			
 				h3 {
 					font-family: $font-sans;
@@ -1305,13 +1390,10 @@ main {
 			max-width: 555px;
 			
 			h2 {
-				grid-column: span 12;
 				font-size: 24px;
 			}
 			
 			.project {
-				grid-column: span 12;
-				grid-column-gap: 30px;
 				
 				.description {
 					
@@ -1330,7 +1412,6 @@ main {
 			max-width: 1140px;
 			
 			h2 {
-				grid-column: span 12;
 				font-size: 24px;
 				width: 100%;
 				margin-bottom: 0px;
@@ -1338,10 +1419,9 @@ main {
 			}	
 			
 			.project {	
-				grid-column: span 12;
-				grid-column-gap: 30px;
-				display: grid;
-				grid-template-columns: repeat(12, 1fr);
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
 				padding: 90px 0px;
 				
 				&:first-of-type {
@@ -1352,9 +1432,8 @@ main {
 					display: flex;
 					justify-content: flex-start; //center
 					flex-direction: column;
-					grid-column: 1 / span 5;
-					grid-row: 1;
 					text-align: left;
+					width: 40.17%;
 					
 					h3 {
 						margin: 0;
@@ -1383,32 +1462,34 @@ main {
 					
 					/* ZOOM */
 				}
-						
-				.browser {
-					grid-column: 7 / span 6;
-					grid-row: 1;
-					box-shadow: -75px 75px 150px rgba(0,0,0,.75);
-				}
 				
-				.pagination {
-					grid-column: 7 / span 6;
-					z-index: 9999;
+				> div {		
+					width: 48.68%;
+					
+					.browser {
+						box-shadow: -75px 75px 150px rgba(0,0,0,.75);
+					}
+					
+					.pagination {
+						z-index: 9999;
+					}
 				}
 				
 				&:nth-of-type(odd) {
 					
 					.description {
-						grid-column: 8 / span 5;
 						text-align: left;
+						order: 2;
 					}
 					
-					.browser {
-						grid-column: 1 / span 6;
-						box-shadow: 75px 75px 150px rgba(0,0,0,.75);
-					}
-					
-					.pagination {
-						grid-column: 1 / span 6;
+					div {
+						.browser {
+							box-shadow: 75px 75px 150px rgba(0,0,0,.75);
+							order: 1;
+						}
+						
+						.pagination {
+						}
 					}
 				}
 			}
@@ -1425,6 +1506,7 @@ main {
 	
 	#experience {
 		margin-top: 90px;
+		flex-wrap: wrap;
 		
 		h2 {
 			font-size: 18px;
@@ -1434,34 +1516,34 @@ main {
 			display: table;
 			border-bottom: 1px solid #6F727A;
 			margin: 0px auto 20px auto;
-			grid-column: span 1;
-			grid-row: 1;
 		}
 		
 		.clients {
 			height: 200px;
 			margin-bottom: 25px;
-			grid-row: 2;
-			grid-column: span 1;
+			width: 100%;
+			position: relative;
+			overflow: visible;
 			
 			div {
+				margin-left: 50%;
 				display: block;
 				width: 100vw;
 				height: 200px;
 				background-image: url("../img/clients.png");
-				animation: 100s scroll infinite linear;
-				background-size: 150px;
+				animation: animatedBackground 100s infinite linear;
+				background-size: 5471px 200px;
 				background-repeat: repeat-x;
 				background-position-y: center;
 				position: absolute;
-				left: 0;
+				left: -50vw;
+				top: 0;
 			}
 		}
 		
 		.expertise {
-			grid-row: 3;
-			grid-column: span 1;
 			text-align: left;
+			width: 100%;
 			
 			h3 {
 				font-size: 13px;
@@ -1572,7 +1654,6 @@ main {
 		}
 		
 		.social {
-			grid-row: 4;
 			margin-top: 60px;
 			text-align: left;
 			
@@ -1587,8 +1668,6 @@ main {
 		}
 		
 		.history {
-			grid-row: 5;
-			grid-column: span 1;
 			width: 100%;
 			min-height: 800px;
 			margin-top: 60px;
@@ -1745,11 +1824,9 @@ main {
 			
 			h2 {
 				font-size: 24px;
-				grid-column: span 12;
 			}
 			
 			.expertise {
-				grid-column: 1 / 8;
 				
 				h3 {
 					font-size: 13px;
@@ -1771,12 +1848,9 @@ main {
 			}
 			
 			.social {
-				grid-row: 4;
 			}
 			
 			.history {
-				grid-row: 3;
-				grid-column: 9 /13;
 				margin-top: 0;
 				
 				ul {
@@ -1800,20 +1874,22 @@ main {
 		}
 		
 		@include desktop {
+			flex-wrap: wrap;
+			justify-content: space-between;
 			padding: 0;
 			
 			
 			h2 {
+				order: 1;
 				font-size: 24px;
 				width: 100%;
 				margin-bottom: 0px;
 				max-width: 1140px;
 				display: block;
-				grid-column: span 12;
 			}
 			
 			.clients {
-				grid-column: span 12;
+				order: 2;
 				overflow: visible;
 				
 				div {
@@ -1822,7 +1898,10 @@ main {
 			}
 			
 			.expertise {
-				grid-column: 1 / 8;
+				order: 3;
+				display: flex;
+				flex-direction: column;
+				width: 57.28%;
 				
 				h3 {
 					font-size: 15px;
@@ -1845,14 +1924,16 @@ main {
 			}
 			
 			.social {
-				grid-row: 4;
 				margin-top: 70px;
+				order: 5;
 			}
 			
 			.history {
-				grid-column: 10 / 13;
-				grid-row: 3;
+				order: 4;
 				margin-top: 0;
+				display: flex;
+				width: 22.98%;
+				
 				
 				ul {
 					height: 100%;
@@ -1953,7 +2034,6 @@ footer {
 		}
 		
 		p {
-			grid-column: span 12;
 			font-family: $font-sans;
 			font-style: normal;
 			font-size: 13px;
@@ -2023,6 +2103,220 @@ footer {
 		
 	}
 }
+
+/*
+@supports (display:grid) {
+	html, body {
+		section {
+			display: grid;
+			grid-template-columns: 100%;
+			
+			> * {
+				grid-column: span 1;
+			}
+			
+			@include tablet {
+				grid-template-columns: repeat(12, 1fr);
+				grid-gap: 30px;
+			}
+			
+			@include desktop {
+				grid-template-columns: repeat(12, 1fr);
+				grid-gap: 30px;
+			}
+		}
+		
+		.social {
+			grid-column: span 1;
+			
+			@include tablet {
+				grid-column: span 12;
+			}
+			
+			@include desktop {
+				grid-column: span 12;
+			}
+		}
+	}
+	
+	main {
+			
+		#about {
+			
+			> div {
+				grid-column: span 2;
+			}
+			
+			@include tablet {
+				> div {
+					grid-column: span 12;
+				}
+			}
+			
+			@include desktop {
+				> div {
+					grid-column: 3 / span 8;
+				}
+			}
+		}
+		
+		#work {
+			
+			h2 {
+				grid-column: span 1;
+			}
+			
+			.project {
+				grid-column: span 1;
+				display: grid;
+				grid-template-columns: 1fr;
+					
+				.description {
+					grid-column: span 1;
+					width: 100%;
+				}
+			}	
+			
+			@include tablet {
+				
+				h2 {
+					grid-column: span 12;
+				}
+				
+				.project {
+					grid-column: span 12;
+					grid-column-gap: 30px;
+				}
+			}
+			
+			@include desktop {
+				
+				h2 {
+					grid-column: span 12;
+				}	
+				
+				.project {	
+					grid-column: span 12;
+					grid-column-gap: 30px;
+					display: grid;
+					grid-template-columns: repeat(12, 1fr);
+					
+					.description {
+						grid-column: 1 / span 5;
+						grid-row: 1;
+					}
+					
+					> div {							
+						grid-column: 7 / span 6;
+						grid-row: 1;	
+						width: 100%;
+					}
+						
+					.pagination {
+						grid-column: 7 / span 6;
+					}
+					
+					&:nth-of-type(odd) {
+						
+						.description {
+							grid-column: 8 / span 5;
+						}
+						
+						> div {
+							grid-column: 1 / span 6;
+						}
+					}
+				}
+			}
+		}
+		
+		#experience {
+			
+			h2 {
+				grid-column: span 1;
+				grid-row: 1;
+			}
+			
+			.clients {
+				grid-row: 2;
+				grid-column: span 1;
+			}
+			
+			.expertise {
+				width: 100%;
+				grid-row: 3;
+				grid-column: span 1;
+			}
+			
+			.social {
+				grid-row: 4;
+			}
+			
+			.history {
+				width: 100%;
+				grid-row: 5;
+				grid-column: span 1;
+			}
+		
+			
+			@include tablet {
+				
+				h2 {
+					grid-column: span 12;
+				}
+				
+				.expertise {
+					grid-column: 1 / 8;
+				}
+				
+				.social {
+					grid-row: 4;
+				}
+				
+				.history {
+					grid-row: 3;
+					grid-column: 9 /13;
+				}
+			}
+			
+			@include desktop {
+				
+				h2 {
+					grid-column: span 12;
+				}
+				
+				.clients {
+					grid-column: span 12;
+				}
+				
+				.expertise {
+					grid-column: 1 / 8;
+				}
+				
+				.social {
+					grid-row: 4;
+				}
+				
+				.history {
+					grid-column: 10 / 13;
+					grid-row: 3;
+				}
+			}
+		}
+	}
+	
+	footer {
+		
+		div {
+			
+			p {
+				grid-column: span 12;
+			}
+		}
+	}
+}
+*/
+
 
 // *******************
 // KEYFRAME ANIMATIONS
@@ -2259,6 +2553,11 @@ footer {
 	}
 }
 */
+
+@keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -5471px 0; }
+}
 
 @keyframes btn_animation {
 	0% {

@@ -40,19 +40,6 @@ $(window).scroll(function() {
 			}	
 		});
 	}
-			
-/*
-	if (isScrolledIntoFullView("#project1") === true) {
-		$("body").addClass('project1'); 
-		$('#bg_main').fadeOut(1000);
-	} else if (isScrolledIntoFullView("#project2") === true) {
-		$("body").removeClass('project1');
-		$("body").addClass('project2');
-	} else {
-		$("body").removeClass('project2');
-	}
-		
-*/	
 	$('.social').each(function () {
 		if (isScrolledIntoTopView(this) === true) {
 			$(this).children('a').addClass('in-view');
@@ -86,16 +73,6 @@ $(window).scroll(function() {
 		$("header").removeClass("on");
 		$('#bg_main').fadeIn();
 	}
-	
-/*
-	$('#bg_main').css({
-		opacity: function() {
-			var elementHeight = $(this).height();
-			return (elementHeight - (scrollTop)) / elementHeight;
-		}
-	}); 
-*/
-
 });
 
 /*
