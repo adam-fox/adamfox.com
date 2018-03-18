@@ -3797,21 +3797,8 @@ html, body {
           color: #222632; }
     html .resize span, body .resize span {
       width: 100%; }
-  html .logo_af, body .logo_af {
-    display: block;
-    width: 56px;
-    height: 56px;
-    overflow: hidden;
-    border-radius: 60px; }
-    html .logo_af:after, body .logo_af:after {
-      content: "";
-      display: block;
-      position: relative;
-      margin: 13px auto 0px auto;
-      width: 30px;
-      height: 30px;
-      background: white;
-      content: ""; }
+  html svg, body svg {
+    display: block; }
   html .logo_circle, body .logo_circle {
     width: 60px;
     height: 60px;
@@ -4193,29 +4180,17 @@ header {
     width: calc(100% - 76px);
     margin: auto;
     transition: all 0.25s linear; }
-    header .wrapper .logo_af {
-      top: 0px;
-      left: calc(50% - 28px);
+    header .wrapper svg {
+      top: calc(50% - 16px);
+      left: calc(50% - 16px);
       position: absolute;
       z-index: 3;
       cursor: pointer;
       pointer-events: all;
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
       -webkit-tap-highlight-color: transparent; }
-      header .wrapper .logo_af:after {
-        /*
-				opacity: 0;
-				top: 100%;
-*/
-        animation-name: logo;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-        z-index: 2; }
-      header .wrapper .logo_af.hidden {
+      header .wrapper svg.hidden {
         pointer-events: none; }
-        header .wrapper .logo_af.hidden:after {
-          transition: background 0.25s linear;
-          background: rgba(255, 255, 255, 0); }
     header .wrapper nav {
       display: block;
       justify-content: center;
@@ -4238,10 +4213,11 @@ header {
           line-height: 1;
           vertical-align: -.125em;
           content: '\f075';
-          font-size: 18px;
-          position: absolute;
-          left: -25px;
-          top: 1px; }
+          font-size: 19px;
+          line-height: 1.2666666667em;
+          left: -27px;
+          top: -2px;
+          position: absolute; }
         header .wrapper nav a span {
           content: '';
           display: block;
@@ -4249,7 +4225,7 @@ header {
           width: 2px;
           border-radius: 2px;
           position: absolute;
-          left: -16px;
+          left: -17.5px;
           top: 8px; }
           header .wrapper nav a span:before, header .wrapper nav a span:after {
             content: '';
@@ -4260,15 +4236,16 @@ header {
             position: absolute;
             top: 0; }
           header .wrapper nav a span:before {
-            left: -3.5px; }
+            left: -4px; }
           header .wrapper nav a span:after {
-            left: 3.5px; }
+            left: 4px; }
     header .wrapper:last-of-type {
       margin-top: -60px;
       transition: max-width 0.25s;
       padding: 0px; }
       header .wrapper:last-of-type .logo_circle {
         position: absolute;
+        top: 0;
         left: 50%;
         margin-left: -30px;
         cursor: pointer;
@@ -4301,23 +4278,9 @@ header {
       header .wrapper nav a {
         font-size: 15px; }
         header .wrapper nav a:before {
-          font-size: 18px;
-          left: -24px;
-          top: 2px; }
+          top: -1px; }
         header .wrapper nav a span {
-          height: 2px;
-          width: 2px;
-          border-radius: 2px;
-          left: -15.5px;
-          top: 9px; }
-          header .wrapper nav a span:before, header .wrapper nav a span:after {
-            height: 2px;
-            width: 2px;
-            border-radius: 2px; }
-          header .wrapper nav a span:before {
-            left: -3.5px; }
-          header .wrapper nav a span:after {
-            left: 3.5px; } }
+          top: 9px; } }
   @media (min-width: 1024px) {
     header {
       margin-top: 60px; }
@@ -4325,38 +4288,10 @@ header {
         position: relative;
         width: calc(100% - 120px);
         max-width: 1140px; }
-        header .wrapper .logo_af.hidden {
+        header .wrapper svg.hidden {
           pointer-events: all; }
-          header .wrapper .logo_af.hidden:after {
-            background: white;
-            transition: none; }
         header .wrapper nav a {
           font-size: 15px; }
-          header .wrapper nav a:before {
-            font-size: 18px;
-            left: -25px;
-            top: 1px;
-            transition: all 0.25s linear;
-            animation: none; }
-          header .wrapper nav a span {
-            transition: transform 0.25s linear;
-            height: 2px;
-            width: 2px;
-            border-radius: 2px;
-            left: -16px;
-            top: 8.5px;
-            animation-name: none;
-            animation-delay: 0s; }
-            header .wrapper nav a span:before, header .wrapper nav a span:after {
-              height: 2px;
-              width: 2px;
-              border-radius: 2px;
-              animation-name: none;
-              animation-delay: 0s; }
-            header .wrapper nav a span:before {
-              left: -3.5px; }
-            header .wrapper nav a span:after {
-              left: 3.5px; }
       header .wrapper:nth-child(2) {
         justify-content: flex-start;
         position: relative;
@@ -4459,9 +4394,11 @@ main {
           margin: 0 0 15px 0;
           white-space: nowrap; } }
   main #work {
+    display: block;
     flex-direction: column;
     margin-top: 0px;
-    max-width: 277.5px; }
+    max-width: 277.5px;
+    flex-wrap: wrap; }
     main #work h2 {
       font-size: 18px;
       text-transform: uppercase;
@@ -4509,6 +4446,8 @@ main {
     @media (min-width: 1024px) {
       main #work {
         max-width: 1140px; }
+        main #work h2 {
+          display: table; }
         main #work .project {
           display: flex;
           flex-wrap: wrap;
@@ -4666,7 +4605,7 @@ main {
 							background-position: bottom;
 							background-size: 10px 1px;
 */
-              background: repeating-linear-gradient(90deg, #fff, #fff 1px, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0) calc(16.67% - .1px));
+              background: repeating-linear-gradient(90deg, #fff, #fff 1px, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0) 16.57%);
               background-repeat: repeat-x;
               width: 100%;
               height: 1px;
@@ -4849,7 +4788,7 @@ main {
           order: 1;
           font-size: 24px;
           margin-bottom: 0px;
-          display: block; }
+          display: table; }
         main #experience .clients {
           order: 2;
           overflow: visible; }
@@ -4874,7 +4813,7 @@ main {
               main #experience .expertise ul li div {
                 width: 70%; }
                 main #experience .expertise ul li div:before {
-                  background: repeating-linear-gradient(90deg, #fff, #fff 1px, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0) calc(7.14% - .1px)); }
+                  background: repeating-linear-gradient(90deg, #fff, #fff 1px, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0) 7.13%); }
                 main #experience .expertise ul li div.expertise_5:after {
                   left: calc(92% - 1px) !important; }
                 main #experience .expertise ul li div.expertise_4:after {
@@ -4970,31 +4909,21 @@ footer {
       margin: 40px 0px 0px 0px;
       text-align: left;
       display: inline-block; }
-      footer > div p .logo_af {
+      footer > div p:after {
+        top: -50px;
+        left: calc(50% - 20px);
+        position: absolute;
+        content: '';
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        box-sizing: border-box;
+        border: 3px solid white; }
+      footer > div p svg {
         display: none;
         position: absolute;
-        left: calc(50% - 20px);
-        top: -50px;
-        height: 40px;
-        width: 40px; }
-        footer > div p .logo_af:after {
-          position: absolute;
-          opacity: 1;
-          left: 9px;
-          top: -5px;
-          width: 21px;
-          height: 21px; }
-        footer > div p .logo_af:before {
-          top: 0;
-          left: 0;
-          position: absolute;
-          content: '';
-          width: 40px;
-          height: 40px;
-          border-radius: 40px;
-          box-sizing: border-box;
-          border: 3px solid white;
-          background: #181a23; }
+        left: calc(50% - 10.5px);
+        top: -41px; }
   @media (min-width: 768px) {
     footer {
       margin-top: 120px; }
@@ -5010,7 +4939,7 @@ footer {
           position: absolute;
           right: 0;
           bottom: 0; }
-          footer > div p .logo_af {
+          footer > div p svg {
             display: block; } }
   @media (min-width: 1024px) {
     footer {
@@ -5032,7 +4961,7 @@ footer {
               animation-name: arrow_top; }
             footer > div ul li a:hover .new_window:after {
               animation-name: arrow_line; }
-        footer > div p .logo_af {
+        footer > div p svg {
           display: block; } }
 
 @media (pointer: coarse) {
@@ -5076,11 +5005,6 @@ footer {
     header .wrapper nav a:hover span:after {
       animation: .9s chat infinite linear;
       animation-delay: .6s; } }
-
-@supports (clip-path: polygon(84% 94%, 50% 33%, 40% 51%, 65% 94%, 49% 94%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 100% 94%)) or (-webkit-clip-path: polygon(84% 94%, 50% 33%, 40% 51%, 65% 94%, 49% 94%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 100% 94%)) {
-  .logo_af:after {
-    clip-path: polygon(84% 94%, 50% 33%, 40% 51%, 65% 94%, 49% 94%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 100% 94%);
-    -webkit-clip-path: polygon(84% 94%, 50% 33%, 40% 51%, 65% 94%, 49% 94%, 32% 65%, 16% 94%, 0 94%, 50% 6%, 100% 94%); } }
 
 /*
 @supports (display:grid) {
