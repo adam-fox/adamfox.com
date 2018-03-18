@@ -24,7 +24,7 @@ $(window).resize(function() {
 	} else {
 		$('.description').each(function () {
 			if (isScrolledIntoTopView(this) === true) {
-				$(this).css('transform', 'translate( 0px, ' + ($(window).scrollTop() + $(window).height() - $(this).parent().offset().top) / 8.5  + 'px )');
+				$(this).css('transform', 'translate( 0px, ' + ($(window).scrollTop() + $(window).height() - $(this).parent().offset().top) / 6.5  + 'px )');
 			}	
 		});
 	}
@@ -32,19 +32,21 @@ $(window).resize(function() {
 
 $(window).scroll(function() {
 	if($(window).width() >= 1024){
-		$('.description').first().css('transform', 'translate( 0px, ' + $(window).scrollTop() / 10  + 'px )');
+		$('.description').first().css('transform', 'translate( 0px, ' + $(window).scrollTop() / 6  + 'px )');
 		
 		$('.description').slice(1).each(function () {
 			if (isScrolledIntoTopView(this) === true) {
-				$(this).css('transform', 'translate( 0px, ' + ($(window).scrollTop() + $(window).height() - $(this).parent().offset().top) / 8.5 + 'px )');
+				$(this).css('transform', 'translate( 0px, ' + ($(window).scrollTop() + $(window).height() - $(this).parent().offset().top) / 6.5 + 'px )');
 			}	
 		});
 	}
+/*
 	$('.social').each(function () {
 		if (isScrolledIntoTopView(this) === true) {
 			$(this).children('a').addClass('in-view');
 		}
 	});
+*/
 	
 	if (isScrolledIntoFullView('.expertise > ul > li:nth-child(1) > div') === true) {
 		$('.expertise > ul > li > div').each(function(i){
@@ -160,9 +162,9 @@ $(function() {
 					browser.css("transform","translate( -100vw ,0)");
 			    }, 250);
 			    setTimeout(function() {
-					browser.find(".viewport > img.desktop").css("left", "-" + browser.parent().children(".pagination").children("a").last().index() * 100 + "%");
-					browser.find(".viewport > img.tablet").css("left", "-" + browser.parent().children(".pagination").children("a").last().index() * 100 + "%");
-					browser.find(".viewport > img.mobile").css("left", "-" + browser.parent().children(".pagination").children("a").last().index() * 100 + "%");
+					browser.find(".viewport > img.desktop").css("left", "calc( -" + browser.parent().children(".pagination").children("a").last().index() * 100 + "% - " +  paginationPrev.index() + "px)");
+					browser.find(".viewport > img.tablet").css("left", "calc( -" + browser.parent().children(".pagination").children("a").last().index() * 100 + "% - " +  paginationPrev.index() + "px)");
+					browser.find(".viewport > img.mobile").css("left", "calc( -" + browser.parent().children(".pagination").children("a").last().index() * 100 + "% - " +  paginationPrev.index() + "px)");
 					browser.css("transition","all .25s linear");
 					browser.css("transform","translate(0,0)");
 			    }, 350);
@@ -200,9 +202,9 @@ $(".pagination > a").click(function() {
 		    }, 250);
 		}
 		setTimeout(function() {
-			paginationClicked.parent().parent().find(".browser > .viewport > img.desktop").css("left", "-" + paginationClicked.index() * 100 + "%");
-			paginationClicked.parent().parent().find(".browser > .viewport > img.tablet").css("left", "-" + paginationClicked.index() * 100 + "%");
-			paginationClicked.parent().parent().find(".browser > .viewport > img.mobile").css("left", "-" + paginationClicked.index() * 100 + "%");
+			paginationClicked.parent().parent().find(".browser > .viewport > img.desktop").css("left", "calc( -" + paginationClicked.index() * 100 + "% - " +  paginationClicked.index() + "px)");
+			paginationClicked.parent().parent().find(".browser > .viewport > img.tablet").css("left", "calc( -" + paginationClicked.index() * 100 + "% - " +  paginationClicked.index() + "px)");
+			paginationClicked.parent().parent().find(".browser > .viewport > img.mobile").css("left", "calc( -" + paginationClicked.index() * 100 + "% - " +  paginationClicked.index() + "px)");
 			paginationClicked.parent().parent().children(".browser").css("transition","all .25s linear");
 			paginationClicked.parent().parent().children(".browser").css("transform","translate(0,0)");
 	    }, 350);

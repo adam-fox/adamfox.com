@@ -1,3 +1,6 @@
+$color-primary: /* rgb(64, 67, 78) */ /* rgb(37, 39, 46) */ #222632;
+$color-secondary: rgb(255, 255, 255);
+
 // *******************
 // KEYFRAME ANIMATIONS
 // *******************
@@ -277,37 +280,37 @@
 
 @keyframes expertise_25 {
 	0% {
-		width: 0%;
+		left: 0%;
 	}
 	100% {
-		width: 25%;
+		left: calc(25% - 10px);
 	}
 }
 
 @keyframes expertise_50 {
 	0% {
-		width: 0%;
+		left: 0%;
 	}
 	100% {
-		width: 50%;
+		left: calc(50% - 10px);
 	}
 }
 
 @keyframes expertise_75 {
 	0% {
-		width: 0%;
+		left: 0%;
 	}
 	100% {
-		width: 75%;
+		left: calc(75% - 40px);
 	}
 }
 
 @keyframes expertise_100 {
 	0% {
-		width: 0%;
+		left: 0%;
 	}
 	100% {
-		width: 100%;
+		left: calc(100% - 10px);
 	}
 }
 
