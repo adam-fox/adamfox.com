@@ -2171,6 +2171,7 @@ footer {
 			display: inline-block;
 			
 			&:after {
+				display: none;
 				top: -50px;
 				left: calc(50% - 20px);
 				position: absolute;
@@ -2216,6 +2217,10 @@ footer {
 				position: absolute;
 				right: 0;
 				bottom: 0;	
+				
+				&:after {
+					display: block;
+				}
 				
 				svg {
 					display: block;

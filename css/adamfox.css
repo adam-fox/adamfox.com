@@ -4924,6 +4924,7 @@ footer {
       text-align: left;
       display: inline-block; }
       footer > div p:after {
+        display: none;
         top: -50px;
         left: calc(50% - 20px);
         position: absolute;
@@ -4953,6 +4954,8 @@ footer {
           position: absolute;
           right: 0;
           bottom: 0; }
+          footer > div p:after {
+            display: block; }
           footer > div p svg {
             display: block; } }
   @media (min-width: 1024px) {

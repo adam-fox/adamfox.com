@@ -108,7 +108,7 @@ $(".history > ul > li").each(function (index, elem) {
 });
 */
 
-$("header > .wrapper > .logo_af").click(function() {
+$("header > .wrapper > svg").click(function() {
 	$("html, body").animate({ scrollTop: "0px" });
 });
 
