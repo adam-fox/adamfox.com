@@ -361,6 +361,11 @@ html, body {
 		}
 		
 		@include tablet {
+/*
+			height: 60vh;
+			min-height: 800px;
+*/
+			
 			&.tablet, &.mobile {
 				
 				div {
@@ -406,6 +411,11 @@ html, body {
 		}
 		
 		@include desktop {
+/*
+			height: 60vh;
+			min-height: 700px;
+*/
+			
 			div {
 				.pagination {
 					
@@ -1290,6 +1300,38 @@ main {
 				
 				p {
 					display: none;
+					
+					a {
+						font-weight: 700;
+						text-decoration: none;
+						padding-bottom: 1px;
+						
+						strong {
+							border-bottom: 2px solid rgba(255,255,255,0);
+						}
+						
+						span {
+							margin-left: 5px;
+						}
+						
+						&:hover {
+							strong {
+								border-bottom: 2px solid rgba(255,255,255,1);
+								transition: all .25s ease-in-out;
+							}
+							
+							.new_window {
+							
+								&:before {
+									animation-name: arrow_top;
+								}
+								
+								&:after {
+									animation-name: arrow_line;
+								}
+							}
+						}
+					}
 				}
 				
 				/* ZOOM */

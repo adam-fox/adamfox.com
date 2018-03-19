@@ -3873,73 +3873,83 @@ html, body {
     html .project.mobile div .browser .viewport img.tablet, html .project.mobile div .browser .viewport img.desktop, body .project.mobile div .browser .viewport img.tablet, body .project.mobile div .browser .viewport img.desktop {
       opacity: 0; }
   @media (min-width: 768px) {
-    html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
-      border-radius: 4px;
-      left: 16px;
-      top: 22px;
-      width: 26px;
-      height: 4px;
-      transition: all 0.25s linear; }
-      html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
-        display: block;
+    html .project, body .project {
+      /*
+			height: 60vh;
+			min-height: 800px;
+*/ }
+      html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
         border-radius: 4px;
-        top: 0;
+        left: 16px;
+        top: 22px;
         width: 26px;
         height: 4px;
         transition: all 0.25s linear; }
-      html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
-        left: 0;
-        top: -8px; }
-      html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
-        left: 0;
-        top: 8px; }
-    html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
-      width: calc(100% - 70px);
-      left: 58px;
-      transition: all 0.25s linear; } }
+        html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
+          display: block;
+          border-radius: 4px;
+          top: 0;
+          width: 26px;
+          height: 4px;
+          transition: all 0.25s linear; }
+        html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
+          left: 0;
+          top: -8px; }
+        html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
+          left: 0;
+          top: 8px; }
+      html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
+        width: calc(100% - 70px);
+        left: 58px;
+        transition: all 0.25s linear; } }
   @media (min-width: 1024px) {
-    html .project div .pagination:before, body .project div .pagination:before {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 0;
-      transition: all 0.25s linear; }
-    html .project.tablet div .browser, body .project.tablet div .browser {
-      margin: 0 auto; }
-    html .project.tablet div .pagination, body .project.tablet div .pagination {
-      transition: all 0.25s linear; }
-    html .project.mobile div .browser, body .project.mobile div .browser {
-      margin: 0 auto; }
-    html .project.mobile div .pagination:before, body .project.mobile div .pagination:before {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 0;
-      transition: all 0.25s linear; }
-    html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
-      border-radius: 4px;
-      left: 16px;
-      top: 22px;
-      width: 26px;
-      height: 4px;
-      transition: all 0.25s linear; }
-      html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
-        display: block;
+    html .project, body .project {
+      /*
+			height: 60vh;
+			min-height: 700px;
+*/ }
+      html .project div .pagination:before, body .project div .pagination:before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 0;
+        transition: all 0.25s linear; }
+      html .project.tablet div .browser, body .project.tablet div .browser {
+        margin: 0 auto; }
+      html .project.tablet div .pagination, body .project.tablet div .pagination {
+        transition: all 0.25s linear; }
+      html .project.mobile div .browser, body .project.mobile div .browser {
+        margin: 0 auto; }
+      html .project.mobile div .pagination:before, body .project.mobile div .pagination:before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 0;
+        transition: all 0.25s linear; }
+      html .project.tablet div .browser .buttons, html .project.mobile div .browser .buttons, body .project.tablet div .browser .buttons, body .project.mobile div .browser .buttons {
         border-radius: 4px;
-        top: 0;
+        left: 16px;
+        top: 22px;
         width: 26px;
         height: 4px;
         transition: all 0.25s linear; }
-      html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
-        left: 0;
-        top: -8px; }
-      html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
-        left: 0;
-        top: 8px; }
-    html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
-      width: calc(100% - 70px);
-      left: 58px;
-      transition: all 0.25s linear; } }
+        html .project.tablet div .browser .buttons:before, html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:before, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:before, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:before, body .project.mobile div .browser .buttons:after {
+          display: block;
+          border-radius: 4px;
+          top: 0;
+          width: 26px;
+          height: 4px;
+          transition: all 0.25s linear; }
+        html .project.tablet div .browser .buttons:before, html .project.mobile div .browser .buttons:before, body .project.tablet div .browser .buttons:before, body .project.mobile div .browser .buttons:before {
+          left: 0;
+          top: -8px; }
+        html .project.tablet div .browser .buttons:after, html .project.mobile div .browser .buttons:after, body .project.tablet div .browser .buttons:after, body .project.mobile div .browser .buttons:after {
+          left: 0;
+          top: 8px; }
+      html .project.tablet div .browser .address_bar, html .project.mobile div .browser .address_bar, body .project.tablet div .browser .address_bar, body .project.mobile div .browser .address_bar {
+        width: calc(100% - 70px);
+        left: 58px;
+        transition: all 0.25s linear; } }
   html div .browser, body div .browser {
     border-radius: 4px;
     width: 100%;
@@ -4416,6 +4426,21 @@ main {
         margin: 2px auto 0 auto; }
       main #work .project .description p {
         display: none; }
+        main #work .project .description p a {
+          font-weight: 700;
+          text-decoration: none;
+          padding-bottom: 1px; }
+          main #work .project .description p a strong {
+            border-bottom: 2px solid rgba(255, 255, 255, 0); }
+          main #work .project .description p a span {
+            margin-left: 5px; }
+          main #work .project .description p a:hover strong {
+            border-bottom: 2px solid white;
+            transition: all 0.25s ease-in-out; }
+          main #work .project .description p a:hover .new_window:before {
+            animation-name: arrow_top; }
+          main #work .project .description p a:hover .new_window:after {
+            animation-name: arrow_line; }
     main #work .social {
       margin-top: -60px; }
       main #work .social a {
