@@ -4868,11 +4868,11 @@ footer {
   background: #181a23;
   padding: 60px 0;
   z-index: 1;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   footer > div {
     margin: 0 auto;
-    width: calc(100% - 76px);
-    position: relative; }
+    width: calc(100% - 76px); }
     footer > div h3 {
       font-family: "Montserrat", sans-serif;
       text-transform: uppercase;
@@ -4959,27 +4959,26 @@ footer {
           footer > div p svg {
             display: block; } }
   @media (min-width: 1024px) {
-    footer {
-      margin-top: 120px; }
-      footer > div {
-        max-width: 1140px;
-        width: calc(100% - 120px); }
-        footer > div h3 {
-          font-size: 54px;
-          line-height: 54px; }
-        footer > div ul li {
-          font-size: 13px; }
-          footer > div ul li a {
-            position: relative; }
-            footer > div ul li a:hover strong {
-              transition: all 0.25s ease-in-out;
-              border-bottom: 2.5px solid white; }
-            footer > div ul li a:hover .new_window:before {
-              animation-name: arrow_top; }
-            footer > div ul li a:hover .new_window:after {
-              animation-name: arrow_line; }
-        footer > div p svg {
-          display: block; } }
+    footer > div {
+      max-width: 1140px;
+      width: calc(100% - 120px);
+      position: relative; }
+      footer > div h3 {
+        font-size: 54px;
+        line-height: 54px; }
+      footer > div ul li {
+        font-size: 13px; }
+        footer > div ul li a {
+          position: relative; }
+          footer > div ul li a:hover strong {
+            transition: all 0.25s ease-in-out;
+            border-bottom: 2.5px solid white; }
+          footer > div ul li a:hover .new_window:before {
+            animation-name: arrow_top; }
+          footer > div ul li a:hover .new_window:after {
+            animation-name: arrow_line; }
+      footer > div p svg {
+        display: block; } }
 
 @media (pointer: coarse) {
   header .wrapper nav a:before {
