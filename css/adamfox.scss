@@ -2085,11 +2085,11 @@ footer {
 	padding: 60px 0;
 	z-index: 1;
 	position: relative;
+	overflow: hidden;
 	
 	> div {
 		margin: 0 auto;
-		width: calc(100% - 76px); 
-		position: relative;
+		width: calc(100% - 76px);
 			
 		h3 {
 			font-family: $font-sans;
@@ -2230,11 +2230,16 @@ footer {
 	}
 	
 	@include desktop {
-		margin-top: 120px;
+// 		margin-top: 120px;
+// 		height: 400px;
 		
 		> div {
 			max-width: 1140px;
 			width: calc(100% - 120px);
+			position: relative;
+// 			left: calc(50% - 570px); 
+// 			position: fixed; //fix this
+// 			bottom: 100px;
 			
 			h3 {
 				font-size: 54px;
