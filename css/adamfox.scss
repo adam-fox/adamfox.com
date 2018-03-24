@@ -2230,15 +2230,27 @@ footer {
 	}
 	
 	@include desktop {
+<<<<<<< HEAD
 		margin-top: 120px;
 		height: 400px;
+=======
+// 		margin-top: 120px;
+// 		height: 400px;
+>>>>>>> 1206d957dd8c7938925ef1e50a1a8166e7b7a260
 		
 		> div {
 			max-width: 1140px;
 			width: calc(100% - 120px);
+<<<<<<< HEAD
 			left: calc(50% - 570px); 
 			position: fixed;
 			bottom: 100px;
+=======
+			position: relative;
+// 			left: calc(50% - 570px); 
+// 			position: fixed; //fix this
+// 			bottom: 100px;
+>>>>>>> 1206d957dd8c7938925ef1e50a1a8166e7b7a260
 			
 			h3 {
 				font-size: 54px;
