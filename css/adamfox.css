@@ -4959,7 +4959,6 @@ footer {
           footer > div p svg {
             display: block; } }
   @media (min-width: 1024px) {
-<<<<<<< HEAD
     footer {
       margin-top: 120px;
       height: 400px; }
@@ -4985,28 +4984,6 @@ footer {
               animation-name: arrow_line; }
         footer > div p svg {
           display: block; } }
-=======
-    footer > div {
-      max-width: 1140px;
-      width: calc(100% - 120px);
-      position: relative; }
-      footer > div h3 {
-        font-size: 54px;
-        line-height: 54px; }
-      footer > div ul li {
-        font-size: 13px; }
-        footer > div ul li a {
-          position: relative; }
-          footer > div ul li a:hover strong {
-            transition: all 0.25s ease-in-out;
-            border-bottom: 2.5px solid white; }
-          footer > div ul li a:hover .new_window:before {
-            animation-name: arrow_top; }
-          footer > div ul li a:hover .new_window:after {
-            animation-name: arrow_line; }
-      footer > div p svg {
-        display: block; } }
->>>>>>> 1206d957dd8c7938925ef1e50a1a8166e7b7a260
 
 @media (pointer: coarse) {
   header .wrapper nav a:before {
