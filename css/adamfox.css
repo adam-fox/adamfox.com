@@ -4868,11 +4868,11 @@ footer {
   background: #181a23;
   padding: 60px 0;
   z-index: 1;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   footer > div {
     margin: 0 auto;
-    width: calc(100% - 76px);
-    position: relative; }
+    width: calc(100% - 76px); }
     footer > div h3 {
       font-family: "Montserrat", sans-serif;
       text-transform: uppercase;
@@ -4960,10 +4960,14 @@ footer {
             display: block; } }
   @media (min-width: 1024px) {
     footer {
-      margin-top: 120px; }
+      margin-top: 120px;
+      height: 400px; }
       footer > div {
         max-width: 1140px;
-        width: calc(100% - 120px); }
+        width: calc(100% - 120px);
+        left: calc(50% - 570px);
+        position: fixed;
+        bottom: 100px; }
         footer > div h3 {
           font-size: 54px;
           line-height: 54px; }
