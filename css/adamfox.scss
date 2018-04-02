@@ -425,7 +425,6 @@ html, body {
 						width: 1px;
 						height: 0;
 	// 					padding-bottom: 70%;
-						transition: all .25s linear;
 					}
 				}
 			}
@@ -440,7 +439,6 @@ html, body {
 					
 					.pagination {
 	// 					margin-bottom: 0;
-						transition: all .25s linear;
 					}
 				}
 			}
@@ -459,7 +457,6 @@ html, body {
 							width: 1px;
 							height: 0;
 	// 						margin-bottom: 16.76%;
-							transition: all .25s linear;
 						}
 					}
 				}
@@ -524,6 +521,9 @@ html, body {
 	// 		margin: calc(12.2% + 30px) auto calc(12.2% + 60px) auto;
 			margin: 0 auto;
 			overflow: hidden;
+			cursor: pointer;
+			cursor: -webkit-zoom-in;
+			cursor: -moz-zoom-in;
 			
 	/*
 			&:before {
@@ -718,7 +718,6 @@ html, body {
 			width: 100%;
 			height: 10px;
 			margin: 30px auto 90px auto;
-			transition: all .25s linear;
 			position: relative;
 			
 			a {
@@ -905,6 +904,20 @@ html, body {
 		display: block;
 		
 	}
+	
+	#test {
+		opacity: 0;
+		top: 0;
+		left: 0;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		background: $color-primary;
+		z-index: 3;
+		pointer-events: none;
+		display: block;
+		transition: all .25s linear;
+	}
 }
 
 // ********************
@@ -916,12 +929,14 @@ html, body {
 // ******
 
 header {
+	transition: top .25s linear;
 	display: block;
 	position: absolute;
 	width: 100%;
 	height: 60px;
 	margin-top: 30px;
 	z-index: 2;
+	top: 0;
 	
 	.wrapper {
 		display: flex;
@@ -1051,6 +1066,11 @@ header {
 				opacity: 1;
 			}
 		}
+	}
+	
+	&.zoom {
+		top: -60px;
+		transition: top .25s linear;
 	}
 	
 	@include tablet {
@@ -1433,7 +1453,7 @@ main {
 					}
 					
 					.pagination {
-						z-index: 9999;
+						z-index: 2;
 					}
 				}
 				
@@ -2083,7 +2103,7 @@ footer {
 // 	margin-top: 90px;
 	background: darken($color-primary, 5%);
 	padding: 60px 0;
-	z-index: 1;
+	z-index: 0;
 	position: relative;
 	overflow: hidden;
 	

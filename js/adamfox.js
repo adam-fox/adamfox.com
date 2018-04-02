@@ -1,3 +1,12 @@
+var browser;
+var viewport;
+var image;
+var browserWidth;
+var browserHeight;
+var browserPosition;
+var containerHeight;
+var scrolledDistance;
+	
 function isScrolledIntoFullView(elem) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
@@ -28,9 +37,36 @@ $(window).resize(function() {
 			}	
 		});
 	}
+	if($(browser).hasClass('on')) {
+		$(browser).css({top: browserPosition.top, left: browserPosition.left, width: browserWidth, height: browserHeight});
+		setTimeout(function() {
+			$('.pagination').removeAttr('style');
+			$('header').removeClass('zoom');
+			$('#test').css({"opacity" : "0"});
+			$(browser).removeAttr('style');
+			$(browser).removeClass('on');
+	    }, 200);
+	}
 });
 
 $(window).scroll(function() {
+	
+	
+	if($(window).scrollTop() > scrolledDistance + 100 || $(window).scrollTop() < scrolledDistance - 100) {
+		if($(browser).hasClass('on')) {
+			$(browser).removeClass('on');
+			$(browser).css({top: browserPosition.top, left: browserPosition.left, width: browserWidth, height: browserHeight});
+			$(".viewport").removeAttr('style');
+			setTimeout(function() {
+				$('.pagination').removeAttr('style');
+				$('header').removeClass('zoom');
+				$('#test').css({"opacity" : "0"});
+				$(browser).removeAttr('style');
+				$(browser).parent().removeAttr('style');
+		    }, 300);
+		}
+	}
+	
 	if($(window).width() >= 1024){
 		$('.description').first().css('transform', 'translate( 0px, ' + $(window).scrollTop() / 10  + 'px )');
 		
@@ -112,6 +148,105 @@ $("header > .wrapper > svg").click(function() {
 	$("html, body").animate({ scrollTop: "0px" });
 });
 
+// ***************
+// PROJECT MAGNIFY
+// ***************
+
+$(".browser").click(function() {
+	if($(this).hasClass('on')){
+		$(browser).removeClass('on');
+		$(browser).css({top: browserPosition.top, left: browserPosition.left, width: browserWidth, height: browserHeight});
+		$(".viewport").removeAttr('style');
+		setTimeout(function() {
+			$('.pagination').removeAttr('style');
+			$('header').removeClass('zoom');
+			$('#test').css({"opacity" : "0"});
+			$(browser).removeAttr('style');
+			$(browser).parent().removeAttr('style');
+	    }, 300);
+	} else {
+		browser = $(this);
+		viewport = $(this).parent().parent().attr('class').replace('project ','');
+		imageHeight = $(browser).find("." + viewport)[0].naturalHeight / 2;
+		imageWidth = $(browser).find("." + viewport)[0].naturalWidth / 2;
+		browserWidth = $(browser).width();
+		browserHeight = $(browser).height();
+		browserPosition = $(browser).offset();
+		containerHeight = $(this).parent().height();
+		scrolledDistance = $(window).scrollTop();
+		aspectRatio = browserHeight / browserWidth;
+		browserChrome = $(browser).find(".viewport").css("top").replace('px', '');
+		
+		$('#test').css({"opacity" : "1"});
+		$(browser).parent().css({height: containerHeight});
+		$(browser).parent().find(".pagination").css({'margin-top': browserHeight + 60 + 'px'}); //FIX
+		$(browser).css({transition: 'none', top: browserPosition.top, left: browserPosition.left, width: browserWidth, height: browserHeight, position: 'absolute', 'z-index' : '9999'});
+		$(browser).addClass("on");
+		$("header").addClass("zoom");
+		
+		setTimeout(function() {
+			$(browser).find(".viewport").css({
+				transition: 'all .25s linear',
+				top:"0", 
+				border: "none", 
+				"border-radius":"0px"
+			});
+			$(browser).css({
+				transition: 'all .25s linear',
+				"border-radius":"8px"
+			});
+	    }, 100);
+
+		setTimeout(function() {
+			
+			if(browserWidth * 2 > $(window).width()) { 
+				
+				$(browser).css({
+					left: $(window).width() * .1,
+					width: $(window).width() * .8
+				});
+				
+				if(browserHeight * 2 > $(window).height()) {
+					$(browser).css({
+						height: $(window).height() - browserChrome * .8,
+						top: $(window).scrollTop() + ($(window).height() - $(window).height() * .8) / 2
+					});
+					
+				} else {
+					
+					$(browser).css({
+						height: $(window).width() * .8 * aspectRatio - browserChrome, //FIX
+						top: $(window).scrollTop() + ($(window).height() - $(window).width() * .8 * aspectRatio - browserChrome) / 2
+					});
+					
+				}
+				
+			}  else {
+				$(browser).css({
+					left: 'calc( 50% - ' + browserWidth + 'px )', 
+					width: browserWidth * 2
+				});
+				
+				if(browserHeight * 2 > $(window).height()) {
+					$(browser).css({
+						height: $(window).height() * .8,
+						top: $(window).scrollTop() + ($(window).height() - ($(window).height() * .8)) / 2
+					});
+					
+				} else {
+					
+					$(browser).css({
+						height: (browserHeight - browserChrome) * 2,
+						top: $(window).scrollTop() + ($(window).height() - (browserHeight - browserChrome) * 2) / 2
+					});
+					
+				}
+			}
+			
+		}, 100);
+		
+	}
+});
 
 $(".btn_menu").click(function() {
 	$(this).toggleClass('on');
