@@ -178,7 +178,7 @@ $(".browser").click(function() {
 		browserChrome = $(browser).find(".viewport").css("top").replace('px', '');
 		
 		$('#test').css({"opacity" : "1"});
-		$(browser).parent().css({height: containerHeight});
+// 		$(browser).parent().css({height: containerHeight});
 		$(browser).parent().find(".pagination").css({'margin-top': browserHeight + 60 + 'px'}); //FIX
 		$(browser).css({transition: 'none', top: browserPosition.top, left: browserPosition.left, width: browserWidth, height: browserHeight, position: 'absolute', 'z-index' : '9999'});
 		$(browser).addClass("on");
