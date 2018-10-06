@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="14px" viewBox="0 0 22 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>navigation-menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile" transform="translate(-284.000000, -36.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="navigation-menu" transform="translate(284.000000, 36.000000)">
+                <path d="M1.25,13.75 C0.835786438,13.75 0.5,13.4142136 0.5,13 C0.5,12.5857864 0.835786438,12.25 1.25,12.25 L20.75,12.25 C21.1642136,12.25 21.5,12.5857864 21.5,13 C21.5,13.4142136 21.1642136,13.75 20.75,13.75 L1.25,13.75 Z" id="Shape"></path>
+                <path d="M1.25,7.75 C0.835786438,7.75 0.5,7.41421356 0.5,7 C0.5,6.58578644 0.835786438,6.25 1.25,6.25 L20.75,6.25 C21.1642136,6.25 21.5,6.58578644 21.5,7 C21.5,7.41421356 21.1642136,7.75 20.75,7.75 L1.25,7.75 Z" id="Shape"></path>
+                <path d="M1.25,1.75 C0.835786438,1.75 0.5,1.41421356 0.5,1 C0.5,0.585786438 0.835786438,0.25 1.25,0.25 L20.75,0.25 C21.1642136,0.25 21.5,0.585786438 21.5,1 C21.5,1.41421356 21.1642136,1.75 20.75,1.75 L1.25,1.75 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

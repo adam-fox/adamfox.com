@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>navigation-menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile---Menu" transform="translate(-287.000000, -31.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="navigation-menu" transform="translate(287.000000, 31.000000)">
+                <path d="M-1.79504871,8.70495129 C-2.20926227,8.70495129 -2.54504871,8.36916485 -2.54504871,7.95495129 C-2.54504871,7.54073773 -2.20926227,7.20495129 -1.79504871,7.20495129 L17.7049513,7.20495129 C18.1191649,7.20495129 18.4549513,7.54073773 18.4549513,7.95495129 C18.4549513,8.36916485 18.1191649,8.70495129 17.7049513,8.70495129 L-1.79504871,8.70495129 Z" id="Shape" transform="translate(7.954951, 7.954951) rotate(-45.000000) translate(-7.954951, -7.954951) "></path>
+                <path d="M-1.79504871,8.70495129 C-2.20926227,8.70495129 -2.54504871,8.36916485 -2.54504871,7.95495129 C-2.54504871,7.54073773 -2.20926227,7.20495129 -1.79504871,7.20495129 L17.7049513,7.20495129 C18.1191649,7.20495129 18.4549513,7.54073773 18.4549513,7.95495129 C18.4549513,8.36916485 18.1191649,8.70495129 17.7049513,8.70495129 L-1.79504871,8.70495129 Z" id="Shape" transform="translate(7.954951, 7.954951) rotate(45.000000) translate(-7.954951, -7.954951) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

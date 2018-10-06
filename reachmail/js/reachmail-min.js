@@ -1,0 +1,1 @@
+$("#nav-solutions").click(function(){$(this).hide()});
