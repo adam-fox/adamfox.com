@@ -6427,6 +6427,8 @@ nav {
         background-image: linear-gradient(-135deg, #F7961D 0%, #DB162F 100%);
         box-shadow: 0 2px 0 0 #823215, 0 10px 10px 0 rgba(13, 31, 45, 0.4);
         border: none; }
+        nav div > div:last-child button:last-child:hover {
+          background-image: linear-gradient(-135deg, #FF9A1F 0%, #E31732 100%); }
 
 .btn {
   text-transform: uppercase;
@@ -6444,6 +6446,8 @@ nav {
   line-height: 0.875rem;
   font-weight: 800;
   margin: inherit auto; }
+  .btn-primary.btn-lg:hover, .btn-group-lg > .btn-primary.btn:hover {
+    background-image: linear-gradient(-135deg, #FF9A1F 0%, #E31732 100%); }
 
 .btn-secondary.btn-lg, .btn-group-lg > .btn-secondary.btn {
   border: none;
@@ -6454,6 +6458,10 @@ nav {
   font-weight: 800;
   display: block;
   margin: 15px auto; }
+  .btn-secondary.btn-lg:active, .btn-group-lg > .btn-secondary.btn:active, .btn-secondary.btn-lg:visited, .btn-group-lg > .btn-secondary.btn:visited {
+    background-color: #F7961D !important; }
+  .btn-secondary.btn-lg:hover, .btn-group-lg > .btn-secondary.btn:hover {
+    background-color: #FF9A1F; }
 
 .jumbotron {
   border-radius: 0; }
